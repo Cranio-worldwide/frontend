@@ -1,0 +1,42 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": ["next", "next/core-web-vitals"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "overrides": [
+    {
+      "files": ["*.config.js", "build/*.js"],
+      "env": { "node": true },
+      "rules": {
+        "unicorn/prefer-module": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["node_modules"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "@next/next/no-img-element": "off",
+    "react/jsx-no-bind": "off",
+    "unicorn/consistent-function-scoping": "off",
+    "react/no-array-index-key": "off",
+    "arrow-body-style": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "unicorn/prefer-spread": "off",
+    "unicorn/no-useless-undefined": "off",
+    "unicorn/empty-brace-spaces": "off",
+    "unicorn/no-array-callback-reference": "off",
+    "unicorn/numeric-separators-style": "off",
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }]
+  }
+}
