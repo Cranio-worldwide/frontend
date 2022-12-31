@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
+import { apiClient } from '../app/request/request';
+
 export default function Home() {
-  return (
-    <>
-      Здесь будет проектик
-    </>
-  )
+  useEffect(() => {
+    apiClient.get('/').then(console.log);
+    alert();
+  }, []);
+  return <>Здесь будет проектик</>;
 }
