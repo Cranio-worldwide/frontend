@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import { apiClient } from '../app/request/request';
+import styles from './index.module.scss';
 
 export default function Home() {
-  useEffect(() => {
-    apiClient.get('/').then(console.log);
-    alert();
-  }, []);
-  return <>Здесь будет проектик</>;
+  return (
+    <div className={styles.page}>
+      <h1 className={styles.title}>Cranio Worldwide</h1>
+      <p>coming soon...</p>
+    </div>
+  );
 }
