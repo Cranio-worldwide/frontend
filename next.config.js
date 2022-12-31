@@ -1,5 +1,4 @@
-const { getEnv } = require('./src/shared/lib/getEnv');
-const API_HOST = getEnv('API_HOST') || '/';
+const API_HOST = process.env.API_HOST || '/';
 
 /** @type {{rewrites(): Promise<[{destination: string, source: string}]>, reactStrictMode: boolean}} */
 const nextConfig = {
