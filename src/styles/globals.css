@@ -1,3 +1,11 @@
 html,
 body {
+  --main-black: #343843;
+  --main-grey: #7C838F;
+  --accent: #2FAFFF;
+  --accent-dark: #0759AF;
+  --white: #FFFFFF;
+  --alert: #EF2424;
+  --warning: #FFB82E;
+  --success: #00BC5F;
 }
