@@ -1,10 +1,8 @@
-import { Header } from "./Header/Header";
-import { Footer } from './Footer/Footer';
+import { Footer } from '../components/Footer';
 
 export default function Home() {
   return (
     <>
-      <Header />
       <Footer />
     </>
   );

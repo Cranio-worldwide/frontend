@@ -1,0 +1,57 @@
+@import '../utils/scss-variables.scss';
+
+.container {
+  width: 100%;
+  display: grid;
+  background-color: $main-black;
+  color: $main-grey-light;
+}
+
+.logo {
+  font-size: 20px;
+
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 471px;
+
+  .nav_item {
+    text-decoration: none;
+    color: $main-grey-light;
+  }
+}
+
+
+.sm_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 144px;
+
+  .sm_vk {
+    display: block;
+    width: 30px;
+    height: 18px;
+    background-image: url(../images/vk.svg);
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .sm_inst {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/inst.svg);
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .sm_tg {
+    display: block;
+    width: 28px;
+    height: 24px;
+    background-image: url(../images/tg.svg);
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+}
