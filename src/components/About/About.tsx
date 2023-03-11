@@ -1,4 +1,6 @@
-import styles from "./About.module.scss";
+import styles from './About.module.scss';
+import aboutImg from '../../images/about-img.png';
+import Image from 'next/image';
 
 export const About = () => {
   const aboutText = `
@@ -12,7 +14,7 @@ export const About = () => {
         <p>{aboutText}</p>
         <a href="#" className={styles.link}>Link to worldwide association</a>
       </div>
-      <div className={styles.image}></div>
+      <Image className={styles.image} src={aboutImg} alt="" />
     </div>
   )
 }
