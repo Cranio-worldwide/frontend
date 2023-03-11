@@ -1,0 +1,60 @@
+@import '../../utils/scss-variables.scss';
+
+.bg {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 42%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  background-color: $accent-dark;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 100px 132px 70px 132px;
+  font-family: Gilroy;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 400;
+  color: $white;
+  grid-column: 1;
+}
+
+.heading {
+  padding-bottom: 40px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 47px;
+}
+
+.link {
+  padding-top: 96px;
+  font-weight: 500;
+}
+
+.link::after {
+  display: inline-block;
+  margin-left: 16px;
+  margin-bottom: -3px;
+  content: '';
+  background-image: url(../../images/ui-arrow-link.svg);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+.image {
+  grid-column: 2;
+  min-height: 580px;
+  background-image: url(../../images/about-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
