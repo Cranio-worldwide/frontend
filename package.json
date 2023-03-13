@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "next lint",
-    "lint:css": "stylelint '**/*.{css,scss}'",
+    "lint:js": "next lint --fix",
+    "lint:css": "stylelint '**/*.{css,scss}' --fix",
     "lint-staged": "lint-staged --config lint-staged.config.js"
   },
   "dependencies": {
