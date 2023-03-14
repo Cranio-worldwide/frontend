@@ -1,0 +1,271 @@
+@import '../../styles/variables';
+@import '../../styles/breakpoints';
+
+.card {
+width: 100%;
+  padding: 0 0 32px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 200px 2fr 220px;
+  grid-template-areas: 
+  "img main details"
+  "img place details"
+  "img clinic button";
+  justify-content: space-between;
+  column-gap: 106px;
+  row-gap: 16px;
+  border-bottom: 1px solid $main-grey-light;
+
+  @media screen and (max-width: 1280px) {
+    column-gap: 56px;
+  }
+  @include breakpoint(tablet) {
+    grid-template-columns: 200px 2fr;
+    grid-template-areas: 
+      "img main"
+      "img place"
+      "img clinic"
+      "img details"
+      "img button";
+    column-gap: 48px;
+  }
+@include breakpoint(mobile-wide) {
+grid-template-columns: 62px 2fr 220px;
+  grid-template-areas: 
+  "img main details"
+  "img place details"
+  "img clinic button";
+  column-gap: 20px;
+  row-gap: 12px;
+}
+
+  @include breakpoint(mobile) {
+    grid-template-areas: 
+      "img main"
+      "img place"
+      "img clinic"
+      "img details"
+      "img button";
+    margin: 0 auto;
+    grid-template-columns: 62px 2fr;
+    column-gap: 16px;
+    border-bottom: none;
+    padding: 12px 11px 14px;
+    
+  }
+  @include breakpoint(mobile-narrow) {
+    grid-template-areas: 
+      "img main"
+      "img place"
+      "img clinic"
+      "img details"
+      "button button";
+  }
+}
+
+.card:last-child {
+  border-bottom: none;
+}
+
+.photo {
+  grid-area: img;
+  min-width: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  height: 200px;
+  border-radius: 175px;
+  background-color: $main-grey-light;
+
+  @include breakpoint(mobile-wide) {
+    min-width: 62px;
+    max-width: 62px;
+    height: 62px;
+    max-height: 62px;
+  }
+}
+
+.maininfo {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-size: 32px;
+  line-height: 45px;
+  
+  @include breakpoint(tablet) {
+    font-size: 28px;
+    line-height: 45px;
+  }
+  @include breakpoint(mobile-wide) {
+    font-size: 16px;
+    line-height: 120%;
+  }
+}
+
+.position {
+  color: $main-grey;
+  font-size: 24px;
+  line-height: 28px;
+
+  @include breakpoint(tablet) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @include breakpoint(mobile-wide) {
+    font-size: 12px;
+    line-height: 140%;
+  }
+}
+
+.adress {
+  margin-left: 22.5px;
+}
+
+.distance,
+.adress {
+  @media screen and (max-width: 1280px) {
+    margin-left: 22.5px;
+  }
+  @include breakpoint(mobile-wide) {
+    margin-left: 20px;
+  }
+}
+
+.place {
+  grid-area: place;
+  color: $success;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  font-size: 20px;
+  line-height: 23px;
+
+  @media screen and (max-width: 1280px) {
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 24px;
+    gap: 8px;
+  }
+  @include breakpoint(mobile-wide) {
+    font-size: 14px;
+    line-height: 120%;
+    gap: 4px;
+  }
+}
+
+.clinic {
+  grid-area: clinic;
+  color: $main-grey;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 18px;
+  line-height: 140%;
+
+  @include breakpoint(mobile-wide) {
+    font-size: 14px;
+    line-height: 120%;
+    gap: 4px;
+  }
+}
+.with_icon {
+  display: flex;
+  align-items: center;
+  gap: 9.5px;
+
+  @include breakpoint(mobile-wide) {
+    gap: 7px;
+  }
+}
+
+.location_img {
+  width: 13px;
+  height: 15px;
+  background-image: url(../../images/location-green.svg);
+  background-repeat: no-repeat;
+}
+
+.clinic_img {
+  width: 13px;
+  height: 13px;
+  background-image: url(../../images/clinic.svg);
+}
+
+.price {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 47px;
+  
+  @include breakpoint(tablet) {
+    font-size: 32px;
+    line-height: 39px;
+  }
+  @include breakpoint(mobile-wide) {
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
+
+.details {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  @include breakpoint(mobile-wide) {
+    gap: 8px;
+  }
+  @include breakpoint(mobile-wide) {
+    gap: 2px;
+    font-size: 18px;
+    line-height: 140%;
+  }
+}
+
+.phone {
+  height: 46px;
+  background-color: transparent;
+  color: $accent;
+  border-radius: 8px;
+  border: 1px solid $accent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.phone,
+.button {
+  grid-area: button;
+  width: 220px;
+
+  @include breakpoint(mobile) {
+    font-size: 18px;
+    line-height: 140%;
+  }
+
+  @include breakpoint(mobile-narrow) {
+    width: 100%;
+    height: 54px;
+  }
+}
+
+.primary {
+  color: $accent;
+  margin-bottom: 14px;
+  
+  @include breakpoint(tablet) {
+    display: none;
+  }
+}
+
+.subtext {
+  @include breakpoint(mobile-wide) { 
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
