@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Header.module.scss";
+import React, { useEffect, useState } from 'react';
+
+import styles from './Header.module.scss';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [isModalOpen, setModalOpen] = React.useState(false);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -10,59 +12,60 @@ export function Header() {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  function handleOpenBurger() {
+    setModalOpen(!isModalOpen);
+  }
+
   return (
-    <header
-      className={`header ${scrollPosition > 100 ? "header_overlay" : ""}`}
-      // className={cn(‘header’,scrollPosition > 100 && ‘header_overlay’}
-      // className={("header", { header_overlay: scrollPosition > 100 })}
-    >
+    <header className={`${styles.bg} ${scrollPosition > 100 && styles.bg_active}`}>
       <div className={styles.container}>
         <div className={styles.item}>
-          <a
-            href="/"
-            target="_blank"
-            rel="noreferrer"
-            className="header__image"
-          >
+          <a href="/" target="_blank" rel="noreferrer" className={styles.image}>
             Logo
           </a>
-          <a className="header__locations">
-            <span className="header__location"></span>
+          <a className={styles.locations}>
+            <span className={styles.location}></span>
             <p className={styles.city}>Moscow</p>
           </a>
         </div>
 
-        <div className="header__navigations">
-          <a className="header__navigation">Our therapists</a>
-          <a className="header__navigation header__navigation_active">
+        {/* потом потребуется переписать на ссылки на страницу */}
+        <div className={styles.navigations}>
+          <a className={styles.navigation}>Our therapists</a>
+          <a className={`${styles.navigation_active} ${styles.navigation}`}>
             Information for therapists
           </a>
-          <a className="header__navigation">Contacts</a>
+          <a className={styles.navigations}>Contacts</a>
         </div>
-        <div className="header__additional">
-          <span className="header__loop"></span>
-          <select name="language" id="language" className="header__languages">
-            <option value="ru" className="header__language">
-              {/* <img className="header__flag header__flag_ru" alt="Ru" /> */}
+
+        <div className={styles.additional}>
+          {/* уточнить про активное состояние */}
+          <span className={styles.loop}></span>
+          <select name="language" id="language" className={styles.languages}>
+            <option value="ru" className={styles.language}>
+              {/* <img className="header__flag header__flag_ru" alt="Ru" />  */}
               Ru
             </option>
-            <option value="en" className="header__language">
+            <option value="en" className={styles.language}>
               En
             </option>
-            <option value="es" className="header__language">
+            <option value="es" className={styles.language}>
               Es
             </option>
-            <option value="ger" className="header__language">
+            <option value="ger" className={styles.language}>
               Ger
             </option>
           </select>
-          <button className="header__button">Личный кабинет</button>
+          <button className={styles.button}>Личный кабинет</button>
+          <button className={styles.mobile} onClick={handleOpenBurger}>
+            <span className={`${styles.burger} ${isModalOpen && styles.burger_active}`}></span>
+          </button>
         </div>
       </div>
     </header>

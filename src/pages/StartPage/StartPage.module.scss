@@ -1,0 +1,62 @@
+@import "../../styles/variables";
+
+.section {
+  width: 100%;
+  max-width: 1175px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.big_section {
+  width: 100%;
+}
+
+.overlay {
+  background: url(../../assets/unsplash_e7MJLM5VGjY.png) center no-repeat;
+  height: 731px;
+  width: 100%;
+  padding: 0 0 42px;
+  display: block;
+  object-fit: cover;
+  object-fit: cover;
+
+  @media screen and (max-width: 900px) {
+    height: 334px;
+  }
+  @media screen and (max-width: 670px) {
+    padding: 33px 16px 68px;
+  }
+}
+
+.heading {
+  font-family: "Gilroy", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 86.49%;
+  letter-spacing: 0.03em;
+  color: $main-black;
+  margin: 0;
+  max-width: 806px;
+  @media screen and (max-width: 950px) {
+    font-size: 72px;
+  }
+}
+
+.subheading {
+  font-family: "Gilroy", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 45px;
+  color: $main-black;
+  margin: 0;
+  @media screen and (max-width: 950px) {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
