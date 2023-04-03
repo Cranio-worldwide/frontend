@@ -1,17 +1,14 @@
-@import "../../styles/variables";
 .bg {
   box-sizing: border-box;
   width: 100%;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 5;
   padding: 24px 17px 17px;
-  background: #fff;
-  box-shadow: 0 0.996045px 3.98418px rgba(51, 51, 51, 15%);
-
+  background: $white;
+  box-shadow: 0 1px 4px rgba(51, 51, 51, 15%);
   @media screen and (max-width: 950px) {
     padding: 24px 16px 26px;
   }
@@ -26,7 +23,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   @media screen and (max-width: 950px) {
     max-width: 700px;
     margin: 0 auto;
@@ -42,7 +38,7 @@
 }
 
 .image {
-  font-family: "Arimo", sans-serif;
+  font-family: $add-text;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -57,7 +53,6 @@
   align-items: center;
   padding: 0;
   gap: 4px;
-
   @media screen and (max-width: 650px) {
     gap: 0;
   }
@@ -67,20 +62,18 @@
   background-image: url(../../assets/location.svg);
   width: 36px;
   height: 36px;
-
   @media screen and (max-width: 650px) {
     background-image: url(../../assets/location_mobile.svg);
   }
 }
 
 .city {
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 140%;
   color: $main-black;
-
   @media screen and (max-width: 650px) {
     font-size: 14px;
   }
@@ -92,40 +85,38 @@
   align-items: center;
   padding: 0;
   gap: 40px;
-
   @media screen and (max-width: 950px) {
     display: none;
   }
 }
 .navigation {
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #343843;
+  color: $main-black;
   margin: 0;
 }
 .navigation:hover {
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #2fafff;
+  color: $accent;
 }
 .navigation_active {
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
   text-decoration-line: underline;
-  text-decoration-line: underline;
-  color: #2fafff;
+  color: $accent;
   margin: 0;
 }
 
@@ -153,20 +144,20 @@
   width: 80px;
   height: 33px;
   border: none;
-  font-family: "Arimo", sans-serif;
+  font-family: $add-text;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 120.02%;
-  color: #343843;
+  color: $main-black;
 }
 .language {
-  font-family: "Arimo", sans-serif;
+  font-family: $add-text;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 120.02%;
-  color: #343843;
+  color: $main-black;
   margin: 0;
   position: relative;
 }
@@ -181,12 +172,12 @@
   height: 24px;
 }
 .language-text {
-  font-family: "Arimo", sans-serif;
+  font-family: $add-text;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 120.02%;
-  color: #343843;
+  color: $main-black;
   margin: 0;
 }
 .button {
@@ -195,18 +186,17 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* padding: 12px 0; */
   gap: 10px;
   width: 185px;
   height: 46px;
-  border: 2px solid #2fafff;
+  border: 2px solid $accent;
   border-radius: 8px;
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  color: #343843;
+  color: $main-black;
   @media screen and (max-width: 950px) {
     display: none;
   }
@@ -225,7 +215,6 @@
   position: relative;
   justify-content: center;
   align-items: center;
-
   @media screen and (max-width: 950px) {
     display: flex;
   }

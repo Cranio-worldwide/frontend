@@ -7,18 +7,6 @@
   flex-direction: column;
   gap: 9px;
   position: relative;
-  // &:before {
-  //   content: "";
-  //   position: absolute;
-  //   left: 0;
-  //   bottom: 0;
-  //   top: 0;
-  //   right: 0;
-  //   background: rgba(254, 254, 250, 0.5);
-  //   mix-blend-mode: lighten;
-  //   -webkit-filter: blur(122px);
-  //   filter: blur(122px);
-  // }
   @media screen and (max-width: 1300px) {
     padding: 0 100px;
     margin: -230px auto 0;
@@ -35,7 +23,6 @@
   gap: 16px;
   max-width: 806px;
   margin-bottom: 70px;
-
   @media screen and (max-width: 900px) {
     max-width: 390px;
     margin-bottom: 45px;
@@ -47,7 +34,7 @@
 }
 
 .heading {
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 700;
   font-size: 96px;
@@ -65,7 +52,7 @@
 }
 
 .subheading {
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
@@ -83,7 +70,7 @@
 }
 
 .title {
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -112,49 +99,17 @@
 
 .input {
   padding: 16px 189px 16px 16px;
-  border: 1px solid #7c838f;
+  border: 1px solid $main-grey;
   border-radius: 16px 0 0 16px;
   width: 286px;
   height: 48px;
-  &::-webkit-input-placeholder {
-    font-family: "Arimo", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #7c838f;
-  }
-  &::-moz-placeholder {
-    font-family: "Arimo", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #7c838f;
-  }
-  &:-ms-input-placeholder {
-    font-family: "Arimo", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #7c838f;
-  }
-  &::-ms-input-placeholder {
-    font-family: "Arimo", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #7c838f;
-  }
   &::placeholder {
     font-family: "Arimo", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
-    color: #7c838f;
+    color: $main-grey;
   }
   @media screen and (max-width: 900px) {
     width: 100%;
@@ -169,13 +124,13 @@
   gap: 16px;
   width: 180px;
   height: 48px;
-  border-right: 1px solid #7c838f;
-  font-family: "Arimo", sans-serif;
+  border-right: 1px solid $main-grey;
+  font-family: $add-text;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  color: #343843;
+  color: $main-black;
   &:nth-child(3) {
     border-radius: 0 16px 16px 0;
   }
@@ -198,15 +153,15 @@
   gap: 10px;
   width: 188px;
   height: 46px;
-  background: #2fafff;
-  border: 1px solid #2fafff;
+  background: $accent;
+  border: 1px solid $accent;
   border-radius: 8px;
-  font-family: "Gilroy", sans-serif;
+  font-family: $main-text;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  color: #fff;
+  color: $white;
   @media screen and (max-width: 900px) {
     width: 100%;
     border-radius: 8px;

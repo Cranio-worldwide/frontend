@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-
+import cn from 'classnames';
 import styles from './Header.module.scss';
+import Link from 'next/link';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [isModalOpen, setModalOpen] = React.useState(false);
 
   const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
+    setScrollPosition(window.pageYOffset);
   };
 
   useEffect(() => {
@@ -23,32 +23,34 @@ export function Header() {
   }
 
   return (
-    <header className={`${styles.bg} ${scrollPosition > 100 && styles.bg_active}`}>
+    <header className={cn(styles.bg, scrollPosition > 100 && styles.bg_active)}>
       <div className={styles.container}>
         <div className={styles.item}>
-          <a href="/" target="_blank" rel="noreferrer" className={styles.image}>
+          {/* TODO добавить картинку когда дизайнеры нарисуют */}
+          <Link href="/" className={styles.image}>
             Logo
-          </a>
-          <a className={styles.locations}>
+          </Link>
+          <span className={styles.locations}>
             <span className={styles.location}></span>
             <p className={styles.city}>Moscow</p>
-          </a>
+          </span>
         </div>
 
-        {/* потом потребуется переписать на ссылки на страницу */}
+        {/* TODO потом потребуется переписать на ссылки на страницу */}
         <div className={styles.navigations}>
           <a className={styles.navigation}>Our therapists</a>
-          <a className={`${styles.navigation_active} ${styles.navigation}`}>
+          <a className={cn(styles.navigation_active, styles.navigation)}>
             Information for therapists
           </a>
           <a className={styles.navigations}>Contacts</a>
         </div>
 
         <div className={styles.additional}>
-          {/* уточнить про активное состояние */}
+          {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
           <span className={styles.loop}></span>
           <select name="language" id="language" className={styles.languages}>
             <option value="ru" className={styles.language}>
+              {/* уточнить про финальную версию в среду */}
               {/* <img className="header__flag header__flag_ru" alt="Ru" />  */}
               Ru
             </option>
@@ -64,7 +66,7 @@ export function Header() {
           </select>
           <button className={styles.button}>Личный кабинет</button>
           <button className={styles.mobile} onClick={handleOpenBurger}>
-            <span className={`${styles.burger} ${isModalOpen && styles.burger_active}`}></span>
+            <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
           </button>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'src/components/Form/Form';
 
-import { Footer } from '../../components/Footer/Footer';
-import { Header } from '../../components/Header/Header';
+import { Footer } from '../Footer/Footer';
+import { Header } from '../Header/Header';
 import styles from './StartPage.module.scss';
 
 /**
