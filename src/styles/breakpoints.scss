@@ -9,11 +9,11 @@
 
 // Media-queries breakpoints
 $breakpoints: (
-        mobile-narrow: 414,
-        mobile: 640,
-        mobile-wide: 768,
-        tablet: 1024,
-        desktop: 1440,
+  mobile-narrow: 414,
+  mobile: 670,
+  mobile-wide: 768,
+  tablet: 900,
+  desktop: 1280,
 );
 
 @mixin breakpoint($point, $type: max) {

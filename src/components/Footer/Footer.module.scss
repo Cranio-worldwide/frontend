@@ -6,33 +6,37 @@
   align-items: center;
   background-color: $main-black;
   color: $main-grey-light;
-  @media screen and (max-width: 900px) {
-    padding: 60px 0;
+  @include breakpoint(desktop) {
+    padding: 70px 100px;
   }
-  @media screen and (max-width: 670px) {
+  @include breakpoint(tablet) {
+    padding: 60px 100px;
+  }
+  @include breakpoint(mobile) {
     padding: 33px 16px 68px;
   }
 }
 
 .container {
-  width: fit-content;
+  max-width: 1175px;
   display: grid;
   grid-template-columns: repeat(3, min-content);
   grid-template-rows: 1fr;
   grid-auto-columns: max-content;
+  justify-items: stretch;
   column-gap: 204px;
   height: auto;
-  @media screen and (max-width: 1280px) {
+  @include breakpoint(desktop) {
     column-gap: 80px;
   }
-  @media screen and (max-width: 670px) {
+  @include breakpoint(mobile) {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: auto auto;
     row-gap: 32px;
     column-gap: 50px;
     width: 100%;
   }
-  @media screen and (max-width: 374px) {
+  @include breakpoint(mobile-narrow) {
     column-gap: 10px;
   }
   @media screen and (max-width: 320px) {
@@ -60,16 +64,16 @@
   align-items: center;
   width: 471px;
   gap: 0;
-  @media screen and (max-width: 1280px) {
+  @include breakpoint(desktop) {
     width: 380px;
   }
-  @media screen and (max-width: 900px) {
+  @include breakpoint(tablet) {
     flex-direction: column;
     width: min-content;
     align-items: start;
     gap: 32px;
   }
-  @media screen and (max-width: 670px) {
+  @include breakpoint(mobile) {
     grid-column: 1;
     grid-row: 2;
     gap: 21px;
@@ -101,10 +105,10 @@
   justify-content: space-between;
   width: 144px;
   justify-self: end;
-  @media screen and (max-width: 900px) {
+  @include breakpoint(tablet) {
     align-items: start;
   }
-  @media screen and (max-width: 670px) {
+  @include breakpoint(mobile) {
     grid-column: 2;
     grid-row: 1;
     width: 121px;
@@ -123,7 +127,7 @@
     background-position: center;
     cursor: pointer;
 
-    @media screen and (max-width: 670px) {
+    @include breakpoint(mobile) {
       width: 20px;
       height: 25px;
     }
@@ -138,7 +142,7 @@
     background-position: center;
     cursor: pointer;
 
-    @media screen and (max-width: 670px) {
+    @include breakpoint(mobile) {
       width: 17px;
       height: 25px;
     }
@@ -153,7 +157,7 @@
     background-position: center;
     cursor: pointer;
 
-    @media screen and (max-width: 670px) {
+    @include breakpoint(mobile) {
       width: 18px;
       height: 25px;
     }

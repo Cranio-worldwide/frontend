@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import styles from './Header.module.scss';
 import Link from 'next/link';
+import { Button } from '../Button/Button';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -64,7 +65,15 @@ export function Header() {
               Ger
             </option>
           </select>
-          <button className={styles.button}>Личный кабинет</button>
+          <Button
+            className={styles.button}
+            type="button"
+            disabled={false}
+            theme="transparent"
+            onClick={() => {}}
+          >
+            Личный кабинет
+          </Button>
           <button className={styles.mobile} onClick={handleOpenBurger}>
             <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
           </button>

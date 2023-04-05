@@ -1,18 +1,30 @@
-@import '../../styles/variables';
-
 .button {
   width: 100%;
   height: 46px;
-  background-color: $accent;
-  color: $white;
   border-radius: 8px;
-  border: 1px solid $accent;
-}
-
-.button:hover {
-  background-color: $accent-dark;
+  transition: background-color 0.3s, border-color 0.3s ease-in-out;
 }
 
 .button:disabled {
   opacity: 0.5;
+}
+
+.button_primary {
+  background-color: $accent;
+  color: $white;
+  border: 1px solid $accent;
+}
+
+.button_primary:hover {
+  background-color: $accent-dark;
+}
+
+.button_transparent {
+  background-color: transparent;
+  border: 2px solid $accent;
+  color: $main-black;
+}
+
+.button_transparent:hover {
+  border-color: $accent-dark;
 }

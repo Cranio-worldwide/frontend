@@ -1,19 +1,17 @@
-@import '../../styles/variables';
-
 .therapists {
-  max-width: 1440px;
+  width: 100%;
+  max-width: 1175px;
   margin: 0 auto;
-  padding: 70px 132px 110px;
+  padding: 70px 0 110px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  
-  @media screen and (max-width: 1280px) {
+
+  @include breakpoint(desktop) {
     padding: 70px 100px;
-    
   }
-  @include breakpoint(mobile-wide) {
+  @include breakpoint(mobile) {
     max-width: max-content;
     padding: 50px 16px 44px;
     gap: 14px;

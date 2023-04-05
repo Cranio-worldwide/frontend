@@ -1,9 +1,8 @@
 import therapistsCards from '../../utils/constants';
-import Button from '../Button/Button';
 import TherapistCard from '../TherapistCard/TherapistCard';
 import styles from './TherapistCards.module.scss';
 
-const TherapistCards = () => {
+export function TherapistCards() {
   return (
     <section className={styles.therapists}>
       {therapistsCards.map((therapist) => (
@@ -22,6 +21,4 @@ const TherapistCards = () => {
       ))}
     </section>
   );
-};
-
-export default TherapistCards;
+}

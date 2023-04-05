@@ -1,18 +1,19 @@
 .bg {
   box-sizing: border-box;
   width: 100%;
+  margin: 0 auto;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 5;
-  padding: 24px 17px 17px;
+  padding: 24px 0 17px;
   background: $white;
   box-shadow: 0 1px 4px rgba(51, 51, 51, 15%);
-  @media screen and (max-width: 950px) {
-    padding: 24px 16px 26px;
+  @include breakpoint(desktop) {
+    padding: 24px 100px 26px;
   }
-  @media screen and (max-width: 670px) {
+  @include breakpoint(mobile) {
     padding: 18px 16px 20px;
   }
 }
@@ -23,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media screen and (max-width: 950px) {
+  @include breakpoint(tablet) {
     max-width: 700px;
     margin: 0 auto;
   }
@@ -53,7 +54,7 @@
   align-items: center;
   padding: 0;
   gap: 4px;
-  @media screen and (max-width: 650px) {
+  @include breakpoint(mobile) {
     gap: 0;
   }
 }
@@ -62,19 +63,17 @@
   background-image: url(../../assets/location.svg);
   width: 36px;
   height: 36px;
-  @media screen and (max-width: 650px) {
+  @include breakpoint(mobile) {
     background-image: url(../../assets/location_mobile.svg);
   }
 }
 
 .city {
-  font-family: $main-text;
   font-style: normal;
-  font-weight: 400;
   font-size: 18px;
   line-height: 140%;
   color: $main-black;
-  @media screen and (max-width: 650px) {
+  @include breakpoint(mobile) {
     font-size: 14px;
   }
 }
@@ -85,12 +84,11 @@
   align-items: center;
   padding: 0;
   gap: 40px;
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: 1180px) {
     display: none;
   }
 }
 .navigation {
-  font-family: $main-text;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -100,7 +98,6 @@
   margin: 0;
 }
 .navigation:hover {
-  font-family: $main-text;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -109,7 +106,6 @@
   color: $accent;
 }
 .navigation_active {
-  font-family: $main-text;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -131,7 +127,7 @@
   background-image: url(../../assets/search.svg);
   width: 24px;
   height: 24px;
-  @media screen and (max-width: 650px) {
+  @include breakpoint(mobile) {
     display: none;
   }
 }
@@ -181,23 +177,12 @@
   margin: 0;
 }
 .button {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   width: 185px;
-  height: 46px;
-  border: 2px solid $accent;
-  border-radius: 8px;
-  font-family: $main-text;
   font-style: normal;
-  font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   color: $main-black;
-  @media screen and (max-width: 950px) {
+  @include breakpoint(tablet) {
     display: none;
   }
 }
@@ -215,7 +200,7 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: 1180px) {
     display: flex;
   }
 }

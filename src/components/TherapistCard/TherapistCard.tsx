@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import styles from './TherapistCard.module.scss';
 
 interface IProps {
@@ -34,7 +34,7 @@ const TherapistCard: React.FC<IProps> = ({
       <Image src={photo} alt={name} className={styles.photo} />
       <div className={styles.maininfo}>
         <p className={styles.name}>{name}</p>
-        <p className={(styles.subtext, styles.position)}>{position}</p>
+        <p className={cn(styles.subtext, styles.position)}>{position}</p>
       </div>
       <div className={styles.place}>
         <div className={styles.with_icon}>
@@ -56,15 +56,18 @@ const TherapistCard: React.FC<IProps> = ({
         <span className={styles.price}>{price} руб.</span>
       </div>
       {clicked ? (
-        <span className={cn(styles.subtext, styles.phone)}>{phone}</span>
+        <a className={cn(styles.subtext, styles.phone)} href={`tel:${phone}`}>
+          {phone}
+        </a>
       ) : (
         <Button
           type="button"
-          style={cn(styles.subtext, styles.button)}
-          buttonText="Показать номер"
+          className={cn(styles.subtext, styles.button)}
           disabled={false}
           onClick={() => setClicked(true)}
-        />
+        >
+          Показать номер
+        </Button>
       )}
     </div>
   );

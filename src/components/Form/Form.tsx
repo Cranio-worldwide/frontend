@@ -9,6 +9,7 @@ import {
   FormTitle,
   LanguagePrefix,
 } from '@/shared/types';
+import { Button } from '../Button/Button';
 
 export function Form() {
   // TODO потом вынести выбор языка в пропсы
@@ -37,7 +38,15 @@ export function Form() {
         <select className={styles.select}>
           <option>{distanceText}</option>
         </select>
-        <button className={styles.button}>{buttonText}</button>
+        <Button
+          type="submit"
+          theme="primary"
+          className={styles.button}
+          disabled={false}
+          onClick={() => {}}
+        >
+          {buttonText}
+        </Button>
       </form>
     </section>
   );
