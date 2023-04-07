@@ -1,3 +1,16 @@
 .section {
-  background-color: red;
+  margin-top: 55px;
+
+  .container {
+    max-width: 1175px;
+    height: 460px;
+    
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+
+    ymaps[class$="map"]:first-child:not(:last-child) {
+      display: none;
+    }
+  }
 }
