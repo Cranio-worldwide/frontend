@@ -5,17 +5,13 @@
   align-items: baseline;
   position: relative;
   width: fit-content;
-
-  * {
-    color: $main-grey;
-  }
 }
 
 .input {
   border: 1px solid $main-grey;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px;
   padding: 16px;
-  transition: 0.2s;
+  transition: border-color 0.2s;
 
   &:focus {
     border-color: $accent;
@@ -24,6 +20,15 @@
   &:disabled {
     opacity: 0.5;
   }
+}
+
+.cut {
+  border-radius: 8px 0 0 8px;
+}
+
+.statusText,
+.input {
+  color: $main-grey;
 }
 
 .warning {
