@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import styles from './Header.module.scss';
 import Link from 'next/link';
-import { Button } from '../Button/Button';
+import { Button } from '@/components/ui/Button/Button';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);

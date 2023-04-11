@@ -1,7 +1,9 @@
+import photo from '../assets/deafault-photo.svg';
+
 const therapistsCards = [
   {
     id: '1',
-    photo: '',
+    photo: photo,
     name: 'Рыспаева Алия Шаяхметовна',
     position: 'Врач-остеопат',
     location: 'Петропавловск-Камчатский',
@@ -13,7 +15,7 @@ const therapistsCards = [
   },
   {
     id: '2',
-    photo: '',
+    photo: photo,
     name: 'Авдеева-Миронюк Ирина Викторовна',
     position: 'Врач-остеопат',
     location: 'Петропавловск-Камчатский',
@@ -25,7 +27,7 @@ const therapistsCards = [
   },
   {
     id: '3',
-    photo: '',
+    photo: photo,
     name: 'Иванов Иван Иванович',
     position: 'Врач-остеопат',
     location: 'Петропавловск-Камчатский',
@@ -37,7 +39,7 @@ const therapistsCards = [
   },
   {
     id: '4',
-    photo: '',
+    photo: photo,
     name: 'Петров Сергей Викторович',
     position: 'Врач-остеопат',
     location: 'Петропавловск-Камчатский',

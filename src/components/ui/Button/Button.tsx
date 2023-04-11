@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   children?: React.ReactNode;
   type?: 'submit' | 'reset' | 'button';
-  disabled: boolean;
+  disabled?: boolean;
   onClick: () => void;
 }
 

@@ -9,7 +9,7 @@ import {
   FormTitle,
   LanguagePrefix,
 } from '@/shared/types';
-import { Button } from '../Button/Button';
+import { Button } from '@/components/ui/Button/Button';
 
 export function Form() {
   // TODO потом вынести выбор языка в пропсы
