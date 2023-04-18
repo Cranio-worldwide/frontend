@@ -1,0 +1,87 @@
+.container {
+  position: absolute;
+  width: 372px;
+  top: 70px;
+  left: auto;
+  padding: 45px 60px 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  @include breakpoint(mobile) {
+    width: 342px;
+    padding: 45px 50px 30px;
+    top: 62px;
+    left: 16px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 19px;
+  right: 28px;
+  width: 11px;
+  height: 11px;
+  background-image: url(../../assets/close-button.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  @include breakpoint(mobile) {
+    top: 16.6px;
+    right: 25.5px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.question {
+  color: $main-black;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  @include breakpoint(mobile) {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 46px;
+  @include breakpoint(mobile) {
+    gap: 29px;
+  }
+}
+
+.confirm {
+  width: 88px;
+  height: 54px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  @include breakpoint(mobile) {
+    width: 101px;
+    height: 41px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.text {
+  padding-right: 30px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: $main-grey;
+  background-image: url(../../assets/arrow-down.svg);
+  background-repeat: no-repeat;
+  background-position: center right 0;
+  @include breakpoint(mobile) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
