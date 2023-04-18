@@ -1,66 +1,19 @@
 .section {
-  margin-top: -270px !important;
+  position: relative;
+  margin-top: 35px;
+
+  @include breakpoint(tablet) {
+    margin-top: 32px;
+  }
+  @include breakpoint(mobile) {
+    margin-top: 40px;
+  }
+}
+
+.container {
   display: flex;
   flex-direction: column;
   gap: 9px;
-  position: relative;
-
-  @include breakpoint(tablet) {
-    margin-top: -240px !important;
-  }
-  @include breakpoint(mobile) {
-    margin-top: 40px !important;
-  }
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 806px;
-  margin-bottom: 70px;
-  @include breakpoint(tablet) {
-    max-width: 390px;
-    margin-bottom: 45px;
-  }
-  @include breakpoint(mobile) {
-    max-width: 390px;
-    margin-bottom: 30px;
-  }
-}
-
-.heading {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 96px;
-  line-height: 86.49%;
-  letter-spacing: 0.03em;
-  color: $main-black;
-  margin: 0;
-  max-width: 806px;
-  @include breakpoint(tablet) {
-    font-size: 72px;
-  }
-  @include breakpoint(mobile) {
-    font-size: 50px;
-  }
-}
-
-.subheading {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 45px;
-  color: $main-black;
-  margin: 0;
-  @media screen and (max-width: 950px) {
-    font-size: 28px;
-    line-height: 34px;
-  }
-  @include breakpoint(mobile) {
-    font-size: 23px;
-    line-height: 130%;
-  }
 }
 
 .title {

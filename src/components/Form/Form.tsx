@@ -3,7 +3,6 @@ import styles from './Form.module.scss';
 import {
   FormAddress,
   FormDistance,
-  FormHeading,
   FormPrice,
   FormSearchButtonText,
   FormTitle,
@@ -15,7 +14,6 @@ import { SectionContainer } from '../SectionContainer/SectionContainer';
 export function Form() {
   // TODO потом вынести выбор языка в пропсы
   const [lang, setLang] = useState<LanguagePrefix>('en');
-  const headingText = FormHeading[lang];
   const titleText = FormTitle[lang];
   const addressText = FormAddress[lang];
   const priceText = FormPrice[lang];
@@ -23,12 +21,8 @@ export function Form() {
   const buttonText = FormSearchButtonText[lang];
 
   return (
-    <section>
-      <SectionContainer className={styles.section}>
-        <div className={styles.header}>
-          <h1 className={styles.heading}>Cranio Worldwide</h1>
-          <h2 className={styles.subheading}>{headingText}</h2>
-        </div>
+    <section className={styles.section}>
+      <SectionContainer className={styles.container}>
         <h3 className={styles.title}>{titleText}</h3>
         <form className={styles.form} onSubmit={(e) => console.log(e)}>
           <input placeholder={addressText} type="text" className={styles.input} />
