@@ -1,46 +1,27 @@
 .bg {
-  width: 100%;
-  display: flex;
   padding: 70px 0;
-  justify-content: center;
-  align-items: center;
   background-color: $main-black;
   color: $main-grey-light;
   @include breakpoint(desktop) {
-    padding: 70px 100px;
+    padding: 70px 0;
   }
   @include breakpoint(tablet) {
-    padding: 60px 100px;
+    padding: 60px 0;
   }
   @include breakpoint(mobile) {
-    padding: 33px 16px 68px;
+    padding: 33px 0 68px;
   }
 }
 
 .container {
-  max-width: 1175px;
   display: grid;
-  grid-template-columns: repeat(3, min-content);
-  grid-template-rows: 1fr;
-  grid-auto-columns: max-content;
-  justify-items: stretch;
-  column-gap: 204px;
-  height: auto;
-  @include breakpoint(desktop) {
-    column-gap: 80px;
-  }
-  @include breakpoint(mobile) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  justify-content: space-between;
+
+  @include breakpoint(mobile-wide) {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: auto auto;
     row-gap: 32px;
-    column-gap: 50px;
-    width: 100%;
-  }
-  @include breakpoint(mobile-narrow) {
-    column-gap: 10px;
-  }
-  @media screen and (max-width: 320px) {
-    column-gap: 5px;
   }
 }
 
@@ -59,21 +40,21 @@
 .nav {
   grid-column: 2;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  width: 471px;
+  min-width: 471px;
   gap: 0;
   @include breakpoint(desktop) {
-    width: 380px;
+    min-width: 380px;
   }
-  @include breakpoint(tablet) {
+  @include breakpoint(tablet-wide) {
     flex-direction: column;
-    width: min-content;
+    min-width: min-content;
     align-items: start;
     gap: 32px;
   }
-  @include breakpoint(mobile) {
+  @include breakpoint(mobile-wide) {
     grid-column: 1;
     grid-row: 2;
     gap: 21px;
@@ -105,16 +86,12 @@
   justify-content: space-between;
   width: 144px;
   justify-self: end;
-  @include breakpoint(tablet) {
+  @include breakpoint(tablet-wide) {
     align-items: start;
   }
   @include breakpoint(mobile) {
     grid-column: 2;
     grid-row: 1;
-    width: 121px;
-  }
-
-  @media screen and (max-width: 320px) {
     width: 90px;
   }
 
