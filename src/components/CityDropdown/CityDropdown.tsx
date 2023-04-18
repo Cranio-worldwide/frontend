@@ -7,7 +7,7 @@ interface IProps {
   onClose: () => void;
 }
 
-export const CityDropdown: React.FC<IProps> = ({ isCityOpen, onClose }: IProps) => {
+export const CityDropdown: React.FC<IProps> = ({ isCityOpen, onClose }) => {
   return (
     <Dropdown onClose={onClose} isOpen={isCityOpen} className={styles.container}>
       <button className={styles.close} onClick={onClose} />

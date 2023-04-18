@@ -11,7 +11,7 @@ interface IProps {
 export const Dropdown: React.FC<IProps> = ({ isOpen, onClose, children, className }: IProps) => {
   return isOpen ? (
     <>
-      <div className={isOpen ? cn(styles.container, className) : null}>{children}</div>
+      <div className={cn(isOpen && styles.container, className)}>{children}</div>
       <div className={styles.background} onClick={onClose} />
     </>
   ) : null;
