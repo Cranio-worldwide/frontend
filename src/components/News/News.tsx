@@ -17,9 +17,6 @@ function NextArrow(props) {
       className={cn(className, styles.next_arrow)}
       style={{
         ...style,
-        display: 'block',
-
-        transform: 'translate(0, -120%)',
       }}
       onClick={onClick}
     />
@@ -33,48 +30,46 @@ function PrevArrow(props) {
       className={cn(className, styles.prev_arrow)}
       style={{
         ...style,
-        display: 'block',
-        transform: 'translate(0, -120%)',
       }}
       onClick={onClick}
     />
   );
 }
-
+const newsSettings = {
+  className: `${styles.slider}`,
+  infinite: true,
+  lazyLoad: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 6000,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1280,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 850,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: 670,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
 export default class News extends Component {
   render() {
-    const settings = {
-      className: `${styles.slider}`,
-      infinite: true,
-      lazyLoad: true,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 6000,
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
-      responsive: [
-        {
-          breakpoint: 1280,
-          settings: {
-            slidesToShow: 2,
-          },
-        },
-        {
-          breakpoint: 850,
-          settings: {
-            slidesToShow: 1,
-          },
-        },
-        {
-          breakpoint: 670,
-          settings: {
-            slidesToShow: 1,
-          },
-        },
-      ],
-    };
+    const settings = newsSettings;
     return (
       <SectionContainer className={styles.container}>
         <SectionTitle>News</SectionTitle>

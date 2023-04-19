@@ -52,6 +52,8 @@
 
 .next_arrow,
 .prev_arrow {
+  display: block;
+  transform: translate(0, -120%);
   width: 52px;
   height: 52px;
 
