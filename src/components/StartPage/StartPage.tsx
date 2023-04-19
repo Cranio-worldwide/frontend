@@ -5,6 +5,7 @@ import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { Hero } from '../Hero/Hero';
 import styles from './StartPage.module.scss';
+import News from '../News/News';
 
 /**
  *
@@ -18,6 +19,7 @@ export const StartPage = () => {
       <Hero />
       <Form />
       <TherapistCards />
+      <News />
       <Footer />
     </>
   );

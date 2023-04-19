@@ -1,0 +1,78 @@
+.container {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  color: $main-black;
+
+  @include breakpoint(mobile) {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    gap: 20px;
+  }
+}
+
+.slider {
+  @include breakpoint(mobile) {
+    max-width: 94%;
+    margin: 0 auto;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 47px;
+  @include breakpoint(mobile) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+.next_arrow {
+  &::before {
+    background: url(../../assets/arrow-right.svg) no-repeat center;
+    @include breakpoint(mobile) {
+      right: 10px;
+      background-size: 9px;
+    }
+  }
+}
+
+.prev_arrow {
+  z-index: 2;
+  &::before {
+    background: url(../../assets/arrow-left.svg) no-repeat center;
+    z-index: 2;
+    @include breakpoint(mobile) {
+      left: 10px;
+      background-size: 30px;
+    }
+  }
+}
+
+.next_arrow,
+.prev_arrow {
+  width: 52px;
+  height: 52px;
+
+  @include breakpoint(mobile) {
+    width: 30px;
+    height: 30px;
+  }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 70%);
+
+    @include breakpoint(mobile) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

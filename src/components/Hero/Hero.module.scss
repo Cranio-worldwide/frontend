@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  z-index: 5;
+  z-index: 2;
 }
 
 .heading::before {
@@ -52,7 +52,7 @@
   color: $main-black;
   margin: 0;
   max-width: 806px;
-  z-index: 5;
+  z-index: 2;
   @include breakpoint(tablet) {
     max-width: 420px;
     font-size: 72px;
@@ -71,7 +71,7 @@
   line-height: 45px;
   color: $main-black;
   margin: 0;
-  z-index: 5;
+  z-index: 2;
   @include breakpoint(tablet) {
     max-width: 420px;
     font-size: 28px;
