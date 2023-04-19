@@ -67,6 +67,7 @@
   font-size: 18px;
   line-height: 140%;
   color: $main-black;
+  cursor: pointer;
   @include breakpoint(mobile) {
     font-size: 14px;
   }

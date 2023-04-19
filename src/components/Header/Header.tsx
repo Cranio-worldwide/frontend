@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
-
+import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [isModalOpen, setModalOpen] = React.useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isCityOpen, setCityOpen] = useState<boolean>(false);
 
   const handleScroll = () => {
     setScrollPosition(window.pageYOffset);
@@ -34,7 +35,15 @@ export function Header() {
           </Link>
           <span className={styles.locations}>
             <span className={styles.location}></span>
-            <p className={styles.city}>Moscow</p>
+            <p className={styles.city} onClick={() => setCityOpen(true)}>
+              Moscow
+            </p>
+            <CityDropdown
+              isCityOpen={isCityOpen}
+              onClose={() => {
+                setCityOpen(false);
+              }}
+            />
           </span>
         </div>
 
@@ -66,13 +75,7 @@ export function Header() {
               Ger
             </option>
           </select>
-          <Button
-            className={styles.button}
-            type="button"
-            disabled={false}
-            theme="transparent"
-            onClick={() => {}}
-          >
+          <Button className={styles.button} type="button" theme="transparent" onClick={() => {}}>
             Личный кабинет
           </Button>
           <button className={styles.mobile} onClick={handleOpenBurger}>
