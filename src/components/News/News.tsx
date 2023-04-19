@@ -1,13 +1,13 @@
 import { Component } from 'react';
 import cn from 'classnames';
-import { NewsPiece } from '../NewsPiece/NewsPiece';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import Slider from 'react-slick';
+import { NewsPiece } from '@/components/NewsPiece/NewsPiece';
+import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
+import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 import { news } from 'src/utils/constants';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
 import styles from './News.module.scss';
-import { SectionTitle } from '../ui/SectionTitle/SectionTitle';
 
 function NextArrow(props) {
   const { className, style, onClick } = props;

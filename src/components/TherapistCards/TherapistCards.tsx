@@ -1,7 +1,7 @@
 import { therapistsCards } from '../../utils/constants';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import TherapistCard from '../TherapistCard/TherapistCard';
-import { SectionTitle } from '../ui/SectionTitle/SectionTitle';
+import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
+import TherapistCard from '@/components/TherapistCard/TherapistCard';
+import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 import styles from './TherapistCards.module.scss';
 
 export function TherapistCards() {
