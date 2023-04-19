@@ -3,8 +3,8 @@ import cn from 'classnames';
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
+import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
-
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [isModalOpen, setModalOpen] = useState(false);
@@ -27,7 +27,7 @@ export function Header() {
 
   return (
     <header className={cn(styles.bg, scrollPosition > 100 && styles.bg_active)}>
-      <div className={styles.container}>
+      <SectionContainer className={styles.container}>
         <div className={styles.item}>
           {/* TODO добавить картинку когда дизайнеры нарисуют */}
           <Link href="/" className={styles.image}>
@@ -82,7 +82,7 @@ export function Header() {
             <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
           </button>
         </div>
-      </div>
+      </SectionContainer>
     </header>
   );
 }
