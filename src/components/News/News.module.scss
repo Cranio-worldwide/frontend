@@ -34,8 +34,7 @@
   &::before {
     background: url(../../assets/arrow-right.svg) no-repeat center;
     @include breakpoint(mobile) {
-      right: 10px;
-      background-size: 9px;
+      right: 8px;
     }
   }
 }
@@ -46,8 +45,7 @@
     background: url(../../assets/arrow-left.svg) no-repeat center;
     z-index: 2;
     @include breakpoint(mobile) {
-      left: 10px;
-      background-size: 30px;
+      left: 8px;
     }
   }
 }
@@ -73,6 +71,7 @@
     @include breakpoint(mobile) {
       width: 30px;
       height: 30px;
+      background-size: 9px;
     }
   }
 }
