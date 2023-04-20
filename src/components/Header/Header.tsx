@@ -4,9 +4,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
+import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
-import { NavItem } from '../ui/NavItem/NavItem';
-import { NavItems } from '../ui/NavItems/NavItems';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);

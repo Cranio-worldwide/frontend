@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { NavItem } from '../NavItem/NavItem';
+import { NavItem } from '@/components/ui/NavItem/NavItem';
 import styles from './NavItems.module.scss';
 
 interface NavProps {

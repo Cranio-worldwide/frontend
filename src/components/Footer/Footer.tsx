@@ -1,7 +1,6 @@
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
-import { NavItem } from '../ui/NavItem/NavItem';
+import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Footer.module.scss';
-import { NavItems } from '../ui/NavItems/NavItems';
 
 export const Footer = () => {
   return (
