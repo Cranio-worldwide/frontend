@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import styles from './Form.module.scss';
+import { useState } from 'react';
 import {
   FormAddress,
   FormDistance,
@@ -10,6 +9,7 @@ import {
 } from '@/shared/types';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import styles from './Form.module.scss';
 
 export function Form() {
   // TODO потом вынести выбор языка в пропсы

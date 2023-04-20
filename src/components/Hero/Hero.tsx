@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import styles from './Hero.module.scss';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
 
 export const Hero = () => {
   return (

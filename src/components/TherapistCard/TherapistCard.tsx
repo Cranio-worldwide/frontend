@@ -27,7 +27,7 @@ const TherapistCard: React.FC<IProps> = ({
   adress,
   price,
   phone,
-}: IProps) => {
+}) => {
   const [clicked, setClicked] = useState<boolean>(false);
   return (
     <div className={styles.card}>
@@ -39,7 +39,7 @@ const TherapistCard: React.FC<IProps> = ({
       <div className={styles.place}>
         <div className={styles.with_icon}>
           <div className={styles.location_img} />
-          <p>{location}</p>
+          <p className={styles.location}>{location}</p>
         </div>
         <p className={cn(styles.subtext, styles.distance)}>{distance} от вас</p>
       </div>

@@ -112,7 +112,13 @@
 }
 
 .adress {
+  color: $main-grey;
   margin-left: 22.5px;
+}
+
+.distance,
+.location {
+  color: $success;
 }
 
 .distance,
@@ -127,7 +133,6 @@
 
 .place {
   grid-area: place;
-  color: $success;
   display: flex;
   flex-direction: row;
   align-items: center;

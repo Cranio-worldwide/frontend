@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import cn from 'classnames';
-import styles from './Header.module.scss';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
+import styles from './Header.module.scss';
+
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [isModalOpen, setModalOpen] = useState(false);
