@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
 import styles from './Header.module.scss';
+import { NavItem } from '../ui/NavItem/NavItem';
+import { NavItems } from '../ui/NavItems/NavItems';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -49,14 +51,7 @@ export function Header() {
         </div>
 
         {/* TODO потом потребуется переписать на ссылки на страницу */}
-        <div className={styles.navigations}>
-          <a className={styles.navigation}>Our therapists</a>
-          <a className={cn(styles.navigation_active, styles.navigation)}>
-            Information for therapists
-          </a>
-          <a className={styles.navigations}>Contacts</a>
-        </div>
-
+        <NavItems header />
         <div className={styles.additional}>
           {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
           <span className={styles.loop}></span>

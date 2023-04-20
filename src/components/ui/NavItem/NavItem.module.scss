@@ -1,0 +1,23 @@
+.link {
+  display: block;
+  min-width: max-content;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  transition: color 0.2s ease-in-out;
+
+  @include breakpoint(mobile) {
+    text-align: left;
+  }
+  &:hover {
+    font-weight: 700;
+    color: $accent;
+  }
+}
+.link_active {
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+  color: $accent;
+}
