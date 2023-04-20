@@ -35,7 +35,7 @@ function PrevArrow(props) {
     />
   );
 }
-const newsSettings = {
+const settings = {
   className: `${styles.slider}`,
   infinite: true,
   lazyLoad: true,
@@ -51,34 +51,42 @@ const newsSettings = {
       breakpoint: 1280,
       settings: {
         slidesToShow: 2,
+        centerMode: true,
+        centerPadding: '70px',
+      },
+    },
+    {
+      breakpoint: 1100,
+      settings: {
+        slidesToShow: 2,
+        centerMode: true,
+        centerPadding: '30px',
       },
     },
     {
       breakpoint: 850,
       settings: {
         slidesToShow: 1,
+        centerMode: true,
       },
     },
     {
-      breakpoint: 670,
+      breakpoint: 470,
       settings: {
         slidesToShow: 1,
       },
     },
   ],
 };
-export default class News extends Component {
-  render() {
-    const settings = newsSettings;
-    return (
-      <SectionContainer className={styles.container}>
-        <SectionTitle>News</SectionTitle>
-        <Slider {...settings}>
-          {news.map((piece) => (
-            <NewsPiece key={piece.id} photo={piece.photo} title={piece.title} />
-          ))}
-        </Slider>
-      </SectionContainer>
-    );
-  }
+export default function News() {
+  return (
+    <SectionContainer className={styles.container}>
+      <SectionTitle>News</SectionTitle>
+      <Slider {...settings}>
+        {news.map((piece) => (
+          <NewsPiece key={piece.id} photo={piece.photo} title={piece.title} />
+        ))}
+      </Slider>
+    </SectionContainer>
+  );
 }

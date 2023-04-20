@@ -1,13 +1,18 @@
 .newspiece {
   max-width: 380px;
-  min-width: 300px;
+  min-width: 280px;
   margin: 0 auto;
-  padding: 0 5px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  @include breakpoint(desktop) {
+    padding: 0 10px;
+  }
   @include breakpoint(mobile) {
     gap: 15px;
+  }
+  @include breakpoint(mobile-narrow) {
+    padding: 0;
   }
 }
 
@@ -34,6 +39,7 @@
   height: 257px;
   border-radius: 8px;
   background-size: cover;
+  background-position: center;
   @include breakpoint(mobile) {
     height: 221px;
   }
