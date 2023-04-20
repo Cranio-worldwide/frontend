@@ -1,0 +1,59 @@
+.link {
+  position: relative;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  @include breakpoint(mobile) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: $main-black;
+    transition: width 0.3s ease-in-out;
+  }
+
+  &_contrast {
+    color: $white;
+    &::before {
+      background-color: $white;
+    }
+  }
+}
+
+.link:hover .text::before {
+  width: calc(100% - 37px);
+}
+
+.arrow {
+  width: 16px;
+  height: 15px;
+  background: url(../../../assets/arrow-external.svg) no-repeat;
+  background-size: contain;
+  transition: background-image 0.3s, width 0.3s, height 0.3s ease-in-out;
+
+  &_contrast {
+    background-image: url(../../../assets/arrow-external-contrast.svg);
+  }
+}
+
+.link:hover .arrow {
+  width: 22px;
+  height: 19px;
+  background-image: url(../../../assets/arrow-external-big.svg);
+
+  &_contrast {
+    background-image: url(../../../assets/arrow-external-big-contrast.svg);
+  }
+}
