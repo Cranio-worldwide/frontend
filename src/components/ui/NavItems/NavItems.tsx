@@ -16,10 +16,10 @@ export const NavItems: React.FC<NavProps> = ({ children, className, header, cont
       <NavItem href="/" className={cn(styles.link_therapists, contrast && styles.contrast)}>
         Our therapists
       </NavItem>
-      <NavItem href="/" className={cn(styles.link_info, contrast && styles.contrast)}>
+      <NavItem href="/info" className={cn(styles.link_info, contrast && styles.contrast)}>
         Information for therapists
       </NavItem>
-      <NavItem href="/" className={cn(styles.link_contacts, contrast && styles.contrast)}>
+      <NavItem href="/contacts" className={cn(styles.link_contacts, contrast && styles.contrast)}>
         Contacts
       </NavItem>
     </nav>
