@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Slider from 'react-slick';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../ui/SectionTitle/SectionTitle';
-import { ExternalLink } from '../ui/ExternalLink/ExternalLink';
+import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
+import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
+import { ExternalLink } from '@/components/ui/ExternalLink/ExternalLink';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
