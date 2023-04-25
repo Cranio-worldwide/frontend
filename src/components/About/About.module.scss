@@ -1,66 +1,119 @@
-@import "../../utils/scss-variables";
-
 .bg {
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto 42%;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   max-width: 1440px;
   background-color: $accent-dark;
 
-  @media screen and (max-width: 900px) {
+  @include breakpoint(tablet-wide) {
     display: flex;
-    flex-direction: column;
-    max-width: 700px;
+    flex-direction: column-reverse;
+    max-width: calc(100vw - 215px);
+    margin: 0 100px;
+  }
+  @include breakpoint(mobile-wide) {
+    margin: 0;
+    max-width: 100vw;
   }
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 100px 132px 70px;
+  justify-content: space-between;
+  max-width: 575px;
+  margin-top: 100px;
+  margin-bottom: 70px;
+
+  @include breakpoint(desktop) {
+    margin-top: 70px;
+    max-width: 700px;
+  }
+  @include breakpoint(tablet-wide) {
+    margin: 70px auto 100px;
+    padding: 0 62px;
+    max-width: 900px;
+    gap: 96px;
+  }
+  @include breakpoint(mobile-wide) {
+    padding: 0 100px;
+    gap: 20px;
+  }
+  @include breakpoint(mobile) {
+    margin: 30px auto 40px;
+    padding: 0 16px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @include breakpoint(mobile) {
+    gap: 16px;
+  }
+}
+
+.title {
+  color: $white;
+  line-height: 49px;
+}
+
+.text {
+  color: $white;
+  font-weight: 400;
   font-size: 18px;
   line-height: 25px;
-  font-weight: 400;
-  color: $white;
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.heading {
-  padding-bottom: 40px;
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 47px;
-}
-
-.link {
-  padding-top: 96px;
-  font-weight: 500;
-}
-
-.link::after {
-  display: inline-block;
-  margin-left: 16px;
-  margin-bottom: -3px;
-  content: "";
-  background-image: url(../../images/ui-arrow-link.svg);
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
-}
-
-.image {
-  grid-column: 2;
-  grid-row: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  @media screen and (max-width: 900px) {
-    grid-row: 1;
+  @include breakpoint(mobile) {
+    font-size: 14px;
+    line-height: 20px;
   }
+}
+
+.slider,
+.image {
+  width: 608px;
+  height: 581px;
+
+  @include breakpoint(desktop) {
+    width: 460px;
+  }
+  @include breakpoint(tablet-wide) {
+    width: 100%;
+  }
+  @include breakpoint(tablet) {
+    height: 400px;
+  }
+  @include breakpoint(mobile-narrow) {
+    height: 216px;
+  }
+}
+.image {
+  object-fit: cover;
+}
+
+.dots {
+  bottom: 24px;
+  @include breakpoint(mobile-narrow) {
+    bottom: 8px;
+  }
+}
+
+.dots li {
+  width: 8px;
+  margin: 0 8px;
+}
+.dots li button::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  border: 1px solid $white;
+  border-radius: 50%;
+  opacity: 1;
+}
+.dots :global(li.slick-active) button::before {
+  background-color: $white;
+  opacity: 1;
 }

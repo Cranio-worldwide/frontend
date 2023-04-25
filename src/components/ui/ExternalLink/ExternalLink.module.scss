@@ -11,15 +11,15 @@
   font-size: 18px;
   line-height: 25px;
   @include breakpoint(mobile) {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 14px;
+    line-height: 20px;
   }
   &::before {
     content: "";
     position: absolute;
     bottom: 0;
     width: 0;
-    height: 2px;
+    height: 1px;
     background-color: $main-black;
     transition: width 0.3s ease-in-out;
   }
