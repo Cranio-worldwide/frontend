@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@/api/*": ["./src/api/*"],
+      "@/components/*": ["./src/components/*"],
       "@/shared/*": ["./src/shared/*"],
       "@/styles/*": ["./src/styles/*"],
       "@scss-variables": ["./src/utils/scss-variables.scss"],

@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: baseline;
+  position: relative;
+  width: fit-content;
+}
+
+.input {
+  border: 1px solid $main-grey;
+  border-radius: 8px;
+  padding: 16px;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: $accent;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.cut {
+  border-radius: 8px 0 0 8px;
+}
+
+.statusText,
+.input {
+  color: $main-grey;
+}
+
+.warning {
+  border-color: $warning;
+}
+
+.error {
+  border-color: $alert;
+}
+
+.success {
+  border-color: $success;
+}
+
+.status {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -20px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.icon_warning {
+  background-image: url("../../../assets/warning.svg");
+}
+
+.icon_error {
+  background-image: url("../../../assets/error.svg");
+}
+
+.icon_success {
+  background-image: url("../../../assets/success.svg");
+}

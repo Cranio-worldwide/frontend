@@ -1,0 +1,25 @@
+.container {
+  padding-top: 70px;
+  padding-bottom: 110px;
+  box-sizing: border-box;
+
+  @include breakpoint(desktop) {
+    padding-bottom: 100px;
+  }
+  @include breakpoint(mobile) {
+    padding-top: 50px;
+    padding-bottom: 44px;
+  }
+}
+
+.therapists {
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @include breakpoint(mobile) {
+    max-width: max-content;
+    margin-top: 34px;
+    gap: 14px;
+  }
+}
