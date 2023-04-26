@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
   width: 470px;
   @include breakpoint(desktop) {
     width: 370px;
@@ -20,18 +21,6 @@
     width: fit-content;
     gap: 21px;
   }
-}
-
-.link_therapists {
-  width: 100px;
-}
-
-.link_info {
-  width: 165px;
-}
-
-.link_contacts {
-  width: 60px;
 }
 
 .contrast {
