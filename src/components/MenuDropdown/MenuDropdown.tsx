@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Dropdown } from '../ui/Dropdown/Dropdown';
+import { Dropdown } from '@/components/ui/Dropdown/Dropdown';
 import cn from 'classnames';
 import styles from './MenuDropdown.module.scss';
 
