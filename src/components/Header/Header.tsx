@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
+import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
 import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
 
@@ -59,14 +60,7 @@ export function Header() {
         </div>
 
         {/* TODO потом потребуется переписать на ссылки на страницу */}
-        <div className={styles.navigations}>
-          <a className={styles.navigation}>Our therapists</a>
-          <a className={cn(styles.navigation_active, styles.navigation)}>
-            Information for therapists
-          </a>
-          <a className={styles.navigations}>Contacts</a>
-        </div>
-
+        <NavItems place="header" />
         <div className={styles.additional}>
           {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
           <span className={styles.loop}></span>

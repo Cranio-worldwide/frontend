@@ -1,0 +1,29 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 470px;
+  @include breakpoint(desktop) {
+    width: 370px;
+  }
+  &_header {
+    @media screen and (max-width: 1190px) {
+      display: none;
+    }
+  }
+  @include breakpoint(tablet-wide) {
+    flex-direction: column;
+    align-items: start;
+    gap: 32px;
+  }
+  @include breakpoint(mobile-wide) {
+    width: fit-content;
+    gap: 21px;
+  }
+}
+
+.contrast {
+  color: $main-grey-light;
+  line-height: 16px;
+}

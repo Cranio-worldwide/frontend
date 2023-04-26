@@ -73,44 +73,6 @@
   }
 }
 
-.navigations {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  gap: 40px;
-  @media screen and (max-width: 1180px) {
-    display: none;
-  }
-}
-.navigation {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  color: $main-black;
-  margin: 0;
-}
-.navigation:hover {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  color: $accent;
-}
-.navigation_active {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  text-decoration-line: underline;
-  color: $accent;
-  margin: 0;
-}
-
 .additional {
   display: flex;
   flex-direction: row;
