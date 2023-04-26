@@ -32,10 +32,9 @@ export function Form() {
           <select className={styles.select}>
             <option></option>
           </select>
-          asdas
-          <Dropdown className={styles.select} isOpen={true} onClose={() => {}}>
-            <FilterSelect filterValue={{ min: 10, max: 19 }} />
-          </Dropdown>
+          <select className={styles.select}>
+            <option></option>
+          </select>
           <Button
             type="submit"
             theme="primary"
