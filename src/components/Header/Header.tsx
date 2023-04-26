@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
 import styles from './Header.module.scss';
-import { MenuDropdown } from '../MenuDropdown/MenuDropdown';
+import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
