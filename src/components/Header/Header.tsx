@@ -50,7 +50,7 @@ export function Header() {
         </div>
 
         {/* TODO потом потребуется переписать на ссылки на страницу */}
-        <NavItems header />
+        <NavItems place="header" />
         <div className={styles.additional}>
           {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
           <span className={styles.loop}></span>

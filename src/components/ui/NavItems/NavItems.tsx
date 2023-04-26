@@ -6,20 +6,27 @@ import styles from './NavItems.module.scss';
 interface NavProps {
   children?: React.ReactNode;
   className?: string;
-  contrast?: boolean;
-  header?: boolean;
+  place: 'header' | 'footer';
 }
 
-export const NavItems: React.FC<NavProps> = ({ children, className, header, contrast }) => {
+export const NavItems: React.FC<NavProps> = ({ children, className, place }) => {
   return (
-    <nav className={cn(styles.navigation, header && styles.navigation_header, className)}>
-      <NavItem href="/" className={cn(styles.link_therapists, contrast && styles.contrast)}>
+    <nav
+      className={cn(styles.navigation, place === 'header' && styles.navigation_header, className)}
+    >
+      <NavItem
+        href="/"
+        className={cn(styles.link_therapists, place === 'footer' && styles.contrast)}
+      >
         Our therapists
       </NavItem>
-      <NavItem href="/info" className={cn(styles.link_info, contrast && styles.contrast)}>
+      <NavItem href="/info" className={cn(styles.link_info, place === 'footer' && styles.contrast)}>
         Information for therapists
       </NavItem>
-      <NavItem href="/contacts" className={cn(styles.link_contacts, contrast && styles.contrast)}>
+      <NavItem
+        href="/contacts"
+        className={cn(styles.link_contacts, place === 'footer' && styles.contrast)}
+      >
         Contacts
       </NavItem>
     </nav>

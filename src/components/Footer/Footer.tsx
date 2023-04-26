@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className={styles.bg}>
       <SectionContainer className={styles.container}>
         <p className={styles.logo}>Cranio&nbsp;worldwide</p>
-        <NavItems className={styles.nav} contrast />
+        <NavItems className={styles.nav} place="footer" />
         <div className={styles.sm_block}>
           <a href="#" className={styles.sm_vk} />
           <a href="#" className={styles.sm_inst} />
