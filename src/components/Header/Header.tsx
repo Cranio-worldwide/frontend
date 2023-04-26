@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
-import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
+import { AccountButton } from '@/components/AccountButton/AccountButton';
 import styles from './Header.module.scss';
-import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -26,15 +25,6 @@ export function Header() {
   function handleOpenBurger() {
     setModalOpen(!isModalOpen);
   }
-
-  const menuItems = [
-    { text: 'Профиль', href: '/' },
-    { text: 'Условия сотрудничества', href: '/' },
-    { text: 'Оплата', href: '/' },
-    { text: 'Выйти', href: '/' },
-  ];
-
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   return (
     <header className={cn(styles.bg, scrollPosition > 100 && styles.bg_active)}>
@@ -86,21 +76,7 @@ export function Header() {
               Ger
             </option>
           </select>
-          <Button
-            className={styles.button}
-            type="button"
-            theme="transparent"
-            onClick={() => {
-              setIsOpenMenu(!isOpenMenu);
-            }}
-          >
-            Личный кабинет
-          </Button>
-          <MenuDropdown
-            items={menuItems}
-            isOpen={isOpenMenu}
-            onClose={() => setIsOpenMenu(false)}
-          />
+          <AccountButton />
           <button className={styles.mobile} onClick={handleOpenBurger}>
             <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
           </button>

@@ -17,7 +17,7 @@ interface IProps {
 
 export const MenuDropdown: React.FC<IProps> = ({ items, isOpen, onClose, className }) => {
   return (
-    <Dropdown isOpen={isOpen} onClose={onClose} className={cn(styles.container, className)}>
+    <Dropdown isOpen={isOpen} className={cn(styles.container, className)}>
       {items.map(({ text, href }) => (
         <Link onClick={onClose} className={styles.item} key={text + href} href={href}>
           {text}
