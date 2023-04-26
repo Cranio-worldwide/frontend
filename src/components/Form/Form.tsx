@@ -10,6 +10,8 @@ import {
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import styles from './Form.module.scss';
+import { Dropdown } from '../ui/Dropdown/Dropdown';
+import { FilterSelect } from '../ui/FilterSelect/FilterSelect';
 
 export function Form() {
   // TODO потом вынести выбор языка в пропсы
@@ -26,14 +28,14 @@ export function Form() {
         <h3 className={styles.title}>{titleText}</h3>
         <form className={styles.form} onSubmit={(e) => console.log(e)}>
           <input placeholder={addressText} type="text" className={styles.input} />
-
           {/*  TODO дополнить ввод полей цена и геолокация после уточнения у дизайнеров */}
           <select className={styles.select}>
-            <option>{priceText}</option>
+            <option></option>
           </select>
-          <select className={styles.select}>
-            <option>{distanceText}</option>
-          </select>
+          asdas
+          <Dropdown className={styles.select} isOpen={true} onClose={() => {}}>
+            <FilterSelect filterValue={{ min: 10, max: 19 }} />
+          </Dropdown>
           <Button
             type="submit"
             theme="primary"
