@@ -21,7 +21,12 @@ export const ExternalLink: React.FC<LinkProps> = ({
   contrast,
 }) => {
   return (
-    <Link href={href} className={cn(styles.link, contrast && styles.contrast, className)}>
+    <Link
+      href={href}
+      target="_blanck"
+      rel="noopener noreferrer"
+      className={cn(styles.link, contrast && styles.contrast, className)}
+    >
       <span className={cn(styles.text, contrast && styles.text_contrast, textClass)}>
         {children}
       </span>
