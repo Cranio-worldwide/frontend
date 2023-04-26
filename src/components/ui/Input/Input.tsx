@@ -27,7 +27,7 @@ export const Input: React.FC<InputProps> = ({
       <input
         value={value}
         onChange={onChange}
-        className={cn(styles.input, styles[status], styles[variant])}
+        className={cn(styles.input, styles[status.type], styles[variant])}
         {...props}
       />
       {status && (
