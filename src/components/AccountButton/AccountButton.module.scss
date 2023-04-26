@@ -1,17 +1,14 @@
 .container {
   width: 185px;
   position: relative;
-  
+
   @include breakpoint(tablet) {
     display: none;
   }
 }
 
 .button {
-  font-style: normal;
   font-size: 18px;
-  line-height: 22px;
-  color: $main-black;
 }
 
 .dropdown{
