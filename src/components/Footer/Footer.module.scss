@@ -40,43 +40,10 @@
 
 .nav {
   grid-column: 2;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 471px;
-  gap: 0;
-  @include breakpoint(desktop) {
-    min-width: 380px;
-  }
-  @include breakpoint(tablet-wide) {
-    flex-direction: column;
-    min-width: min-content;
-    align-items: start;
-    gap: 32px;
-  }
+
   @include breakpoint(mobile-wide) {
     grid-column: 1;
     grid-row: 2;
-    gap: 21px;
-  }
-
-  .nav_item {
-    text-decoration: none;
-    color: $main-grey-light;
-    font-family: $add-text;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-  }
-  .nav_item:hover {
-    color: $accent;
-  }
-  .nav_item:active {
-    color: $accent;
-    text-decoration: underline;
-    text-underline-offset: 4px;
   }
 }
 

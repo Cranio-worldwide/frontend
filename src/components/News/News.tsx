@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import cn from 'classnames';
 import Slider from 'react-slick';
 import { NewsPiece } from '@/components/NewsPiece/NewsPiece';

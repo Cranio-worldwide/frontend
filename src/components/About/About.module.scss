@@ -1,0 +1,119 @@
+.bg {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  background-color: $accent-dark;
+
+  @include breakpoint(tablet-wide) {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: calc(100vw - 215px);
+    margin: 0 100px;
+  }
+  @include breakpoint(mobile-wide) {
+    margin: 0;
+    max-width: 100vw;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 575px;
+  margin-top: 100px;
+  margin-bottom: 70px;
+
+  @include breakpoint(desktop) {
+    margin-top: 70px;
+    max-width: 700px;
+  }
+  @include breakpoint(tablet-wide) {
+    margin: 70px auto 100px;
+    padding: 0 62px;
+    max-width: 900px;
+    gap: 96px;
+  }
+  @include breakpoint(mobile-wide) {
+    padding: 0 100px;
+    gap: 20px;
+  }
+  @include breakpoint(mobile) {
+    margin: 30px auto 40px;
+    padding: 0 16px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @include breakpoint(mobile) {
+    gap: 16px;
+  }
+}
+
+.title {
+  color: $white;
+  line-height: 49px;
+}
+
+.text {
+  color: $white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  @include breakpoint(mobile) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.slider,
+.image {
+  width: 608px;
+  height: 581px;
+
+  @include breakpoint(desktop) {
+    width: 460px;
+  }
+  @include breakpoint(tablet-wide) {
+    width: 100%;
+  }
+  @include breakpoint(tablet) {
+    height: 400px;
+  }
+  @include breakpoint(mobile-narrow) {
+    height: 216px;
+  }
+}
+.image {
+  object-fit: cover;
+}
+
+.dots {
+  bottom: 24px;
+  @include breakpoint(mobile-narrow) {
+    bottom: 8px;
+  }
+}
+
+.dots li {
+  width: 8px;
+  margin: 0 8px;
+}
+.dots li button::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  border: 1px solid $white;
+  border-radius: 50%;
+  opacity: 1;
+}
+.dots :global(li.slick-active) button::before {
+  background-color: $white;
+  opacity: 1;
+}
