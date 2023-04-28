@@ -54,8 +54,8 @@ const CustomFilterDropdown: FC<InputProps> = ({
   }, [handleClose]);
 
   return (
-    <div className={styles.container} onClick={handleClick} id={id} ref={ref}>
-      <div className={styles.title}>
+    <div className={styles.container} id={id} ref={ref}>
+      <div className={styles.title} onClick={handleClick}>
         <span>{title}</span>
         <i className={cn(styles.arrow, isOpen ? styles.up : styles.down)} />
       </div>
