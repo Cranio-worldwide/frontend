@@ -8,9 +8,9 @@ import {
   LanguagePrefix,
 } from '@/shared/types';
 import { Button } from '@/components/ui/Button/Button';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import styles from './Form.module.scss';
-import { FilterDropdown } from '../ui/FilterDropdown/FilterDropdown';
+import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
 
 export function Form() {
   const [filterValue, setFilterValue] = useState({

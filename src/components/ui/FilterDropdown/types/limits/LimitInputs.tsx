@@ -1,5 +1,4 @@
-import React, { Children, FC, memo, useState } from 'react';
-import cn from 'classnames';
+import { Children, FC, memo, useState } from 'react';
 import styles from './LimitInputs.module.scss';
 
 export type InputTheme = 'primary' | 'transparent';

@@ -2,7 +2,8 @@
   box-sizing: border-box;
   position: absolute;
   top: 250%;
-  left: 50%;
+  // left: 50%; //выравнивание по центру
+  left: 158px; //выравнивание по левому краю
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;

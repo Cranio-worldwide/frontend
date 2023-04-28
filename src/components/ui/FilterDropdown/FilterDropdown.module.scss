@@ -10,10 +10,8 @@
 }
 .up {
   transform: rotate(-135deg);
-  transform: rotate(-135deg);
 }
 .down {
-  transform: rotate(45deg);
   transform: rotate(45deg);
 }
 .container {
@@ -46,5 +44,6 @@
   }
 }
 .title {
+  cursor: pointer;
   width: 100%;
 }

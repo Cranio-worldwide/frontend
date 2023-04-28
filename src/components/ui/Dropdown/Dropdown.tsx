@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import styles from './Dropdown.module.scss';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface IProps {
   children?: React.ReactNode;
