@@ -10,9 +10,7 @@ import {
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import styles from './Form.module.scss';
-import cn from 'classnames';
 import { FilterDropdown } from '../ui/FilterDropdown/FilterDropdown';
-import { Input } from '../ui/Input/Input';
 
 export function Form() {
   const [filterValue, setFilterValue] = useState({
@@ -35,7 +33,6 @@ export function Form() {
   };
   // TODO потом вынести выбор языка в пропсы
   const [lang, setLang] = useState<LanguagePrefix>('en');
-  console.log(filterValue);
 
   const titleText = FormTitle[lang];
   const addressText = FormAddress[lang];
