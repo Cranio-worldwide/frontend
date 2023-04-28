@@ -3,6 +3,13 @@ import { Button } from '@/components/ui/Button/Button';
 import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
 import styles from './AccountButton.module.scss';
 
+const menuItems = [
+  { text: 'Профиль', href: '/' },
+  { text: 'Условия сотрудничества', href: '/' },
+  { text: 'Оплата', href: '/' },
+  { text: 'Выйти', href: '/' },
+];
+
 export const AccountButton = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const ref = useRef(null);
@@ -18,13 +25,6 @@ export const AccountButton = () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [setIsOpenMenu]);
-
-  const menuItems = [
-    { text: 'Профиль', href: '/' },
-    { text: 'Условия сотрудничества', href: '/' },
-    { text: 'Оплата', href: '/' },
-    { text: 'Выйти', href: '/' },
-  ];
 
   return (
     <div className={styles.container} ref={ref}>
