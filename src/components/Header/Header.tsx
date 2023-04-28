@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import cn from 'classnames';
-import styles from './Header.module.scss';
 import Link from 'next/link';
+import { Button } from '@/components/ui/Button/Button';
+import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
+import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
+import { NavItems } from '@/components/ui/NavItems/NavItems';
+import styles from './Header.module.scss';
+import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [isModalOpen, setModalOpen] = React.useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isCityOpen, setCityOpen] = useState<boolean>(false);
 
   const handleScroll = () => {
     setScrollPosition(window.pageYOffset);
@@ -22,9 +28,18 @@ export function Header() {
     setModalOpen(!isModalOpen);
   }
 
+  const menuItems = [
+    { text: 'Профиль', href: '/' },
+    { text: 'Условия сотрудничества', href: '/' },
+    { text: 'Оплата', href: '/' },
+    { text: 'Выйти', href: '/' },
+  ];
+
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+
   return (
     <header className={cn(styles.bg, scrollPosition > 100 && styles.bg_active)}>
-      <div className={styles.container}>
+      <SectionContainer className={styles.container}>
         <div className={styles.item}>
           {/* TODO добавить картинку когда дизайнеры нарисуют */}
           <Link href="/" className={styles.image}>
@@ -32,19 +47,20 @@ export function Header() {
           </Link>
           <span className={styles.locations}>
             <span className={styles.location}></span>
-            <p className={styles.city}>Moscow</p>
+            <p className={styles.city} onClick={() => setCityOpen(true)}>
+              Moscow
+            </p>
+            <CityDropdown
+              isCityOpen={isCityOpen}
+              onClose={() => {
+                setCityOpen(false);
+              }}
+            />
           </span>
         </div>
 
         {/* TODO потом потребуется переписать на ссылки на страницу */}
-        <div className={styles.navigations}>
-          <a className={styles.navigation}>Our therapists</a>
-          <a className={cn(styles.navigation_active, styles.navigation)}>
-            Information for therapists
-          </a>
-          <a className={styles.navigations}>Contacts</a>
-        </div>
-
+        <NavItems place="header" />
         <div className={styles.additional}>
           {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
           <span className={styles.loop}></span>
@@ -64,12 +80,26 @@ export function Header() {
               Ger
             </option>
           </select>
-          <button className={styles.button}>Личный кабинет</button>
+          <Button
+            className={styles.button}
+            type="button"
+            theme="transparent"
+            onClick={() => {
+              setIsOpenMenu(!isOpenMenu);
+            }}
+          >
+            Личный кабинет
+          </Button>
+          <MenuDropdown
+            items={menuItems}
+            isOpen={isOpenMenu}
+            onClose={() => setIsOpenMenu(false)}
+          />
           <button className={styles.mobile} onClick={handleOpenBurger}>
             <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
           </button>
         </div>
-      </div>
+      </SectionContainer>
     </header>
   );
 }

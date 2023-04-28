@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Form } from 'src/components/Form/Form';
-
-import { Footer } from '../Footer/Footer';
-import { Header } from '../Header/Header';
+import { Form } from '@/components/Form/Form';
+import { TherapistCards } from '@/components/TherapistCards/TherapistCards';
+import { Footer } from '@/components/Footer/Footer';
+import { Header } from '@/components/Header/Header';
+import { Hero } from '@/components/Hero/Hero';
+import { About } from '@/components/About/About';
+import News from '@/components/News/News';
 import styles from './StartPage.module.scss';
+import { CityDropdown } from '../CityDropdown/CityDropdown';
 
 /**
  *
@@ -14,8 +17,11 @@ export const StartPage = () => {
   return (
     <>
       <Header />
-      <span className={`${styles.big_section} ${styles.overlay}`}></span>
+      <Hero />
       <Form />
+      <TherapistCards />
+      <About />
+      <News />
       <Footer />
     </>
   );
