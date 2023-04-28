@@ -133,16 +133,6 @@
   color: $main-black;
   margin: 0;
 }
-.button {
-  width: 185px;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: $main-black;
-  @include breakpoint(tablet) {
-    display: none;
-  }
-}
 
 .mobile {
   display: none;
