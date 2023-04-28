@@ -32,8 +32,8 @@ const CustomFilterDropdown: FC<InputProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
-  const handleOpen = () => {
-    setIsOpen(true);
+  const handleClick = () => {
+    setIsOpen(!isOpen);
   };
   const handleClose = () => {
     setIsOpen(false);
@@ -54,7 +54,7 @@ const CustomFilterDropdown: FC<InputProps> = ({
   }, [handleClose]);
 
   return (
-    <div className={styles.container} onClick={handleOpen} id={id} ref={ref}>
+    <div className={styles.container} onClick={handleClick} id={id} ref={ref}>
       <div className={styles.title}>
         <span>{title}</span>
         <i className={cn(styles.arrow, isOpen ? styles.up : styles.down)} />
