@@ -64,31 +64,6 @@
   }
 }
 
-.select {
-  box-sizing: border-box;
-  padding: 16px;
-  gap: 16px;
-  width: 180px;
-  height: 48px;
-  border-right: 1px solid $main-grey;
-  font-family: $add-text;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  color: $main-black;
-  &:nth-child(3) {
-    border-radius: 0 16px 16px 0;
-  }
-  @include breakpoint(tablet) {
-    width: 100%;
-    border-radius: 8px;
-    &:nth-child(3) {
-      border-radius: 8px;
-    }
-  }
-}
-
 .button {
   margin-left: 8px;
   max-width: 188px;
