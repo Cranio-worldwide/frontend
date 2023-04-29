@@ -1,0 +1,16 @@
+.container {
+  width: 185px;
+  position: relative;
+
+  @include breakpoint(tablet) {
+    display: none;
+  }
+}
+
+.button {
+  font-size: 18px;
+}
+
+.dropdown{
+    margin-top: 10px;
+}
