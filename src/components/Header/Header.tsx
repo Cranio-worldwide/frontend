@@ -89,12 +89,13 @@ export function Header() {
             }}
           >
             Личный кабинет
+            <MenuDropdown
+              items={menuItems}
+              isOpen={isOpenMenu}
+              onClose={() => setIsOpenMenu(false)}
+            />
           </Button>
-          <MenuDropdown
-            items={menuItems}
-            isOpen={isOpenMenu}
-            onClose={() => setIsOpenMenu(false)}
-          />
+
           <button className={styles.mobile} onClick={handleOpenBurger}>
             <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
           </button>
