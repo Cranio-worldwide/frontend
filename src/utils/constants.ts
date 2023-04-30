@@ -1,5 +1,6 @@
 import photo from '../assets/deafault-photo.svg';
 import image from '../assets/news-image.png';
+import lang from '../assets/lang_ru.svg';
 
 export const therapistsCards = [
   {
@@ -83,4 +84,9 @@ export const news = [
     photo: image,
     title: 'Главные события уходящего года мы обсудили вместе с нашими',
   },
+];
+export const languages = [
+  { photo: lang, title: 'English', ISO: 'En', active: false },
+  { photo: lang, title: 'Русский', ISO: 'Ru', active: true },
+  { photo: lang, title: 'Español', ISO: 'Es', active: false },
 ];

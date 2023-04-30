@@ -1,4 +1,4 @@
-import { HtmlHTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 import {
   FormAddress,
   FormDistance,
@@ -33,7 +33,6 @@ export function Form() {
   };
   // TODO потом вынести выбор языка в пропсы
   const [lang, setLang] = useState<LanguagePrefix>('en');
-
   const titleText = FormTitle[lang];
   const addressText = FormAddress[lang];
   const priceText = FormPrice[lang];

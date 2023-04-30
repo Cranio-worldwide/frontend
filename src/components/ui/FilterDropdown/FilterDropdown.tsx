@@ -2,6 +2,7 @@ import React, { Children, FC, memo, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import styles from './FilterDropdown.module.scss';
 import { LimitInputs } from './types/limits/LimitInputs';
+import { Arrow } from '../arrow/Arrow';
 
 export type InputTheme = 'primary' | 'transparent';
 
@@ -57,7 +58,7 @@ const CustomFilterDropdown: FC<InputProps> = ({
     <div className={styles.container} id={id} ref={ref}>
       <div className={styles.title} onClick={handleClick}>
         <span>{title}</span>
-        <i className={cn(styles.arrow, isOpen ? styles.up : styles.down)} />
+        <Arrow isOpen={isOpen} />
       </div>
       {isOpen && form === 'limit' && (
         <LimitInputs
