@@ -83,7 +83,7 @@ export default function News() {
       <SectionTitle>News</SectionTitle>
       <Slider {...settings}>
         {news.map((piece) => (
-          <NewsPiece key={piece.id} photo={piece.photo} title={piece.title} />
+          <NewsPiece key={piece.id} photo={piece.photo.src} title={piece.title} />
         ))}
       </Slider>
     </SectionContainer>
