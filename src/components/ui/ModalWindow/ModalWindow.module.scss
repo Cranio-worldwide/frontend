@@ -1,0 +1,39 @@
+.modal {
+  position: relative;
+  background-color: $white;
+  border-radius: 16px;
+  padding: 45px 60px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  @include breakpoint(tablet) {
+    width: 100%;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 45px 50px 30px;
+  }
+}
+
+.close_button {
+  position: absolute;
+  top: 19px;
+  right: 28px;
+  width: 11px;
+  height: 11px;
+  background-image: url(../../../assets/close-button.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  @include breakpoint(tablet) {
+    right: 115px;
+  }
+  @include breakpoint(mobile) {
+    top: 17px;
+    right: 16px;
+    width: 10px;
+    height: 10px;
+  }
+}

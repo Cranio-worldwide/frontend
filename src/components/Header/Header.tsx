@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
-import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
+import { UI } from '@/contexts/UIContext';
 import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
 import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
@@ -11,7 +11,7 @@ import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [isCityOpen, setCityOpen] = useState<boolean>(false);
+  const { openModal, setOpenModal } = useContext(UI);
 
   const handleScroll = () => {
     setScrollPosition(window.pageYOffset);
@@ -45,17 +45,9 @@ export function Header() {
           <Link href="/" className={styles.image}>
             Logo
           </Link>
-          <span className={styles.locations}>
+          <span className={styles.locations} onClick={() => setOpenModal(!openModal)}>
             <span className={styles.location}></span>
-            <p className={styles.city} onClick={() => setCityOpen(true)}>
-              Moscow
-            </p>
-            <CityDropdown
-              isCityOpen={isCityOpen}
-              onClose={() => {
-                setCityOpen(false);
-              }}
-            />
+            <p className={styles.city}>Moscow</p>
           </span>
         </div>
 
