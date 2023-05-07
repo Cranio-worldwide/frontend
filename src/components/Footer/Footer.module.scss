@@ -62,15 +62,20 @@
     grid-row: 1;
     width: 90px;
   }
+}
+.sm {
+  display: block;
+  cursor: pointer;
+  transition: background-image 0.3s ease-in-out;
 
-  .sm_vk {
-    display: block;
+  &_vk {
     width: 30px;
     height: 25px;
-    background-image: url(../../assets/vk.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
+    background: url(../../assets/vk.svg) no-repeat center;
+
+    &:hover {
+      background-image: url(../../assets/vk-hover.svg);
+    }
 
     @include breakpoint(mobile) {
       width: 20px;
@@ -78,14 +83,14 @@
     }
   }
 
-  .sm_inst {
-    display: block;
+  &_inst {
     width: 25px;
     height: 25px;
-    background-image: url(../../assets/inst.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
+    background: url(../../assets/inst.svg) no-repeat center;
+
+    &:hover {
+      background-image: url(../../assets/inst-hover.svg);
+    }
 
     @include breakpoint(mobile) {
       width: 17px;
@@ -93,14 +98,14 @@
     }
   }
 
-  .sm_tg {
-    display: block;
+  &_tg {
     width: 28px;
     height: 25px;
-    background-image: url(../../assets/tg.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
+    background: url(../../assets/tg.svg) no-repeat center;
+
+    &:hover {
+      background-image: url(../../assets/tg-hover.svg);
+    }
 
     @include breakpoint(mobile) {
       width: 18px;
