@@ -6,6 +6,7 @@ import { UI } from '@/contexts/UIContext';
 import { AccountButton } from '@/components/AccountButton/AccountButton';
 import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
+import { LanguagesList } from '@/components/ui/LanguagesDropdown.tsx/LanguagesList';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -45,23 +46,7 @@ export function Header() {
         <NavItems place="header" />
         <div className={styles.additional}>
           {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
-          <span className={styles.loop}></span>
-          <select name="language" id="language" className={styles.languages}>
-            <option value="ru" className={styles.language}>
-              {/* уточнить про финальную версию в среду */}
-              {/* <img className="header__flag header__flag_ru" alt="Ru" />  */}
-              Ru
-            </option>
-            <option value="en" className={styles.language}>
-              En
-            </option>
-            <option value="es" className={styles.language}>
-              Es
-            </option>
-            <option value="ger" className={styles.language}>
-              Ger
-            </option>
-          </select>
+          <span className={styles.loop}></span> <LanguagesList />
           <AccountButton />
           <button className={styles.mobile} onClick={handleOpenBurger}>
             <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>

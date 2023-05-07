@@ -17,9 +17,11 @@ interface InputProps
     min?: number | string | null;
     max?: number | string | null;
   };
+  numeralSystem: string;
 }
 
 export const LimitInputs: FC<InputProps> = ({
+  numeralSystem,
   id,
   filterValue,
   onChange,
@@ -46,7 +48,7 @@ export const LimitInputs: FC<InputProps> = ({
             changehandler(e, id);
           }}
           name="min"
-          placeholder={description.min}
+          placeholder={`${description.min} ${numeralSystem}`}
         />
         <span />
         <input
@@ -56,7 +58,7 @@ export const LimitInputs: FC<InputProps> = ({
             changehandler(e, id);
           }}
           name="max"
-          placeholder={description.max}
+          placeholder={`${description.max} ${numeralSystem}`}
         />
       </div>
     </div>

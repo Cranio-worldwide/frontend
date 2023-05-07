@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import styles from './NewsPiece.module.scss';
+import Image from 'next/image';
 
 interface IProps {
   photo: string;
