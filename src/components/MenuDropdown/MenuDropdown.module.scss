@@ -6,7 +6,7 @@
 .item {
   padding: 12px 0;
   font-size: 18px;
-
+  transition: 0.2s color;
   &:not(:last-of-type) {
     border-bottom: 1px solid $main-grey-light;
   }
