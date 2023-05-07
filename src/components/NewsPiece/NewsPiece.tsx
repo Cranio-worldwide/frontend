@@ -7,8 +7,6 @@ interface IProps {
 }
 
 export const NewsPiece: React.FC<IProps> = ({ photo, title }) => {
-  console.log(photo);
-
   return (
     <div className={styles.newspiece}>
       <Image

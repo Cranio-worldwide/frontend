@@ -19,21 +19,20 @@ export const LanguagesList: React.FC<IProps> = ({ currentlang = 'en', onChange }
   const [isOpen, setIsOpen] = useState(false);
   const onClose = () => setIsOpen(false);
   const onOpen = () => setIsOpen(true);
-  const ActiveLang = languages.find((item) => item.ISO.toLowerCase() === lang);
-  const NoActiveLang = languages.filter((item) => item.ISO.toLowerCase() !== lang);
+  const CurrentLang = languages.find((item) => item.ISO.toLowerCase() === lang);
 
   return (
     <div className={styles.container}>
       <div onClick={onOpen} className={styles.active_lang}>
-        <Image src={ActiveLang.photo} alt={ActiveLang.ISO} />
-        <span> {ActiveLang.ISO}</span>
+        <Image src={CurrentLang.photo} alt={CurrentLang.ISO} />
+        <span> {CurrentLang.ISO}</span>
         <div className={styles.arrow}>
           <Arrow isOpen={isOpen} />
         </div>
       </div>
       <div className={styles.item_wrapper}>
         <Dropdown isOpen={isOpen} onClose={onClose}>
-          {NoActiveLang.map((lang, index) => {
+          {languages.map((lang, index) => {
             return (
               <div
                 key={index}

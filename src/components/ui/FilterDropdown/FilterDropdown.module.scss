@@ -44,6 +44,8 @@
   }
 }
 .title {
+  overflow: hidden;
+  white-space: nowrap;
   cursor: pointer;
   width: 100%;
 }

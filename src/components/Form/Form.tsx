@@ -38,12 +38,35 @@ export function Form() {
   const priceText = FormPrice[lang];
   const distanceText = FormDistance[lang];
   const buttonText = FormSearchButtonText[lang];
-
+  const filterConfig = [
+    {
+      numeralSystem: 'руб',
+      id: 'price',
+      description: { min: 'от 2500', max: 'до 45 000' },
+      title: priceText,
+      filterValue: filterValue.price,
+      onChange: changeFilterValue,
+    },
+    {
+      numeralSystem: 'км',
+      id: 'distance',
+      description: { min: 'от 1', max: 'до 1000' },
+      title: distanceText,
+      filterValue: filterValue.distance,
+      onChange: changeFilterValue,
+    },
+  ];
   return (
     <section className={styles.section}>
       <SectionContainer className={styles.container}>
         <h3 className={styles.title}>{titleText}</h3>
-        <form className={styles.form} onSubmit={(e) => console.log(e)}>
+        <form
+          className={styles.form}
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log(e);
+          }}
+        >
           <input
             placeholder={addressText}
             type="text"
@@ -52,21 +75,21 @@ export function Form() {
             name="address"
             value={filterValue.address}
           />
-          {/*  TODO дополнить ввод полей цена и геолокация после уточнения у дизайнеров */}
-          <FilterDropdown
-            id="price"
-            description={{ min: 'от 2500', max: 'до 45 000' }}
-            title={priceText}
-            filterValue={filterValue.price}
-            onChange={changeFilterValue}
-          />
-          <FilterDropdown
-            id="distance"
-            description={{ min: 'от 1 км', max: 'до 1000 км' }}
-            title={distanceText}
-            filterValue={filterValue.distance}
-            onChange={changeFilterValue}
-          />
+
+          {filterConfig.map((filter, index) => {
+            const { numeralSystem, id, description, title, filterValue, onChange } = filter;
+            return (
+              <FilterDropdown
+                key={index}
+                numeralSystem={numeralSystem}
+                id={id}
+                description={description}
+                title={title}
+                filterValue={filterValue}
+                onChange={onChange}
+              />
+            );
+          })}
           <Button
             type="submit"
             theme="primary"

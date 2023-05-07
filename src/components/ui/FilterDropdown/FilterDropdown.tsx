@@ -12,6 +12,7 @@ interface InputProps
     max: string;
     min: string;
   };
+  numeralSystem: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   title: string;
   type?: 'limit' | undefined;
@@ -26,6 +27,7 @@ const CustomFilterDropdown: FC<InputProps> = ({
   form = 'limit',
   title,
   id,
+  numeralSystem,
   filterValue,
   onChange,
   description,
@@ -57,11 +59,16 @@ const CustomFilterDropdown: FC<InputProps> = ({
   return (
     <div className={styles.container} id={id} ref={ref}>
       <div className={styles.title} onClick={handleClick}>
-        <span>{title}</span>
-        <Arrow isOpen={isOpen} />
+        <span>
+          {filterValue.min && filterValue.max
+            ? `${filterValue.min} ${numeralSystem} - ${filterValue.max}  ${numeralSystem}`
+            : title}
+        </span>
+        {!filterValue.min && !filterValue.min ? <Arrow isOpen={isOpen} /> : ''}
       </div>
       {isOpen && form === 'limit' && (
         <LimitInputs
+          numeralSystem={numeralSystem}
           id={id}
           filterValue={filterValue}
           onChange={onChange}
