@@ -1,8 +1,8 @@
-import React, { Children, FC, memo, useEffect, useRef, useState } from 'react';
-import cn from 'classnames';
+import React, { FC, useRef, useState } from 'react';
 import styles from './FilterDropdown.module.scss';
 import { LimitInputs } from './types/limits/LimitInputs';
-import { Arrow } from '../arrow/Arrow';
+import { Dropdown } from '@/components/ui/Dropdown/Dropdown';
+import { Arrow } from '@/components/ui/Аrrow/Arrow';
 
 export type InputTheme = 'primary' | 'transparent';
 
@@ -42,41 +42,29 @@ const CustomFilterDropdown: FC<InputProps> = ({
     setIsOpen(false);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        handleClose();
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside, true);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    };
-  }, [handleClose]);
-
   return (
-    <div className={styles.container} id={id} ref={ref}>
-      <div className={styles.title} onClick={handleClick}>
-        <span>
-          {filterValue.min && filterValue.max
-            ? `${filterValue.min} ${numeralSystem} - ${filterValue.max}  ${numeralSystem}`
-            : title}
-        </span>
-        {!filterValue.min && !filterValue.min ? <Arrow isOpen={isOpen} /> : ''}
+    <Dropdown onClose={handleClose}>
+      <div className={styles.container} id={id} ref={ref}>
+        <div className={styles.title} onClick={handleClick}>
+          <span>
+            {filterValue.min && filterValue.max
+              ? `${filterValue.min} ${numeralSystem} - ${filterValue.max}  ${numeralSystem}`
+              : title}
+          </span>
+          {!filterValue.min && !filterValue.max ? <Arrow isOpen={isOpen} /> : ''}
+        </div>
+        {isOpen && form === 'limit' && (
+          <LimitInputs
+            numeralSystem={numeralSystem}
+            id={id}
+            filterValue={filterValue}
+            onChange={onChange}
+            title={title}
+            description={description}
+          />
+        )}
       </div>
-      {isOpen && form === 'limit' && (
-        <LimitInputs
-          numeralSystem={numeralSystem}
-          id={id}
-          filterValue={filterValue}
-          onChange={onChange}
-          title={title}
-          description={description}
-        />
-      )}
-    </div>
+    </Dropdown>
   );
 };
 export const FilterDropdown = CustomFilterDropdown;

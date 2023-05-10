@@ -1,9 +1,11 @@
 import styles from './LanguagesList.module.scss';
 import { Dropdown } from '../Dropdown/Dropdown';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { languages } from 'src/utils/constants';
-import { Arrow } from '@/components/ui/arrow/Arrow';
+import { Arrow } from '@/components/ui/Аrrow/Arrow';
 import Image from 'next/image';
+import { ModalList } from '@/components/ui/ModalList/ModalList';
+import { ModalItem } from '@/components/ui/ModalList/ModalItem/ModalItem';
 
 interface IProps {
   currentlang?: string;
@@ -16,38 +18,43 @@ export const LanguagesList: React.FC<IProps> = ({ currentlang = 'en', onChange }
     onChange ? onChange(lang) : setLang(lang);
     onClose();
   };
+  const ref = useRef(null);
+
   const [isOpen, setIsOpen] = useState(false);
   const onClose = () => setIsOpen(false);
-  const onOpen = () => setIsOpen(true);
-  const CurrentLang = languages.find((item) => item.ISO.toLowerCase() === lang);
+  const onClick = () => {
+    setIsOpen(!isOpen);
+  };
 
+  const activeLang = languages.find((item) => item.ISO.toLowerCase() === lang);
   return (
-    <div className={styles.container}>
-      <div onClick={onOpen} className={styles.active_lang}>
-        <Image src={CurrentLang.photo} alt={CurrentLang.ISO} />
-        <span> {CurrentLang.ISO}</span>
-        <div className={styles.arrow}>
-          <Arrow isOpen={isOpen} />
+    <div className={styles.wrapper} ref={ref}>
+      <Dropdown onClose={onClose}>
+        <div onClick={onClick} className={styles.active_lang}>
+          <Image src={activeLang.photo} alt={activeLang.ISO} className={styles.image} />
+          <span> {activeLang.ISO}</span>
+          <div className={styles.arrow}>
+            <Arrow isOpen={isOpen} />
+          </div>
         </div>
-      </div>
-      <div className={styles.item_wrapper}>
-        <Dropdown isOpen={isOpen} onClose={onClose}>
-          {languages.map((lang, index) => {
-            return (
-              <div
-                key={index}
-                className={styles.item}
-                onClick={() => {
-                  changeLang(lang.ISO.toLowerCase());
-                }}
-              >
-                <Image src={lang.photo} alt={lang.ISO} width="24" height="24" />
-                <span>{lang.title}</span>
-              </div>
-            );
-          })}
-        </Dropdown>
-      </div>
+        {isOpen && (
+          <ModalList>
+            {languages.map((lang, index) => {
+              return (
+                <ModalItem
+                  key={index}
+                  onClick={() => {
+                    changeLang(lang.ISO.toLowerCase());
+                  }}
+                >
+                  <Image src={lang.photo} alt={lang.ISO} className={styles.image} />
+                  <span>{lang.title}</span>
+                </ModalItem>
+              );
+            })}
+          </ModalList>
+        )}
+      </Dropdown>
     </div>
   );
 };

@@ -9,7 +9,7 @@ interface IProps {
 
 export const CityDropdown: React.FC<IProps> = ({ isCityOpen, onClose }) => {
   return (
-    <Dropdown onClose={onClose} isOpen={isCityOpen} className={styles.container}>
+    <Dropdown onClose={onClose}>
       <button className={styles.close} onClick={onClose} />
       <p className={styles.question}>Ваш город — Москва?</p>
       <div className={styles.buttons}>

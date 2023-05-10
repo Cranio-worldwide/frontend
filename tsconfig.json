@@ -24,6 +24,6 @@
       "@/pages/*": ["./src/pages/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/ui/LanguagesDropdown"],
   "exclude": ["node_modules"]
 }

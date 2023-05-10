@@ -1,4 +1,4 @@
-import { Children, FC, memo, useState } from 'react';
+import { FC, ChangeEvent } from 'react';
 import styles from './LimitInputs.module.scss';
 
 export type InputTheme = 'primary' | 'transparent';
@@ -19,6 +19,9 @@ interface InputProps
   };
   numeralSystem: string;
 }
+interface OnChangeBeforeEvent extends ChangeEvent<HTMLInputElement> {
+  data: string;
+}
 
 export const LimitInputs: FC<InputProps> = ({
   numeralSystem,
@@ -29,12 +32,14 @@ export const LimitInputs: FC<InputProps> = ({
   title,
 }: InputProps) => {
   const changehandler = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
-    e.target.value = e.target.value.replace(/[^0-9]/g, '');
-    if (e.target.value.startsWith('0')) {
-      e.target.value = e.target.value.slice(1);
-    }
     e.target.id = id;
     onChange(e);
+  };
+
+  const onBeforeInputvalidator = (e: OnChangeBeforeEvent) => {
+    if (!e.data.replace(/[^0-9]/g, '')) {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -42,8 +47,10 @@ export const LimitInputs: FC<InputProps> = ({
       <div className={styles.header}>{title}</div>
       <div className={styles.input_list}>
         <input
-          type="number"
+          maxLength={8}
+          type="text"
           value={filterValue.min ? filterValue.min : ''}
+          onBeforeInput={onBeforeInputvalidator}
           onChange={(e) => {
             changehandler(e, id);
           }}
@@ -52,8 +59,10 @@ export const LimitInputs: FC<InputProps> = ({
         />
         <span />
         <input
-          type="number"
+          type="text"
+          maxLength={8}
           value={filterValue.max ? filterValue.max : ''}
+          onBeforeInput={onBeforeInputvalidator}
           onChange={(e) => {
             changehandler(e, id);
           }}

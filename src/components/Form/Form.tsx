@@ -15,8 +15,8 @@ import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
 export function Form() {
   const [filterValue, setFilterValue] = useState({
     address: '',
-    price: { min: 0, max: 0 },
-    distance: { min: 0, max: 0 },
+    price: { min: null, max: null },
+    distance: { min: null, max: null },
   });
   const changeFilterValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'address') {
@@ -27,7 +27,10 @@ export function Form() {
     } else {
       setFilterValue({
         ...filterValue,
-        [e.target.id]: { ...filterValue[e.target.id], [e.target.name]: Number(e.target.value) },
+        [e.target.id]: {
+          ...filterValue[e.target.id],
+          [e.target.name]: Number(e.target.value),
+        },
       });
     }
   };
