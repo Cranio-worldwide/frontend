@@ -63,53 +63,19 @@
     width: 90px;
   }
 }
-.sm {
-  display: block;
+.link {
+  width: 32px;
+  height: 32px;
   cursor: pointer;
-  transition: background-image 0.3s ease-in-out;
+  color: $main-grey-light;
+  transition: color 0.3s ease-in-out;
 
-  &_vk {
-    width: 30px;
-    height: 25px;
-    background: url(../../assets/vk.svg) no-repeat center;
-
-    &:hover {
-      background-image: url(../../assets/vk-hover.svg);
-    }
-
-    @include breakpoint(mobile) {
-      width: 20px;
-      height: 25px;
-    }
+  &:hover {
+    color: $accent;
   }
 
-  &_inst {
-    width: 25px;
-    height: 25px;
-    background: url(../../assets/inst.svg) no-repeat center;
-
-    &:hover {
-      background-image: url(../../assets/inst-hover.svg);
-    }
-
-    @include breakpoint(mobile) {
-      width: 17px;
-      height: 25px;
-    }
-  }
-
-  &_tg {
-    width: 28px;
-    height: 25px;
-    background: url(../../assets/tg.svg) no-repeat center;
-
-    &:hover {
-      background-image: url(../../assets/tg-hover.svg);
-    }
-
-    @include breakpoint(mobile) {
-      width: 18px;
-      height: 25px;
-    }
+  @include breakpoint(mobile) {
+    width: 21px;
+    height: 21px;
   }
 }
