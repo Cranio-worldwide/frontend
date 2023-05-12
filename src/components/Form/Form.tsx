@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import cn from 'classnames';
 import {
   FormAddress,
   FormDistance,
@@ -12,7 +13,7 @@ import { SectionContainer } from '@/components/SectionContainer/SectionContainer
 import styles from './Form.module.scss';
 import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
 
-export function Form() {
+export function Form({ isSearchForm = false }) {
   const [filterValue, setFilterValue] = useState({
     address: '',
     price: { min: 0, max: 0 },
@@ -57,11 +58,15 @@ export function Form() {
     },
   ];
   return (
-    <section className={styles.section}>
-      <SectionContainer className={styles.container}>
-        <h3 className={styles.title}>{titleText}</h3>
+    <section
+      className={cn(styles.section, isSearchForm ? styles.section_search : styles.section_main)}
+    >
+      <SectionContainer>
+        <h3 className={cn(styles.title, isSearchForm ? styles.title_search : styles.title_main)}>
+          {titleText}
+        </h3>
         <form
-          className={styles.form}
+          className={cn(styles.form, isSearchForm ? styles.form_search : styles.form_main)}
           onSubmit={(e) => {
             e.preventDefault();
             console.log(e);
@@ -70,7 +75,7 @@ export function Form() {
           <input
             placeholder={addressText}
             type="text"
-            className={styles.input}
+            className={cn(styles.input, isSearchForm ? styles.input_search : styles.input_main)}
             onChange={changeFilterValue}
             name="address"
             value={filterValue.address}
@@ -93,7 +98,7 @@ export function Form() {
           <Button
             type="submit"
             theme="primary"
-            className={styles.button}
+            className={cn(styles.button, isSearchForm ? styles.button_search : styles.button_main)}
             disabled={false}
             onClick={() => {}}
           >

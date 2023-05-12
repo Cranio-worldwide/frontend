@@ -7,6 +7,7 @@ import { About } from '@/components/About/About';
 import News from '@/components/News/News';
 import styles from './StartPage.module.scss';
 import { CityDropdown } from '../CityDropdown/CityDropdown';
+import { CustomGMap } from '../CustomGMap/CustomGMap';
 
 /**
  *
@@ -19,6 +20,7 @@ export const StartPage = () => {
       <Header />
       <Hero />
       <Form />
+      <CustomGMap location={'London'} />
       <TherapistCards />
       <About />
       <News />

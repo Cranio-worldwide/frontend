@@ -1,0 +1,57 @@
+.section {
+  position: relative;
+
+  &_main {
+    margin-top: 50px;
+  }
+
+  &_search {
+    margin-top: 100px;
+  }
+
+  @include breakpoint(tablet) {
+    &_main {
+      margin-top: 65px;
+    }
+    &_search {
+      margin-top: 70px;
+    }
+  }
+  @include breakpoint(mobile) {
+    &_main {
+      margin-top: 18px;
+      padding: 0;
+    }
+    &_search {
+      margin-top: 43px;
+    }
+  }
+}
+
+.iframe {
+  border-radius: 8px;
+  &_main {
+    height: 460px;
+  }
+
+  &_search {
+    height: 256px;
+  }
+  @include breakpoint(tablet) {
+    &_main {
+      height: 274px;
+    }
+    &_search {
+      height: 276px;
+    }
+  }
+  @include breakpoint(mobile) {
+    &_main {
+      height: 295px;
+      border-radius: 0;
+    }
+    &_search {
+      height: 256px;
+    }
+  }
+}

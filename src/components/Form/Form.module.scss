@@ -1,54 +1,103 @@
 .section {
   position: relative;
-  margin-top: 35px;
+
+  &_main {
+    margin-top: 35px;
+  }
+
+  &_search {
+    margin-top: 50px;
+  }
 
   @include breakpoint(tablet) {
-    margin-top: 32px;
+    &_main {
+      margin-top: 32px;
+    }
+    &_search {
+      margin-top: 40px;
+    }
   }
   @include breakpoint(mobile) {
-    margin-top: 40px;
+    &_main {
+      margin-top: 40px;
+    }
+    &_search {
+      margin-top: 30px;
+    }
   }
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
 }
 
 .title {
+  // font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
   color: $main-black;
   margin: 0;
+
+  &_main {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  &_search {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
   @include breakpoint(mobile) {
-    font-size: 18px;
-    line-height: 21px;
+    &_main {
+      font-size: 18px;
+      line-height: 21px;
+    }
+    &_search {
+      font-size: 24px;
+      line-height: 29px;
+    }
   }
 }
 
 .form {
   display: flex;
   flex-flow: row nowrap;
+  // gap: 8px;
+
+  &_main {
+    margin-top: 9px;
+  }
+
+  &_search {
+    margin-top: 50px;
+  }
+
   @include breakpoint(tablet) {
     flex-direction: column;
     gap: 4px;
-    margin-top: 5px;
+
+    &_main {
+      margin-top: 14px;
+    }
+    &_search {
+      margin-top: 15px;
+    }
   }
   @include breakpoint(mobile) {
     gap: 16px;
-    margin-top: 12px;
+
+    &_main {
+      margin-top: 21px;
+    }
+    &_search {
+      margin-top: 19px;
+    }
   }
 }
 
 .input {
   padding: 16px 189px 16px 16px;
   border: 1px solid $main-grey;
-  border-radius: 16px 0 0 16px;
-  width: 286px;
   height: 48px;
+  border-radius: 16px 0 0 16px;
+
   &::placeholder {
     font-family: "Arimo", sans-serif;
     font-style: normal;
@@ -57,6 +106,15 @@
     line-height: 16px;
     color: $main-grey;
   }
+
+  &_main {
+    width: 286px;
+  }
+
+  &_search {
+    width: 607px;
+  }
+
   @include breakpoint(tablet) {
     width: 100%;
     padding: 16px;
@@ -66,11 +124,19 @@
 
 .button {
   margin-left: 8px;
-  max-width: 188px;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
+
+  &_main {
+    max-width: 188px;
+  }
+
+  &_search {
+    max-width: 200px;
+  }
+
   @include breakpoint(tablet) {
     max-width: 100%;
     margin: 0;
