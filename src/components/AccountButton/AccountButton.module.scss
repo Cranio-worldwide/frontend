@@ -1,9 +1,18 @@
 .container {
   width: 185px;
   position: relative;
+}
 
+.desktop {
   @include breakpoint(tablet) {
     display: none;
+  }
+}
+
+.burger{
+  display: none;
+  @include breakpoint(tablet) {
+    display: block;
   }
 }
 
@@ -11,6 +20,6 @@
   font-size: 18px;
 }
 
-.dropdown{
-    margin-top: 10px;
+.dropdown {
+  margin-top: 10px;
 }

@@ -4,26 +4,66 @@
   align-items: center;
   gap: 20px;
   width: 470px;
+
   @include breakpoint(desktop) {
     width: 370px;
   }
-  &_header {
-    @media screen and (max-width: 1190px) {
-      display: none;
-    }
-  }
+
   @include breakpoint(tablet-wide) {
     flex-direction: column;
     align-items: start;
     gap: 32px;
   }
+
   @include breakpoint(mobile-wide) {
     width: fit-content;
     gap: 21px;
   }
 }
 
-.contrast {
+.header {
+  @media screen and (max-width: 1190px) {
+    display: none;
+  }
+}
+
+.burger {
+  gap: 0;
+  padding: 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 3px 4px rgba(51, 51, 51, 15%);
+
+  @include breakpoint(mobile) {
+    height: 100vh;
+    justify-content: start;
+    background-color: rgba($color: $white, $alpha: 97%);
+  }
+}
+
+.burger_link {
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px 0;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $main-grey-light;
+  }
+}
+
+.footer {
   color: $main-grey-light;
   line-height: 16px;
+}
+
+.accBtn {
+  margin: 20px auto 0;
+
+  @include breakpoint(mobile) {
+    margin: 20px 0 0;
+  }
 }

@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Button } from '@/components/ui/Button/Button';
 import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
 import styles from './AccountButton.module.scss';
+import cn from 'classnames';
 
 const menuItems = [
   { text: 'Профиль', href: '/' },
@@ -10,7 +11,12 @@ const menuItems = [
   { text: 'Выйти', href: '/' },
 ];
 
-export const AccountButton = () => {
+interface IProps {
+  variant?: 'desktop' | 'burger';
+  className?: string;
+}
+
+export const AccountButton: React.FC<IProps> = ({ className, variant }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const ref = useRef(null);
 
@@ -27,7 +33,7 @@ export const AccountButton = () => {
   }, [setIsOpenMenu]);
 
   return (
-    <div className={styles.container} ref={ref}>
+    <div className={cn(styles.container, className, styles[variant])} ref={ref}>
       <Button
         className={styles.button}
         type="button"

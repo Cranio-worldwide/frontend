@@ -7,6 +7,7 @@ import { AccountButton } from '@/components/AccountButton/AccountButton';
 import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
 import { LanguagesList } from '@/components/ui/LanguagesDropdown.tsx/LanguagesList';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -55,10 +56,11 @@ export function Header() {
         <div className={styles.additional}>
           {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
           <span className={styles.loop}></span> <LanguagesList />
-          <AccountButton />
-          <button className={styles.mobile} onClick={handleOpenBurger}>
+          <AccountButton variant="desktop" />
+          {/* <button className={styles.mobile} onClick={handleOpenBurger}>
             <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
-          </button>
+          </button> */}
+          <BurgerMenu />
         </div>
       </SectionContainer>
     </header>
