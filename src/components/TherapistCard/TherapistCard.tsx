@@ -3,10 +3,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/Button/Button';
+import DefaultPhoto from '../../assets/deafault-photo.svg';
 import styles from './TherapistCard.module.scss';
 
 interface IProps {
-  photo: string;
+  photo?: string;
   name: string;
   position: string;
   location: string;
@@ -31,7 +32,11 @@ const TherapistCard: React.FC<IProps> = ({
   const [clicked, setClicked] = useState<boolean>(false);
   return (
     <div className={styles.card}>
-      <Image src={photo} alt={name} className={styles.photo} />
+      {photo ? (
+        <Image src={photo} alt={name} className={styles.photo} />
+      ) : (
+        <DefaultPhoto alt={name} className={styles.photo} />
+      )}
       <div className={styles.maininfo}>
         <p className={styles.name}>{name}</p>
         <p className={cn(styles.subtext, styles.position)}>{position}</p>

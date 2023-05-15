@@ -62,49 +62,20 @@
     grid-row: 1;
     width: 90px;
   }
+}
+.link {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: $main-grey-light;
+  transition: color 0.3s ease-in-out;
 
-  .sm_vk {
-    display: block;
-    width: 30px;
-    height: 25px;
-    background-image: url(../../assets/vk.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-
-    @include breakpoint(mobile) {
-      width: 20px;
-      height: 25px;
-    }
+  &:hover {
+    color: $accent;
   }
 
-  .sm_inst {
-    display: block;
-    width: 25px;
-    height: 25px;
-    background-image: url(../../assets/inst.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-
-    @include breakpoint(mobile) {
-      width: 17px;
-      height: 25px;
-    }
-  }
-
-  .sm_tg {
-    display: block;
-    width: 28px;
-    height: 25px;
-    background-image: url(../../assets/tg.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-
-    @include breakpoint(mobile) {
-      width: 18px;
-      height: 25px;
-    }
+  @include breakpoint(mobile) {
+    width: 21px;
+    height: 21px;
   }
 }

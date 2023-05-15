@@ -3,6 +3,7 @@ import { Dropdown } from '../Dropdown/Dropdown';
 import { useState } from 'react';
 import { languages } from 'src/utils/constants';
 import { Arrow } from '@/components/ui/arrow/Arrow';
+import Icon from '../../../assets/lang_ru.svg';
 import Image from 'next/image';
 
 interface IProps {
@@ -24,7 +25,7 @@ export const LanguagesList: React.FC<IProps> = ({ currentlang = 'en', onChange }
   return (
     <div className={styles.container}>
       <div onClick={onOpen} className={styles.active_lang}>
-        <Image src={CurrentLang.photo} alt={CurrentLang.ISO} />
+        <Icon alt={CurrentLang.ISO} />
         <span> {CurrentLang.ISO}</span>
         <div className={styles.arrow}>
           <Arrow isOpen={isOpen} />
@@ -41,7 +42,8 @@ export const LanguagesList: React.FC<IProps> = ({ currentlang = 'en', onChange }
                   changeLang(lang.ISO.toLowerCase());
                 }}
               >
-                <Image src={lang.photo} alt={lang.ISO} width="24" height="24" />
+                <Icon alt={lang.ISO} width="24" height="24" />
+
                 <span>{lang.title}</span>
               </div>
             );

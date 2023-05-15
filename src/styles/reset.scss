@@ -91,6 +91,12 @@ video {
   vertical-align: baseline;
   box-sizing: border-box;
 }
+
+body {
+  font-family: $main-text;
+  color: $main-black;
+  font-weight: 400;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
