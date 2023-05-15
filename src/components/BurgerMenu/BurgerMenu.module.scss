@@ -27,7 +27,6 @@
   line-height: 0;
   transition: 0.2s;
 
-
   &::before,
   &::after {
     content: "";
@@ -74,22 +73,15 @@
 }
 
 .opened {
-  animation: fadeIn 0.3s;
+  transition: 0.3s;
+  opacity: 1;
+  top: 100%;
 }
 
 .closed {
   transition: 0.3s;
   opacity: 0;
   top: -100%;
+  visibility: hidden;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    top: -100%;
-  }
-  to {
-    opacity: 1;
-    top: 100%;
-  }
-}
