@@ -7,18 +7,24 @@ import {
   FormSearchButtonText,
   FormTitle,
   LanguagePrefix,
+  Place,
 } from '@/shared/types';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import styles from './Form.module.scss';
 import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
 
-export function Form({ isSearchForm = false }) {
+interface IProps {
+  place: Place;
+}
+
+export const Form: React.FC<IProps> = ({ place }) => {
   const [filterValue, setFilterValue] = useState({
     address: '',
     price: { min: 0, max: 0 },
     distance: { min: 0, max: 0 },
   });
+
   const changeFilterValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'address') {
       setFilterValue({
@@ -57,16 +63,13 @@ export function Form({ isSearchForm = false }) {
       onChange: changeFilterValue,
     },
   ];
+
   return (
-    <section
-      className={cn(styles.section, isSearchForm ? styles.section_search : styles.section_main)}
-    >
+    <section className={cn(styles.section, styles[`section_${place}`])}>
       <SectionContainer>
-        <h3 className={cn(styles.title, isSearchForm ? styles.title_search : styles.title_main)}>
-          {titleText}
-        </h3>
+        <h3 className={cn(styles.title, styles[`title_${place}`])}>{titleText}</h3>
         <form
-          className={cn(styles.form, isSearchForm ? styles.form_search : styles.form_main)}
+          className={cn(styles.form, styles[`form_${place}`])}
           onSubmit={(e) => {
             e.preventDefault();
             console.log(e);
@@ -75,7 +78,7 @@ export function Form({ isSearchForm = false }) {
           <input
             placeholder={addressText}
             type="text"
-            className={cn(styles.input, isSearchForm ? styles.input_search : styles.input_main)}
+            className={cn(styles.input, styles[`input_${place}`])}
             onChange={changeFilterValue}
             name="address"
             value={filterValue.address}
@@ -98,7 +101,7 @@ export function Form({ isSearchForm = false }) {
           <Button
             type="submit"
             theme="primary"
-            className={cn(styles.button, isSearchForm ? styles.button_search : styles.button_main)}
+            className={cn(styles.button, styles[`button_${place}`])}
             disabled={false}
             onClick={() => {}}
           >
@@ -108,4 +111,4 @@ export function Form({ isSearchForm = false }) {
       </SectionContainer>
     </section>
   );
-}
+};

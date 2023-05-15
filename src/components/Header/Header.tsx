@@ -53,7 +53,7 @@ export function Header() {
         {/* TODO потом потребуется переписать на ссылки на страницу */}
         <NavItems place="header" />
         <div className={styles.additional}>
-          <Link href={'/search'} className={styles.loop}></Link>
+          <Link href="/search" className={styles.loop}></Link>
           <LanguagesList />
           <AccountButton />
           <button className={styles.mobile} onClick={handleOpenBurger}>

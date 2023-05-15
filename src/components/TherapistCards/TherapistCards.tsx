@@ -6,8 +6,19 @@ import TherapistCard from '@/components/TherapistCard/TherapistCard';
 import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 import { Button } from '@/components/ui/Button/Button';
 import styles from './TherapistCards.module.scss';
+import { Place } from '@/shared/types';
 
-export function TherapistCards({ isSearchForm = false }) {
+/**
+ *
+ * секция с карточками терапевтов
+ *
+ */
+
+interface IProps {
+  place: Place;
+}
+
+export const TherapistCards: React.FC<IProps> = ({ place }) => {
   const [cardsCount, setCardsCount] = useState(5);
   const [cardsArr, setCardsArr] = useState<typeof therapistsCards>([]);
   const [showMoreButton, setShowMoreButton] = useState(true);
@@ -22,13 +33,10 @@ export function TherapistCards({ isSearchForm = false }) {
 
   return (
     <section>
-      <SectionContainer
-        className={cn(
-          styles.container,
-          isSearchForm ? styles.container_search : styles.container_main
-        )}
-      >
-        <SectionTitle className={cn(isSearchForm && styles.title_search)}>
+      <SectionContainer className={cn(styles.container, styles[`container_${place}`])}>
+        {/* вот здесь доработать после дизайнеров / одинаковые компоненты на стартовой странице и
+        странице поиска */}
+        <SectionTitle className={cn(place === 'search' && styles.title_search)}>
           Look who is close to you now:
         </SectionTitle>
         <div className={styles.therapists}>
@@ -47,7 +55,9 @@ export function TherapistCards({ isSearchForm = false }) {
             />
           ))}
         </div>
-        {showMoreButton && isSearchForm && (
+        {/* вот здесь доработать после дизайнеров / одинаковые компоненты на стартовой странице и
+        странице поиска */}
+        {showMoreButton && place === 'search' && (
           <Button
             className={styles.button}
             type="button"
@@ -60,4 +70,4 @@ export function TherapistCards({ isSearchForm = false }) {
       </SectionContainer>
     </section>
   );
-}
+};

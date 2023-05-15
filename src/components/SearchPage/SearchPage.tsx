@@ -2,21 +2,24 @@ import { Form } from '@/components/Form/Form';
 import { TherapistCards } from '@/components/TherapistCards/TherapistCards';
 import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
-import { CityDropdown } from '../CityDropdown/CityDropdown';
 import { CustomGMap } from '@/components/CustomGMap/CustomGMap';
+import { WithPlace } from '../WithPlace/WithPlace';
 
 /**
  *
- * @returns импорт модулей для страницы поиска
+ * импорт модулей для страницы поиска
  */
 
 export const SearchPage = () => {
+  const FormWithPlace = WithPlace(Form);
+  const MapWithPlace = WithPlace(CustomGMap);
+  const TherapistCardsWithPlace = WithPlace(TherapistCards);
   return (
     <>
       <Header />
-      <Form isSearchForm={true} />
-      <CustomGMap location={'london'} isSearchForm={true} />
-      <TherapistCards isSearchForm={true} />
+      <FormWithPlace />
+      <MapWithPlace location={'london'} />
+      <TherapistCardsWithPlace />
       <Footer />
     </>
   );

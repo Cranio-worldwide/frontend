@@ -5,23 +5,26 @@ import { Header } from '@/components/Header/Header';
 import { Hero } from '@/components/Hero/Hero';
 import { About } from '@/components/About/About';
 import News from '@/components/News/News';
-import styles from './StartPage.module.scss';
-import { CityDropdown } from '../CityDropdown/CityDropdown';
 import { CustomGMap } from '../CustomGMap/CustomGMap';
+import { WithPlace } from '../WithPlace/WithPlace';
 
 /**
  *
- * @returns импорт модулей для стартовой страницы
+ * импорт модулей для стартовой страницы
  */
 
 export const StartPage = () => {
+  const FormWithPlace = WithPlace(Form);
+  const MapWithPlace = WithPlace(CustomGMap);
+  const TherapistCardsWithPlace = WithPlace(TherapistCards);
+
   return (
     <>
       <Header />
       <Hero />
-      <Form />
-      <CustomGMap location={'London'} />
-      <TherapistCards />
+      <FormWithPlace />
+      <MapWithPlace location={'London'} />
+      <TherapistCardsWithPlace />
       <About />
       <News />
       <Footer />
