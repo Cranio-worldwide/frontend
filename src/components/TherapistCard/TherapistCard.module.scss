@@ -111,7 +111,7 @@
   }
 }
 
-.adress {
+.address {
   color: $main-grey;
   margin-left: 22.5px;
 }
@@ -122,7 +122,7 @@
 }
 
 .distance,
-.adress {
+.address {
   @include breakpoint(desktop) {
     margin-left: 22.5px;
   }

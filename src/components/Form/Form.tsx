@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import cn from 'classnames';
 import {
   FormAddress,
   FormDistance,
@@ -6,18 +7,24 @@ import {
   FormSearchButtonText,
   FormTitle,
   LanguagePrefix,
+  Place,
 } from '@/shared/types';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import styles from './Form.module.scss';
 import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
 
-export function Form() {
+interface IProps {
+  place: Place;
+}
+
+export const Form: React.FC<IProps> = ({ place }) => {
   const [filterValue, setFilterValue] = useState({
     address: '',
     price: { min: 0, max: 0 },
     distance: { min: 0, max: 0 },
   });
+
   const changeFilterValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'address') {
       setFilterValue({
@@ -56,12 +63,13 @@ export function Form() {
       onChange: changeFilterValue,
     },
   ];
+
   return (
-    <section className={styles.section}>
-      <SectionContainer className={styles.container}>
-        <h3 className={styles.title}>{titleText}</h3>
+    <section className={cn(styles.section, styles[`section_${place}`])}>
+      <SectionContainer>
+        <h3 className={cn(styles.title, styles[`title_${place}`])}>{titleText}</h3>
         <form
-          className={styles.form}
+          className={cn(styles.form, styles[`form_${place}`])}
           onSubmit={(e) => {
             e.preventDefault();
             console.log(e);
@@ -70,7 +78,7 @@ export function Form() {
           <input
             placeholder={addressText}
             type="text"
-            className={styles.input}
+            className={cn(styles.input, styles[`input_${place}`])}
             onChange={changeFilterValue}
             name="address"
             value={filterValue.address}
@@ -93,7 +101,7 @@ export function Form() {
           <Button
             type="submit"
             theme="primary"
-            className={styles.button}
+            className={cn(styles.button, styles[`button_${place}`])}
             disabled={false}
             onClick={() => {}}
           >
@@ -103,4 +111,4 @@ export function Form() {
       </SectionContainer>
     </section>
   );
-}
+};

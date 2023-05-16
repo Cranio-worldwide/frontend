@@ -1,14 +1,46 @@
 .container {
-  padding-top: 70px;
-  padding-bottom: 110px;
-  box-sizing: border-box;
+  &_main {
+    padding-top: 70px;
+    padding-bottom: 110px;
+  }
 
-  @include breakpoint(desktop) {
+  &_search {
+    padding-top: 97px;
     padding-bottom: 100px;
   }
+
+  @include breakpoint(desktop) {
+    &_main {
+      padding-bottom: 100px;
+    }
+  }
+  @include breakpoint(tablet) {
+    &_search {
+      padding-top: 65px;
+    }
+  }
   @include breakpoint(mobile) {
-    padding-top: 50px;
-    padding-bottom: 44px;
+    &_main {
+      padding-top: 48px;
+      padding-bottom: 44px;
+    }
+    &_search {
+      padding-top: 40px;
+      padding-bottom: 50px;
+    }
+  }
+}
+
+.title_search {
+  // font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+
+  @include breakpoint(mobile) {
+    font-size: 24px;
+    line-height: 29px;
   }
 }
 
@@ -21,5 +53,21 @@
     max-width: max-content;
     margin-top: 34px;
     gap: 14px;
+  }
+}
+
+.button {
+  display: block;
+  margin: 40px auto 0;
+  max-width: 171px;
+  // font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+
+  @include breakpoint(mobile) {
+    margin: 15px auto 0;
+    font-size: 14px;
   }
 }

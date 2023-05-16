@@ -53,8 +53,8 @@ export function Header() {
         {/* TODO потом потребуется переписать на ссылки на страницу */}
         <NavItems place="header" />
         <div className={styles.additional}>
-          {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
-          <span className={styles.loop}></span> <LanguagesList />
+          <Link href="/search" className={styles.loop}></Link>
+          <LanguagesList />
           <AccountButton />
           <button className={styles.mobile} onClick={handleOpenBurger}>
             <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>

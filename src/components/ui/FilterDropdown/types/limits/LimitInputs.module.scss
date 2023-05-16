@@ -1,6 +1,7 @@
 .container {
   box-sizing: border-box;
   position: absolute;
+  z-index: 5;
   top: 250%;
   // left: 50%; //выравнивание по центру
   left: 158px; //выравнивание по левому краю

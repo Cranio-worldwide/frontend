@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
-
 import { Button } from '@/components/ui/Button/Button';
 import DefaultPhoto from '../../assets/deafault-photo.svg';
 import styles from './TherapistCard.module.scss';
@@ -13,7 +12,7 @@ interface IProps {
   location: string;
   distance: string;
   clinic: string;
-  adress: string;
+  address: string;
   price: string;
   phone: string;
 }
@@ -25,7 +24,7 @@ const TherapistCard: React.FC<IProps> = ({
   location,
   distance,
   clinic,
-  adress,
+  address,
   price,
   phone,
 }) => {
@@ -53,7 +52,7 @@ const TherapistCard: React.FC<IProps> = ({
           <div className={styles.clinic_img} />
           <p className={styles.clinic}>{clinic}</p>
         </div>
-        <p className={cn(styles.subtext, styles.adress)}>{adress}</p>
+        <p className={cn(styles.subtext, styles.address)}>{address}</p>
       </div>
       <div className={styles.details}>
         <span className={styles.primary}>Первичный прием</span>
