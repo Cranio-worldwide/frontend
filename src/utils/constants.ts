@@ -1,6 +1,6 @@
-import image from '../assets/news-image.png';
-import photo from '../assets/default-photo.svg';
-import lang from '../assets/lang_ru.svg';
+import image from '@/assets/news-image.png';
+import photo from '@/assets/default-photo.svg';
+import lang from '@/assets/lang_ru.svg';
 
 export const therapistsCards = [
   {

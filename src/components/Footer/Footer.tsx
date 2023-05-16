@@ -1,8 +1,8 @@
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { NavItems } from '@/components/ui/NavItems/NavItems';
-import VKIcon from '../../assets/vk.svg';
-import InstIcon from '../../assets/inst.svg';
-import TGIcon from '../../assets/tg.svg';
+import VKIcon from '@/assets/vk.svg';
+import InstIcon from '@/assets/inst.svg';
+import TGIcon from '@/assets/tg.svg';
 
 import cn from 'classnames';
 import styles from './Footer.module.scss';
