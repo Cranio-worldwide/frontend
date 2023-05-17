@@ -3,7 +3,7 @@ import { Dropdown } from '../Dropdown/Dropdown';
 import { useState } from 'react';
 import { languages } from 'src/utils/constants';
 import { Arrow } from '@/components/ui/arrow/Arrow';
-import Icon from '../../../assets/lang_ru.svg';
+import Icon from '@/assets/lang_ru.svg';
 import Image from 'next/image';
 
 interface IProps {

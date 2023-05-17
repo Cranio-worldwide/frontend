@@ -1,5 +1,6 @@
-import image from '../assets/news-image.png';
-import lang from '../assets/lang_ru.svg';
+import image from '@/assets/news-image.png';
+import photo from '@/assets/default-photo.svg';
+import lang from '@/assets/lang_ru.svg';
 
 export const therapistsCards = [
   {
@@ -65,7 +66,7 @@ export const therapistsCards = [
   {
     id: '6',
     photo: photo,
-    name: 'Пушкин Николай Сергеевич',
+    name: 'Пупкин Николай Сергеевич',
     position: 'Врач-остеопат',
     location: 'Петропавловск-Камчатский',
     distance: '5 км',
