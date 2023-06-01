@@ -25,7 +25,6 @@ export const LanguagesList: React.FC<IProps> = ({ currentlang = 'en', onChange }
   return (
     <div className={styles.container}>
       <div onClick={onOpen} className={styles.active_lang}>
-        <Icon alt={CurrentLang.ISO} />
         <span> {CurrentLang.ISO}</span>
         <div className={styles.arrow}>
           <Arrow isOpen={isOpen} />
@@ -42,8 +41,6 @@ export const LanguagesList: React.FC<IProps> = ({ currentlang = 'en', onChange }
                   changeLang(lang.ISO.toLowerCase());
                 }}
               >
-                <Icon alt={lang.ISO} width="24" height="24" />
-
                 <span>{lang.title}</span>
               </div>
             );
