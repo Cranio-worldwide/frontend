@@ -24,7 +24,6 @@ export function Form() {
   const changeAddress = (e: ChangeEvent<HTMLInputElement>) => {
     setFilterValue({ ...filterValue, address: e.target.value });
   };
-  console.log(filterValue);
 
   // TODO потом вынести выбор языка в пропсы
   const [lang, setLang] = useState<LanguagePrefix>('en');
