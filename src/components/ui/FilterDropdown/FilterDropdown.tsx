@@ -1,37 +1,42 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, HTMLInputTypeAttribute, InputHTMLAttributes, useRef, useState } from 'react';
 import styles from './FilterDropdown.module.scss';
-import { LimitInputs } from './types/limits/LimitInputs';
+import { LimitInputs } from './Limit/Limit';
 import { Dropdown } from '@/components/ui/Dropdown/Dropdown';
 import { Arrow } from '@/components/ui/Аrrow/Arrow';
+import Range from './Range/Range';
 
 export type InputTheme = 'primary' | 'transparent';
 
-interface InputProps
-  extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-  description: {
+type InputProps = {
+  numeralSystem: string;
+  onChange: (key: string, newValue: any) => void;
+  title: string;
+  id: string;
+
+  filterValue?: any;
+  description?: {
     max: string;
     min: string;
   };
-  numeralSystem: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  title: string;
-  type?: 'limit' | undefined;
-  id: string;
-  filterValue: {
-    min?: number | null;
-    max?: number | null;
-  };
-}
+  form?: 'limit' | 'range' | string | undefined;
+  rangeValue?: number;
+  range?: any;
+};
 
 const CustomFilterDropdown: FC<InputProps> = ({
-  form = 'limit',
   title,
   id,
   numeralSystem,
-  filterValue,
   onChange,
-  description,
-}: InputProps) => {
+  filterValue = {
+    min: 0,
+    max: 0,
+  },
+  rangeValue = 0,
+  description = undefined,
+  form = 'limit',
+  range = { min: 10, max: 1000 },
+}: InputProps & InputHTMLAttributes<HTMLInputElement>) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
@@ -41,27 +46,36 @@ const CustomFilterDropdown: FC<InputProps> = ({
   const handleClose = () => {
     setIsOpen(false);
   };
-
+  const titleText = rangeValue
+    ? `${rangeValue} ${numeralSystem}`
+    : filterValue.min && filterValue.max
+    ? `${filterValue.min} ${numeralSystem} - ${filterValue.max}  ${numeralSystem}`
+    : title;
   return (
     <Dropdown onClose={handleClose}>
       <div className={styles.container} id={id} ref={ref}>
         <div className={styles.title} onClick={handleClick}>
-          <span>
-            {filterValue.min && filterValue.max
-              ? `${filterValue.min} ${numeralSystem} - ${filterValue.max}  ${numeralSystem}`
-              : title}
-          </span>
-          {!filterValue.min && !filterValue.max ? <Arrow isOpen={isOpen} /> : ''}
+          <span>{titleText}</span>
+          <Arrow isOpen={isOpen} />
         </div>
         {isOpen && form === 'limit' && (
           <LimitInputs
             numeralSystem={numeralSystem}
-            id={id}
+            filterKey={id}
             filterValue={filterValue}
             onChange={onChange}
-            title={title}
+            title={titleText}
             description={description}
           />
+        )}
+        {isOpen && form === 'range' && (
+          <Range
+            filterKey={id}
+            numeralSystem={numeralSystem}
+            value={rangeValue}
+            onChange={onChange}
+            range={range}
+          ></Range>
         )}
       </div>
     </Dropdown>
