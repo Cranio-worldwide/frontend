@@ -49,7 +49,7 @@ const CustomFilterDropdown: FC<InputProps> = ({
   const titleText = rangeValue
     ? `${rangeValue} ${numeralSystem}`
     : filterValue.min && filterValue.max
-    ? `${filterValue.min} ${numeralSystem} - ${filterValue.max}  ${numeralSystem}`
+    ? `${filterValue.min} - ${filterValue.max}  ${numeralSystem}`
     : title;
   return (
     <Dropdown onClose={handleClose}>

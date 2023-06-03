@@ -11,8 +11,8 @@ export const FormTitle: Record<LanguagePrefix, string> = {
 };
 
 export const FormAddress: Record<LanguagePrefix, string> = {
-  ru: 'Цена',
-  en: 'Price',
+  ru: 'Адрес',
+  en: 'Address',
 };
 
 export const FormPrice: Record<LanguagePrefix, string> = {

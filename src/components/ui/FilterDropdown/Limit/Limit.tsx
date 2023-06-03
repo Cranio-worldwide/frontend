@@ -41,7 +41,10 @@ export const LimitInputs: FC<InputProps> = ({
   }, []);
 
   const onBeforeInputValidator = (e: OnChangeBeforeEvent) => {
-    if (!e.data.replace(/[^0-9]/g, '')) {
+    const numbers = new RegExp(/[0-9]/g);
+    const isCorrect = !numbers.test(e.data);
+
+    if (isCorrect) {
       e.preventDefault();
     }
   };
@@ -51,7 +54,7 @@ export const LimitInputs: FC<InputProps> = ({
       <div className={styles.header}>{title}</div>
       <div className={styles.input_list}>
         <input
-          maxLength={8}
+          maxLength={6}
           type="text"
           value={filterValue.min ? filterValue.min : ''}
           onBeforeInput={onBeforeInputValidator}
@@ -64,7 +67,7 @@ export const LimitInputs: FC<InputProps> = ({
         <span />
         <input
           type="text"
-          maxLength={8}
+          maxLength={6}
           value={filterValue.max ? filterValue.max : ''}
           onBeforeInput={onBeforeInputValidator}
           onChange={(e) => {
