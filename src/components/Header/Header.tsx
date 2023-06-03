@@ -6,7 +6,7 @@ import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
 import { AccountButton } from '@/components/AccountButton/AccountButton';
 import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
-import { LanguagesList } from '@/components/ui/LanguagesDropdown.tsx/LanguagesList';
+import { LanguagesList } from '@/components/ui/LanguagesList/LanguagesList';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);

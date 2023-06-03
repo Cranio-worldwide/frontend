@@ -1,17 +1,16 @@
 .container {
-  display: flex;
-  flex-direction: column;
-}
-
-.item {
+  width: 100%;
   padding: 12px 0;
   font-size: 18px;
-  transition: 0.2s color;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
   &:not(:last-of-type) {
     border-bottom: 1px solid $main-grey-light;
   }
 
-  &:hover {
+  :hover {
     color: $accent-dark;
   }
 }

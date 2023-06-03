@@ -1,0 +1,33 @@
+.container {
+  cursor: pointer;
+  position: relative;
+
+  @include breakpoint(mobile) {
+    width: 60px;
+  }
+}
+.wrapper {
+  width: fit-content;
+  cursor: pointer;
+}
+.image {
+  margin-right: 8px;
+  width: 24;
+  height: 24;
+}
+.active_lang {
+  width: 80px;
+  height: 33px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include breakpoint(mobile) {
+    width: 60px;
+  }
+}
+
+.arrow {
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}
