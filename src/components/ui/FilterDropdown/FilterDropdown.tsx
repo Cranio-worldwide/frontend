@@ -64,7 +64,7 @@ const CustomFilterDropdown: FC<InputProps> = ({
             filterKey={id}
             filterValue={filterValue}
             onChange={onChange}
-            title={titleText}
+            title={title}
             description={description}
           />
         )}
