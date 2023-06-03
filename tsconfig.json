@@ -18,6 +18,7 @@
     "paths": {
       "@/api/*": ["./src/api/*"],
       "@/components/*": ["./src/components/*"],
+      "@/assets/*": ["./src/assets/*"],
       "@/shared/*": ["./src/shared/*"],
       "@/styles/*": ["./src/styles/*"],
       "@scss-variables": ["./src/utils/scss-variables.scss"],

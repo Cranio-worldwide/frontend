@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import {
   FormAddress,
   FormDistance,
@@ -6,13 +6,19 @@ import {
   FormSearchButtonText,
   FormTitle,
   LanguagePrefix,
+  Place,
 } from '@/shared/types';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import styles from './Form.module.scss';
 import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
+import cn from 'classnames';
 
-export function Form() {
+interface IProps {
+  place: Place;
+}
+
+export const Form: React.FC<IProps> = ({ place }) => {
   const [filterValue, setFilterValue] = useState({
     address: '',
     price: { min: 0, max: 0 },
@@ -52,12 +58,13 @@ export function Form() {
       onChange: changeFilterValue,
     },
   ];
+
   return (
-    <section className={styles.section}>
-      <SectionContainer className={styles.container}>
-        <h3 className={styles.title}>{titleText}</h3>
+    <section className={cn(styles.section, styles[`section_${place}`])}>
+      <SectionContainer>
+        <h3 className={cn(styles.title, styles[`title_${place}`])}>{titleText}</h3>
         <form
-          className={styles.form}
+          className={cn(styles.form, styles[`form_${place}`])}
           onSubmit={(e) => {
             e.preventDefault();
             console.log(e);
@@ -102,7 +109,7 @@ export function Form() {
           <Button
             type="submit"
             theme="primary"
-            className={styles.button}
+            className={cn(styles.button, styles[`button_${place}`])}
             disabled={false}
             onClick={() => {}}
           >
@@ -112,4 +119,4 @@ export function Form() {
       </SectionContainer>
     </section>
   );
-}
+};

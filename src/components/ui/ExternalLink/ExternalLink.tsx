@@ -23,7 +23,7 @@ export const ExternalLink: React.FC<LinkProps> = ({
   return (
     <Link
       href={href}
-      target="_blanck"
+      target="_blank"
       rel="noopener noreferrer"
       className={cn(styles.link, contrast && styles.contrast, className)}
     >

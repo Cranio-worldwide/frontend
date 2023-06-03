@@ -6,7 +6,7 @@ import { ExternalLink } from '@/components/ui/ExternalLink/ExternalLink';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import aboutImg from '../../assets/about-img.png';
+import aboutImg from '@/assets/about-img.png';
 import styles from './About.module.scss';
 
 const settings = {
