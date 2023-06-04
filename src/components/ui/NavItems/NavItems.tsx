@@ -14,7 +14,7 @@ export const NavItems: React.FC<NavProps> = ({ children, className, place }) => 
     <nav
       className={cn(styles.navigation, place === 'header' && styles.navigation_header, className)}
     >
-      <NavItem href="/" className={cn(styles.link, place === 'footer' && styles.contrast)}>
+      <NavItem href="/search" className={cn(styles.link, place === 'footer' && styles.contrast)}>
         Our therapists
       </NavItem>
       <NavItem href="/info" className={cn(styles.link, place === 'footer' && styles.contrast)}>
