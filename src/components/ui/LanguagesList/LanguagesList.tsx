@@ -31,7 +31,6 @@ export const LanguagesList: React.FC<IProps> = ({ currentlang = 'en', onChange }
     <div className={styles.wrapper} ref={ref}>
       <Dropdown onClose={onClose}>
         <div onClick={onClick} className={styles.active_lang}>
-          <Image src={activeLang.photo} alt={activeLang.ISO} className={styles.image} />
           <span> {activeLang.ISO}</span>
           <div className={styles.arrow}>
             <Arrow isOpen={isOpen} />
@@ -47,7 +46,6 @@ export const LanguagesList: React.FC<IProps> = ({ currentlang = 'en', onChange }
                     changeLang(lang.ISO.toLowerCase());
                   }}
                 >
-                  <Image src={lang.photo} alt={lang.ISO} className={styles.image} />
                   <span>{lang.title}</span>
                 </ModalItem>
               );

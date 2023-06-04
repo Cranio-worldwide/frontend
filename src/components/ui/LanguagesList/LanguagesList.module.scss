@@ -19,7 +19,8 @@
   width: 80px;
   height: 33px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5px;
   align-items: center;
   @include breakpoint(mobile) {
     width: 60px;
