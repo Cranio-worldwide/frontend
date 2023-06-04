@@ -1,7 +1,32 @@
 .container {
-  position: absolute;
-  width: 372px;
-  top: 70px;
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh - 96px);
+  margin-top: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:0;
+  left:0;
+  backdrop-filter: blur(5px);
+background-color: #acacac41;
+  @include breakpoint(desktop) {
+    height: calc(100vh - 87px);
+    margin-top: 87px;
+  }
+  @include breakpoint(mobile) {
+    height: calc(100vh - 82px);
+    margin-top: 82px;
+  }
+}
+.content {
+  
+  position: relative;
+  width: 383px;
+  height: 182px;
+  background: #fff;
+  border-radius: 8px;
+  gap: 24px;
   left: auto;
   padding: 45px 60px 30px;
   box-sizing: border-box;
@@ -9,16 +34,11 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
-
   @include breakpoint(mobile) {
-    width: 342px;
+    width:95vw;
     padding: 45px 50px 30px;
-    top: 62px;
-    left: 16px;
   }
 }
-
 .close {
   position: absolute;
   top: 19px;
