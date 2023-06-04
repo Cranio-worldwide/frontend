@@ -35,7 +35,7 @@ background-color: #acacac41;
   justify-content: space-between;
   align-items: center;
   @include breakpoint(mobile) {
-    width:95vw;
+    width: 342px;
     padding: 45px 50px 30px;
   }
 }
