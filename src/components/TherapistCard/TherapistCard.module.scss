@@ -12,6 +12,7 @@
   column-gap: 106px;
   row-gap: 16px;
   border-bottom: 1px solid $main-grey-light;
+  cursor: pointer;
 
   @include breakpoint(desktop) {
     column-gap: 56px;
@@ -44,6 +45,33 @@
       "img details"
       "button button";
   }
+
+  &_profile {
+    cursor: default;
+
+    @media screen and (max-width: 1064px) {
+      grid-template-columns: 300px 2fr;
+      grid-template-areas:
+        "img main"
+        "place details"
+        "clinic details"
+        "clinic button";
+    }
+
+    @include breakpoint(mobile-wide) {
+      grid-template-columns: 200px 1fr;
+    }
+
+    @include breakpoint(mobile) {
+      grid-template-areas:
+        "img"
+        "main"
+        "place"
+        "clinic"
+        "details"
+        "button";
+    }
+  }
 }
 
 .card:last-child {
@@ -72,6 +100,29 @@
     height: 62px;
     max-height: 62px;
   }
+
+  &_profile {
+    @media screen and (max-width: 1064px) {
+      min-width: 300px;
+      max-width: 300px;
+      height: 300px;
+      max-height: 300px;
+    }
+
+    @include breakpoint(mobile-wide) {
+      min-width: 200px;
+      max-width: 200px;
+      max-height: 200px;
+      height: 200px;
+    }
+
+    @include breakpoint(mobile) {
+      min-width: 300px;
+      max-width: 300px;
+      height: 300px;
+      max-height: 300px;
+    }
+  }
 }
 
 .maininfo {
@@ -79,6 +130,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  align-self: center;
 }
 
 .name {

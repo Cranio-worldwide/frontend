@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto;
+
+  @media screen and (max-width: 1064px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.titles {
+  display: flex;
+  gap: 24px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: $accent;
+  }
+
+  &_active {
+    color: $accent;
+    padding-bottom: 3px;
+    border-bottom: 2px solid $accent;
+  }
+}
+
+.content {
+  margin: 50px 0;
+}
+
+.text {
+  max-width: 575px;
+}
+.specializations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.specialization {
+  max-width: fit-content;
+  color: $main-grey;
+  border: 1px solid $main-grey;
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}

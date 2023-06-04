@@ -9,13 +9,15 @@ interface IProps {
 export const NewsPiece: React.FC<IProps> = ({ photo, title }) => {
   return (
     <div className={styles.newspiece}>
-      <Image
-        src={photo}
-        alt="Изображение к новости"
-        width="376"
-        height="257"
-        className={styles.image}
-      />
+      <div className={styles.image_container}>
+        <Image
+          src={photo}
+          alt="Изображение к новости"
+          width="376"
+          height="257"
+          className={styles.image}
+        />
+      </div>
       <h3 className={styles.title}>{title}</h3>
     </div>
   );

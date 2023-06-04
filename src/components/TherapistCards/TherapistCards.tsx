@@ -42,6 +42,7 @@ export const TherapistCards: React.FC<IProps> = ({ place }) => {
         <div className={styles.therapists}>
           {cardsArr?.map((therapist) => (
             <TherapistCard
+              cardPlace="list"
               key={therapist.id}
               photo={therapist.photo}
               name={therapist.name}
