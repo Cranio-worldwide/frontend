@@ -1,11 +1,9 @@
 import cn from 'classnames';
 import Slider from 'react-slick';
-import { NewsPiece } from '@/components/NewsPiece/NewsPiece';
-import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
-import { news } from 'src/utils/constants';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Carousel.module.scss';
+import { FC } from 'react';
 
 function NextArrow(props) {
   const { className, style, onClick } = props;
@@ -33,7 +31,7 @@ function PrevArrow(props) {
     />
   );
 }
-const settings = {
+const settingsWithArrows = {
   className: `${styles.slider}`,
   infinite: true,
   lazyLoad: true,
@@ -46,13 +44,13 @@ const settings = {
   prevArrow: <PrevArrow />,
   responsive: [
     {
-      breakpoint: 1280,
+      breakpoint: 1430,
       settings: {
         slidesToShow: 2,
       },
     },
     {
-      breakpoint: 850,
+      breakpoint: 990,
       settings: {
         slidesToShow: 1,
       },
@@ -63,11 +61,40 @@ const settings = {
       settings: {
         slidesToShow: 1,
         dots: true,
+        dotsClass: `slick-dots ${styles.dotsBelow}`,
         arrows: false,
       },
     },
   ],
 };
-export default function Carousel({ children }) {
-  return <Slider {...settings}>{children}</Slider>;
+
+const settings = {
+  infinite: true,
+  lazyLoad: true,
+  dots: true,
+  dotsClass: `slick-dots ${styles.dots}`,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 6000,
+  arrows: false,
+};
+
+interface IProps {
+  children: React.ReactNode;
+  arrows?: boolean;
+  className?: string;
 }
+
+export const Carousel: FC<IProps> = ({ children, arrows, className }) => {
+  return arrows ? (
+    <Slider {...settingsWithArrows} className={className}>
+      {children}
+    </Slider>
+  ) : (
+    <Slider {...settings} className={className}>
+      {children}
+    </Slider>
+  );
+};

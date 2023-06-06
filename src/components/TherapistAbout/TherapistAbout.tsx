@@ -2,10 +2,35 @@ import { useState } from 'react';
 import { CustomGMap } from '../CustomGMap/CustomGMap';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import styles from './TherapistAbout.module.scss';
+import ShareIcon from '@/assets/share.svg';
 import cn from 'classnames';
 
 export const TherapistAbout = () => {
   const [section, setSection] = useState('about');
+
+  const specializationList = [
+    'Болезнь Шляттера',
+    'Деформации костно-мышечной системы',
+    'Дегенеративно-дистрофическое заболевание диска',
+    'Разрыв связок голеностопного сустава и стопы',
+    'Растяжение связок голеностопа',
+    'Растяжение связок коленного сустава',
+    'Растяжение связок предплечья',
+    'Растяжение связок стопы',
+  ];
+
+  const treatmentList = [
+    'Классическая мануальная терапия',
+    'Мягкие мануальные техники',
+    'Постизометрическая релаксация мышц',
+    'Тракционные техники',
+    'Вакуумный массаж',
+    'Гуа-ша массаж',
+    'Паравертебральные блокады',
+    'Гирудотерапия',
+    'Снятие кардиграмм',
+    'Терапия аппаратом «Плазон»',
+  ];
 
   return (
     <section>
@@ -46,20 +71,27 @@ export const TherapistAbout = () => {
                 vegetovascular dystonia and other diseases of the nervous system.
               </p>
             ) : section === 'specialization' ? (
-              <div className={styles.specializations}>
-                <span className={styles.specialization}>Болезнь Шляттера</span>
-                <span className={styles.specialization}>Деформации костно-мышечной системы</span>
-              </div>
+              <ul className={styles.specializations}>
+                {specializationList.map((item) => (
+                  <li key={Math.random()} className={styles.specialization}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             ) : section === 'treatment' ? (
-              <p>
-                Классическая мануальная терапия; Мягкие мануальные техники; Постизометрическая
-                релаксация мышц; Тракционные техники; Вакуумный массаж; Гуа-ша массаж;
-                Паравертебральные блокады; Гирудотерапия; Снятие кардиграмм; Терапия аппаратом
-                «Плазон».
-              </p>
+              <ul className={styles.treatments}>
+                {treatmentList.map((item) => (
+                  <li key={Math.random()} className={styles.treatment}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             ) : null}
           </div>
-          <a>Share profile</a>
+          <a className={styles.link}>
+            <ShareIcon />
+            Share profile
+          </a>
         </div>
         <CustomGMap location="moscow" place="therapist" />
       </SectionContainer>

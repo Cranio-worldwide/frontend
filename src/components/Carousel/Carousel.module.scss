@@ -25,7 +25,6 @@
 .next_arrow,
 .prev_arrow {
   display: block;
-  transform: translate(0, -120%);
   width: 52px;
   height: 52px;
 
@@ -52,4 +51,58 @@
   &:hover::before {
     opacity: 0.8;
   }
+}
+
+.dots {
+  bottom: 24px;
+  @include breakpoint(mobile-narrow) {
+    bottom: 8px;
+  }
+}
+
+.dots li {
+  width: 8px;
+  margin: 0 8px;
+}
+.dots li button::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  border: 1px solid $white;
+  border-radius: 50%;
+  opacity: 1;
+}
+.dots :global(li.slick-active) button::before {
+  background-color: $white;
+  opacity: 1;
+}
+
+.dotsBelow {
+  bottom: -32px;
+}
+
+.dotsBelow li {
+  width: 10px;
+  margin: 0 10px;
+}
+.dotsBelow li button::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  background-color: $main-grey-light;
+  border-radius: 50%;
+  opacity: 1;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.dotsBelow li button:hover::before {
+  background-color: $accent;
+  opacity: 0.8;
+}
+
+.dotsBelow :global(li.slick-active) button::before {
+  background-color: $accent;
+  opacity: 1;
 }

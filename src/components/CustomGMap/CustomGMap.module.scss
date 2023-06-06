@@ -45,17 +45,18 @@
     width: 476px;
   }
 
+  @media screen and (max-width: 1100px) {
+    &_therapist {
+      width: 100%;
+    }
+  }
+
   @include breakpoint(tablet) {
     &_main {
       height: 274px;
     }
     &_search {
       height: 276px;
-    }
-
-    &_therapist {
-      height: 400px;
-      width: 100%;
     }
   }
   @include breakpoint(mobile) {

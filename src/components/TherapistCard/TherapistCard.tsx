@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import Image from 'next/image';
-import { useState, useReducer } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/Button/Button';
-import DefaultPhoto from '@/assets/default-photo.svg';
+import defaultPhoto from '@/assets/default-photo.png';
 import styles from './TherapistCard.module.scss';
 
 type cardPlace = 'list' | 'profile';
@@ -37,8 +37,8 @@ const TherapistCard: React.FC<IProps> = ({
   const [clicked, setClicked] = useState<boolean>(false);
   const { push } = useRouter();
 
-  const redirect = () => {
-    if (cardPlace === 'list') {
+  const redirect = (e) => {
+    if (cardPlace === 'list' && e.target.type !== 'button') {
       push('/therapist');
     }
   };
@@ -51,7 +51,8 @@ const TherapistCard: React.FC<IProps> = ({
       {photo ? (
         <Image src={photo} alt={name} className={styles.photo} />
       ) : (
-        <DefaultPhoto
+        <Image
+          src={defaultPhoto}
           alt={name}
           className={cn(styles.photo, cardPlace === 'profile' && styles.photo_profile)}
         />
@@ -98,3 +99,6 @@ const TherapistCard: React.FC<IProps> = ({
 };
 
 export default TherapistCard;
+function userRef() {
+  throw new Error('Function not implemented.');
+}
