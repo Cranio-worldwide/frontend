@@ -4,12 +4,13 @@
   align-items: center;
   gap: 20px;
   width: 470px;
+  transition: 0.3s;
 
   @include breakpoint(desktop) {
     width: 370px;
   }
 
-  @include breakpoint(tablet-wide) {
+  @media screen and (max-width: 1150px) {
     flex-direction: column;
     align-items: start;
     gap: 32px;
@@ -22,7 +23,7 @@
 }
 
 .header {
-  @media screen and (max-width: 1190px) {
+  @media screen and (max-width: 1150px) {
     display: none;
   }
 }
@@ -58,12 +59,4 @@
 .footer {
   color: $main-grey-light;
   line-height: 16px;
-}
-
-.accBtn {
-  margin: 20px auto 0;
-
-  @include breakpoint(mobile) {
-    margin: 20px 0 0;
-  }
 }

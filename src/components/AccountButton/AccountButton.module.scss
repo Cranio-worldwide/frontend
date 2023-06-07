@@ -4,15 +4,21 @@
 }
 
 .desktop {
-  @include breakpoint(tablet) {
+  @include breakpoint(mobile-wide) {
     display: none;
   }
 }
 
 .burger{
   display: none;
-  @include breakpoint(tablet) {
+
+  @include breakpoint(mobile-wide) {
     display: block;
+    margin: 30px auto 0;
+  }
+
+  @include breakpoint(mobile){
+    margin: 30px 0 0;
   }
 }
 

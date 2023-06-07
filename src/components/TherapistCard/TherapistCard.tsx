@@ -1,18 +1,18 @@
 import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
-
 import { Button } from '@/components/ui/Button/Button';
+import DefaultPhoto from '@/assets/default-photo.svg';
 import styles from './TherapistCard.module.scss';
 
 interface IProps {
-  photo: string;
+  photo?: string;
   name: string;
   position: string;
   location: string;
   distance: string;
   clinic: string;
-  adress: string;
+  address: string;
   price: string;
   phone: string;
 }
@@ -24,14 +24,18 @@ const TherapistCard: React.FC<IProps> = ({
   location,
   distance,
   clinic,
-  adress,
+  address,
   price,
   phone,
 }) => {
   const [clicked, setClicked] = useState<boolean>(false);
   return (
     <div className={styles.card}>
-      <Image src={photo} alt={name} className={styles.photo} />
+      {photo ? (
+        <Image src={photo} alt={name} className={styles.photo} />
+      ) : (
+        <DefaultPhoto alt={name} className={styles.photo} />
+      )}
       <div className={styles.maininfo}>
         <p className={styles.name}>{name}</p>
         <p className={cn(styles.subtext, styles.position)}>{position}</p>
@@ -48,7 +52,7 @@ const TherapistCard: React.FC<IProps> = ({
           <div className={styles.clinic_img} />
           <p className={styles.clinic}>{clinic}</p>
         </div>
-        <p className={cn(styles.subtext, styles.adress)}>{adress}</p>
+        <p className={cn(styles.subtext, styles.address)}>{address}</p>
       </div>
       <div className={styles.details}>
         <span className={styles.primary}>Первичный прием</span>

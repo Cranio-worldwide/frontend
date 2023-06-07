@@ -1,8 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/Button/Button';
 import { MenuDropdown } from '@/components/MenuDropdown/MenuDropdown';
 import styles from './AccountButton.module.scss';
 import cn from 'classnames';
+import { Dropdown } from '../ui/Dropdown/Dropdown';
 
 const menuItems = [
   { text: 'Профиль', href: '/' },
@@ -17,40 +18,18 @@ interface IProps {
 }
 
 export const AccountButton: React.FC<IProps> = ({ className, variant }) => {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setIsOpenMenu(false);
-      }
-    };
-    document.addEventListener('click', handleClickOutside, true);
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    };
-  }, [setIsOpenMenu]);
-
+  const handleClick = () => setIsOpen(!isOpen);
+  const handleClose = () => setIsOpen(false);
   return (
-    <div className={cn(styles.container, className, styles[variant])} ref={ref}>
-      <Button
-        className={styles.button}
-        type="button"
-        theme="transparent"
-        onClick={() => setIsOpenMenu(!isOpenMenu)}
-      >
-        Личный кабинет
-      </Button>
-
-      {isOpenMenu && (
-        <MenuDropdown
-          className={styles.dropdown}
-          items={menuItems}
-          isOpen={isOpenMenu}
-          onClose={() => setIsOpenMenu(false)}
-        />
-      )}
+    <div className={cn(styles.container, styles[variant])} ref={ref}>
+      <Dropdown onClose={handleClose}>
+        <Button className={styles.button} type="button" theme="transparent" onClick={handleClick}>
+          Личный кабинет
+        </Button>
+        {isOpen && <MenuDropdown items={menuItems} onClose={handleClose} />}
+      </Dropdown>
     </div>
   );
 };

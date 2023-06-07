@@ -6,7 +6,7 @@ import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
 import { AccountButton } from '@/components/AccountButton/AccountButton';
 import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
-import { LanguagesList } from '@/components/ui/LanguagesDropdown.tsx/LanguagesList';
+import { LanguagesList } from '@/components/ui/LanguagesList/LanguagesList';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export function Header() {
@@ -55,11 +55,9 @@ export function Header() {
         <NavItems place="header" />
         <div className={styles.additional}>
           {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
-          <span className={styles.loop}></span> <LanguagesList />
+          <Link href="/search" className={styles.loop}></Link>
+          <LanguagesList />
           <AccountButton variant="desktop" />
-          {/* <button className={styles.mobile} onClick={handleOpenBurger}>
-            <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
-          </button> */}
           <BurgerMenu />
         </div>
       </SectionContainer>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import {
   FormAddress,
   FormDistance,
@@ -6,31 +6,31 @@ import {
   FormSearchButtonText,
   FormTitle,
   LanguagePrefix,
+  Place,
 } from '@/shared/types';
 import { Button } from '@/components/ui/Button/Button';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import styles from './Form.module.scss';
 import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
+import cn from 'classnames';
 
-export function Form() {
+interface IProps {
+  place: Place;
+}
+
+export const Form: React.FC<IProps> = ({ place }) => {
   const [filterValue, setFilterValue] = useState({
     address: '',
     price: { min: 0, max: 0 },
-    distance: { min: 0, max: 0 },
+    distance: 0,
   });
-  const changeFilterValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.name === 'address') {
-      setFilterValue({
-        ...filterValue,
-        address: e.target.value,
-      });
-    } else {
-      setFilterValue({
-        ...filterValue,
-        [e.target.id]: { ...filterValue[e.target.id], [e.target.name]: Number(e.target.value) },
-      });
-    }
+  const changeFilterValue = (key: string, newValue: any) => {
+    setFilterValue({ ...filterValue, [key]: newValue });
   };
+  const changeAddress = (e: ChangeEvent<HTMLInputElement>) => {
+    setFilterValue({ ...filterValue, address: e.target.value });
+  };
+
   // TODO потом вынести выбор языка в пропсы
   const [lang, setLang] = useState<LanguagePrefix>('en');
   const titleText = FormTitle[lang];
@@ -42,6 +42,7 @@ export function Form() {
     {
       numeralSystem: 'руб',
       id: 'price',
+      form: 'limit',
       description: { min: 'от 2500', max: 'до 45 000' },
       title: priceText,
       filterValue: filterValue.price,
@@ -49,19 +50,21 @@ export function Form() {
     },
     {
       numeralSystem: 'км',
+      form: 'range',
       id: 'distance',
-      description: { min: 'от 1', max: 'до 1000' },
+      range: { min: 10, max: 1000 },
+      rangeValue: filterValue.distance,
       title: distanceText,
-      filterValue: filterValue.distance,
       onChange: changeFilterValue,
     },
   ];
+
   return (
-    <section className={styles.section}>
-      <SectionContainer className={styles.container}>
-        <h3 className={styles.title}>{titleText}</h3>
+    <section className={cn(styles.section, styles[`section_${place}`])}>
+      <SectionContainer>
+        <h3 className={cn(styles.title, styles[`title_${place}`])}>{titleText}</h3>
         <form
-          className={styles.form}
+          className={cn(styles.form, styles[`form_${place}`])}
           onSubmit={(e) => {
             e.preventDefault();
             console.log(e);
@@ -71,13 +74,23 @@ export function Form() {
             placeholder={addressText}
             type="text"
             className={styles.input}
-            onChange={changeFilterValue}
+            onChange={changeAddress}
             name="address"
             value={filterValue.address}
           />
 
           {filterConfig.map((filter, index) => {
-            const { numeralSystem, id, description, title, filterValue, onChange } = filter;
+            const {
+              form,
+              numeralSystem,
+              id,
+              description,
+              title,
+              filterValue,
+              onChange,
+              range,
+              rangeValue,
+            } = filter;
             return (
               <FilterDropdown
                 key={index}
@@ -87,13 +100,16 @@ export function Form() {
                 title={title}
                 filterValue={filterValue}
                 onChange={onChange}
+                form={form}
+                range={range}
+                rangeValue={rangeValue}
               />
             );
           })}
           <Button
             type="submit"
             theme="primary"
-            className={styles.button}
+            className={cn(styles.button, styles[`button_${place}`])}
             disabled={false}
             onClick={() => {}}
           >
@@ -103,4 +119,4 @@ export function Form() {
       </SectionContainer>
     </section>
   );
-}
+};

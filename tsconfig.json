@@ -18,12 +18,19 @@
     "paths": {
       "@/api/*": ["./src/api/*"],
       "@/components/*": ["./src/components/*"],
+      "@/assets/*": ["./src/assets/*"],
       "@/shared/*": ["./src/shared/*"],
       "@/styles/*": ["./src/styles/*"],
       "@scss-variables": ["./src/utils/scss-variables.scss"],
       "@/pages/*": ["./src/pages/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/components/ui/LanguagesDropdown",
+    "src/components/ui/LanguagesList"
+  ],
   "exclude": ["node_modules"]
 }

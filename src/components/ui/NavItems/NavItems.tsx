@@ -22,7 +22,6 @@ export const NavItems: React.FC<NavProps> = ({ children, className, place }) => 
       <NavItem href="/contacts" className={cn(styles.link, styles[place + '_link'])}>
         Contacts
       </NavItem>
-
       {place === 'burger' && <AccountButton variant="burger" className={styles.accBtn} />}
     </nav>
   );
