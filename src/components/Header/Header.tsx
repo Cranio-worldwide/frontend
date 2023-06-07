@@ -7,6 +7,7 @@ import { AccountButton } from '@/components/AccountButton/AccountButton';
 import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
 import { LanguagesList } from '@/components/ui/LanguagesList/LanguagesList';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -53,12 +54,11 @@ export function Header() {
         {/* TODO потом потребуется переписать на ссылки на страницу */}
         <NavItems place="header" />
         <div className={styles.additional}>
+          {/* TODO потом потребуется переписать по клику редирект на страницу поиска */}
           <Link href="/search" className={styles.loop}></Link>
           <LanguagesList />
-          <AccountButton />
-          <button className={styles.mobile} onClick={handleOpenBurger}>
-            <span className={cn(styles.burger, isModalOpen && styles.burger_active)}></span>
-          </button>
+          <AccountButton variant="desktop" />
+          <BurgerMenu />
         </div>
       </SectionContainer>
     </header>

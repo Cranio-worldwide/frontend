@@ -1,9 +1,24 @@
 .container {
   width: 185px;
   position: relative;
+}
 
-  @include breakpoint(tablet) {
+.desktop {
+  @include breakpoint(mobile-wide) {
     display: none;
+  }
+}
+
+.burger{
+  display: none;
+
+  @include breakpoint(mobile-wide) {
+    display: block;
+    margin: 30px auto 0;
+  }
+
+  @include breakpoint(mobile){
+    margin: 30px 0 0;
   }
 }
 
@@ -11,6 +26,6 @@
   font-size: 18px;
 }
 
-.dropdown{
-    margin-top: 10px;
+.dropdown {
+  margin-top: 10px;
 }
