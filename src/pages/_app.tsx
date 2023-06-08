@@ -2,7 +2,7 @@ import '@/styles/globals.scss';
 import '@/styles/reset.scss';
 
 import { AppProps } from 'next/app';
-import { TranslationProvider } from '@/shared/lib/useTranslate';
+import { TranslationProvider } from '@/shared/lib/useTranslation';
 
 export default function App({ Component, pageProps: { locale, ...props } }: AppProps) {
   return (

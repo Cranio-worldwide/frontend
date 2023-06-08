@@ -13,7 +13,7 @@ import { SectionContainer } from '@/components/SectionContainer/SectionContainer
 import styles from './Form.module.scss';
 import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
 import cn from 'classnames';
-import { useTranslation } from '@/shared/lib/useTranslate';
+import { useTranslation } from '@/shared/lib/useTranslation';
 
 interface IProps {
   place: Place;
