@@ -13,6 +13,7 @@ import { SectionContainer } from '@/components/SectionContainer/SectionContainer
 import styles from './Form.module.scss';
 import { FilterDropdown } from '@/components/ui/FilterDropdown/FilterDropdown';
 import cn from 'classnames';
+import { useTranslation } from '@/shared/lib/useTranslate';
 
 interface IProps {
   place: Place;
@@ -31,9 +32,11 @@ export const Form: React.FC<IProps> = ({ place }) => {
     setFilterValue({ ...filterValue, address: e.target.value });
   };
 
-  // TODO потом вынести выбор языка в пропсы
+  const t = useTranslation();
+  const titleText = t(['main', 'Find your therapist']);
+  // const titleText=''
+  // TODO переписать на t, как в примере выше
   const [lang, setLang] = useState<LanguagePrefix>('en');
-  const titleText = FormTitle[lang];
   const addressText = FormAddress[lang];
   const priceText = FormPrice[lang];
   const distanceText = FormDistance[lang];
