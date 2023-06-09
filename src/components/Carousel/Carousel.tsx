@@ -1,36 +1,24 @@
+import { FC } from 'react';
 import cn from 'classnames';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Carousel.module.scss';
-import { FC } from 'react';
 
-function NextArrow(props) {
-  const { className, style, onClick } = props;
-
-  return (
-    <div
-      className={cn(className, styles.next_arrow)}
-      style={{
-        ...style,
-      }}
-      onClick={onClick}
-    />
-  );
+interface IProps {
+  children?: React.ReactNode;
+  arrows?: boolean;
+  className?: string;
+  onClick?: () => void;
 }
 
-function PrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={cn(className, styles.prev_arrow)}
-      style={{
-        ...style,
-      }}
-      onClick={onClick}
-    />
-  );
-}
+const NextArrow: FC<IProps> = ({ className, onClick }) => {
+  return <div className={cn(className, styles.next_arrow)} onClick={onClick} />;
+};
+
+const PrevArrow: FC<IProps> = ({ className, onClick }) => {
+  return <div className={cn(className, styles.prev_arrow)} onClick={onClick} />;
+};
 const settingsWithArrows = {
   className: `${styles.slider}`,
   infinite: true,
@@ -61,7 +49,7 @@ const settingsWithArrows = {
       settings: {
         slidesToShow: 1,
         dots: true,
-        dotsClass: `slick-dots ${styles.dotsBelow}`,
+        dotsClass: cn('slick-dots', styles.dotsBelow),
         arrows: false,
       },
     },
@@ -72,7 +60,7 @@ const settings = {
   infinite: true,
   lazyLoad: true,
   dots: true,
-  dotsClass: `slick-dots ${styles.dots}`,
+  dotsClass: cn('slick-dots', styles.dots),
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -81,19 +69,10 @@ const settings = {
   arrows: false,
 };
 
-interface IProps {
-  children: React.ReactNode;
-  arrows?: boolean;
-  className?: string;
-}
-
 export const Carousel: FC<IProps> = ({ children, arrows, className }) => {
-  return arrows ? (
-    <Slider {...settingsWithArrows} className={className}>
-      {children}
-    </Slider>
-  ) : (
-    <Slider {...settings} className={className}>
+  const carouselSettings = arrows ? settingsWithArrows : settings;
+  return (
+    <Slider {...carouselSettings} className={className}>
       {children}
     </Slider>
   );
