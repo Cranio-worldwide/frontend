@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import cn from 'classnames';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 import defaultPhoto from '@/assets/default-photo.png';
 import styles from './AlsoCloseTherapist.module.scss';
@@ -15,26 +15,17 @@ interface IProps {
 }
 
 export const AlsoCloseTherapist: React.FC<IProps> = ({
-  photo,
+  photo = defaultPhoto,
   name,
   experience,
   location,
   distance,
   price,
 }) => {
-  const { push } = useRouter();
-  const redirect = () => {
-    push('/therapist');
-  };
-
   return (
-    <div className={cn(styles.card)} onClick={redirect}>
+    <Link className={cn(styles.card)} href="/therapist">
       <div className={styles.details}>
-        {photo ? (
-          <Image src={photo} alt={name} className={styles.photo} />
-        ) : (
-          <Image src={defaultPhoto} alt={name} className={cn(styles.photo)} />
-        )}
+        <Image src={photo} alt={name} className={styles.photo} />
         <p className={cn(styles.subtext, styles.distance)}>{distance} от вас</p>
       </div>
       <div className={styles.maininfo}>
@@ -46,6 +37,6 @@ export const AlsoCloseTherapist: React.FC<IProps> = ({
         </div>
         <span className={styles.price}>{price} руб.</span>
       </div>
-    </div>
+    </Link>
   );
 };

@@ -4,11 +4,9 @@ import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
 import { CustomGMap } from '@/components/CustomGMap/CustomGMap';
 import { WithPlace } from '../WithPlace/WithPlace';
-import TherapistCard from '../TherapistCard/TherapistCard';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { TherapistMainInfo } from '../TherapistMainInfo/TherapistMainInfo';
 import { TherapistAbout } from '../TherapistAbout/TherapistAbout';
-import AlsoCloseTherapists from '../AlsoCloseTherapists/AlsoCloseTherapists';
+import { AlsoCloseTherapists } from '../AlsoCloseTherapists/AlsoCloseTherapists';
 
 /**
  *
