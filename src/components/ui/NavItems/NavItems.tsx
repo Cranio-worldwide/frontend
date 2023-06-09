@@ -13,7 +13,7 @@ interface NavProps {
 export const NavItems: React.FC<NavProps> = ({ children, className, place }) => {
   return (
     <nav className={cn(styles.navigation, styles[place], className)}>
-      <NavItem href="/" className={cn(styles.link, styles[place + '_link'])}>
+      <NavItem href="/search" className={cn(styles.link, styles[place + '_link'])}>
         Our therapists
       </NavItem>
       <NavItem href="/info" className={cn(styles.link, styles[place + '_link'])}>
