@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { therapistsCards } from '../../utils/constants';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
-import TherapistCard from '@/components/TherapistCard/TherapistCard';
+import { TherapistCard } from '@/components/TherapistCard/TherapistCard';
 import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 import { Button } from '@/components/ui/Button/Button';
 import styles from './TherapistCards.module.scss';

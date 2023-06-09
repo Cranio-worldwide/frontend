@@ -5,32 +5,67 @@ import styles from './TherapistAbout.module.scss';
 import ShareIcon from '@/assets/share.svg';
 import cn from 'classnames';
 
+type Sections = 'about' | 'specialization' | 'treatment';
+const specializationList = [
+  'Болезнь Шляттера',
+  'Деформации костно-мышечной системы',
+  'Дегенеративно-дистрофическое заболевание диска',
+  'Разрыв связок голеностопного сустава и стопы',
+  'Растяжение связок голеностопа',
+  'Растяжение связок коленного сустава',
+  'Растяжение связок предплечья',
+  'Растяжение связок стопы',
+];
+
+const treatmentList = [
+  'Классическая мануальная терапия',
+  'Мягкие мануальные техники',
+  'Постизометрическая релаксация мышц',
+  'Тракционные техники',
+  'Вакуумный массаж',
+  'Гуа-ша массаж',
+  'Паравертебральные блокады',
+  'Гирудотерапия',
+  'Снятие кардиграмм',
+  'Терапия аппаратом «Плазон»',
+];
+
 export const TherapistAbout = () => {
-  const [section, setSection] = useState('about');
+  const [section, setSection] = useState<Sections>('about');
 
-  const specializationList = [
-    'Болезнь Шляттера',
-    'Деформации костно-мышечной системы',
-    'Дегенеративно-дистрофическое заболевание диска',
-    'Разрыв связок голеностопного сустава и стопы',
-    'Растяжение связок голеностопа',
-    'Растяжение связок коленного сустава',
-    'Растяжение связок предплечья',
-    'Растяжение связок стопы',
-  ];
-
-  const treatmentList = [
-    'Классическая мануальная терапия',
-    'Мягкие мануальные техники',
-    'Постизометрическая релаксация мышц',
-    'Тракционные техники',
-    'Вакуумный массаж',
-    'Гуа-ша массаж',
-    'Паравертебральные блокады',
-    'Гирудотерапия',
-    'Снятие кардиграмм',
-    'Терапия аппаратом «Плазон»',
-  ];
+  const chooseSection = (section: Sections) => {
+    switch (section) {
+      case 'about':
+        return (
+          <p className={styles.text}>
+            Ryspaeva Aliya Shayakhmetovna - chiropractor, 12 years of experience. Carries out
+            diagnostics and treatment of headaches, dizziness, neuralgia, neurosis, osteochondrosis,
+            sclerosis, epilepsy, intervertebral hernia, atherosclerosis, vegetovascular dystonia and
+            other diseases of the nervous system.
+          </p>
+        );
+      case 'specialization':
+        return (
+          <ul className={styles.specializations}>
+            {specializationList.map((item) => (
+              <li key={Math.random()} className={styles.specialization}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        );
+      case 'treatment':
+        return (
+          <ul className={styles.treatments}>
+            {treatmentList.map((item) => (
+              <li key={Math.random()} className={styles.treatment}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        );
+    }
+  };
 
   return (
     <section>
@@ -62,32 +97,7 @@ export const TherapistAbout = () => {
               </h2>
             </li>
           </ul>
-          <div className={styles.content}>
-            {section === 'about' ? (
-              <p className={styles.text}>
-                Ryspaeva Aliya Shayakhmetovna - chiropractor, 12 years of experience. Carries out
-                diagnostics and treatment of headaches, dizziness, neuralgia, neurosis,
-                osteochondrosis, sclerosis, epilepsy, intervertebral hernia, atherosclerosis,
-                vegetovascular dystonia and other diseases of the nervous system.
-              </p>
-            ) : section === 'specialization' ? (
-              <ul className={styles.specializations}>
-                {specializationList.map((item) => (
-                  <li key={Math.random()} className={styles.specialization}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            ) : section === 'treatment' ? (
-              <ul className={styles.treatments}>
-                {treatmentList.map((item) => (
-                  <li key={Math.random()} className={styles.treatment}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
+          <div className={styles.content}>{chooseSection(section)}</div>
           <a className={styles.link}>
             <ShareIcon />
             Share profile

@@ -1,5 +1,5 @@
 import { therapistsCards } from 'src/utils/constants';
-import TherapistCard from '../TherapistCard/TherapistCard';
+import { TherapistCard } from '../TherapistCard/TherapistCard';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import styles from './TherapistMainInfo.module.scss';
 

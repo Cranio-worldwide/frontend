@@ -22,7 +22,7 @@ interface IProps {
   phone: string;
 }
 
-const TherapistCard: React.FC<IProps> = ({
+export const TherapistCard: React.FC<IProps> = ({
   cardPlace,
   photo,
   name,
@@ -97,8 +97,3 @@ const TherapistCard: React.FC<IProps> = ({
     </div>
   );
 };
-
-export default TherapistCard;
-function userRef() {
-  throw new Error('Function not implemented.');
-}
