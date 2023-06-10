@@ -17,7 +17,6 @@ export const StartPage = () => {
   const FormWithPlace = WithPlace(Form);
   const MapWithPlace = WithPlace(CustomGMap);
   const TherapistCardsWithPlace = WithPlace(TherapistCards);
-
   return (
     <>
       <Header />
