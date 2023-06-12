@@ -1,0 +1,108 @@
+.slider .slick-track {
+  display: flex;
+  gap: 24px;
+}
+
+.next_arrow {
+  @include breakpoint(mobile) {
+    right: 18px;
+  }
+  &::before {
+    background: url(../../assets/arrow-right.svg) no-repeat center;
+  }
+}
+
+.prev_arrow {
+  z-index: 2;
+  @include breakpoint(mobile) {
+    left: -12px;
+  }
+  &::before {
+    background: url(../../assets/arrow-left.svg) no-repeat center;
+  }
+}
+
+.next_arrow,
+.prev_arrow {
+  display: block;
+  width: 52px;
+  height: 52px;
+
+  @include breakpoint(mobile) {
+    width: 0;
+    height: 30px;
+  }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 70%);
+    opacity: 1;
+
+    @include breakpoint(mobile) {
+      width: 30px;
+      height: 30px;
+      background-size: 9px;
+    }
+  }
+  &:hover::before {
+    opacity: 0.8;
+  }
+}
+
+.dots {
+  bottom: 24px;
+  @include breakpoint(mobile-narrow) {
+    bottom: 8px;
+  }
+}
+
+.dots li {
+  width: 8px;
+  margin: 0 8px;
+}
+.dots li button::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  border: 1px solid $white;
+  border-radius: 50%;
+  opacity: 1;
+}
+.dots :global(li.slick-active) button::before {
+  background-color: $white;
+  opacity: 1;
+}
+
+.dotsBelow {
+  bottom: -32px;
+}
+
+.dotsBelow li {
+  width: 10px;
+  margin: 0 10px;
+}
+.dotsBelow li button::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  background-color: $main-grey-light;
+  border-radius: 50%;
+  opacity: 1;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.dotsBelow li button:hover::before {
+  background-color: $accent;
+  opacity: 0.8;
+}
+
+.dotsBelow :global(li.slick-active) button::before {
+  background-color: $accent;
+  opacity: 1;
+}

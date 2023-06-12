@@ -1,1 +1,1 @@
-export type Place = 'main' | 'search';
+export type Place = 'main' | 'search' | 'therapist';

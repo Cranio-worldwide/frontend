@@ -1,11 +1,16 @@
 import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { Button } from '@/components/ui/Button/Button';
-import DefaultPhoto from '@/assets/default-photo.svg';
+import defaultPhoto from '@/assets/default-photo.png';
 import styles from './TherapistCard.module.scss';
 
+type cardPlace = 'list' | 'profile';
+
 interface IProps {
+  cardPlace: cardPlace;
   photo?: string;
   name: string;
   position: string;
@@ -17,7 +22,8 @@ interface IProps {
   phone: string;
 }
 
-const TherapistCard: React.FC<IProps> = ({
+export const TherapistCard: React.FC<IProps> = ({
+  cardPlace,
   photo,
   name,
   position,
@@ -29,12 +35,27 @@ const TherapistCard: React.FC<IProps> = ({
   phone,
 }) => {
   const [clicked, setClicked] = useState<boolean>(false);
+  const { push } = useRouter();
+
+  const redirect = (e) => {
+    if (cardPlace === 'list' && e.target.type !== 'button') {
+      push('/therapist');
+    }
+  };
+
   return (
-    <div className={styles.card}>
+    <div
+      className={cn(styles.card, cardPlace === 'profile' && styles.card_profile)}
+      onClick={redirect}
+    >
       {photo ? (
         <Image src={photo} alt={name} className={styles.photo} />
       ) : (
-        <DefaultPhoto alt={name} className={styles.photo} />
+        <Image
+          src={defaultPhoto}
+          alt={name}
+          className={cn(styles.photo, cardPlace === 'profile' && styles.photo_profile)}
+        />
       )}
       <div className={styles.maininfo}>
         <p className={styles.name}>{name}</p>
@@ -76,5 +97,3 @@ const TherapistCard: React.FC<IProps> = ({
     </div>
   );
 };
-
-export default TherapistCard;

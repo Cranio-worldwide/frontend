@@ -12,6 +12,11 @@
   column-gap: 106px;
   row-gap: 16px;
   border-bottom: 1px solid $main-grey-light;
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   @include breakpoint(desktop) {
     column-gap: 56px;
@@ -44,10 +49,44 @@
       "img details"
       "button button";
   }
-}
 
-.card:last-child {
-  border-bottom: none;
+  &_profile {
+    cursor: default;
+
+    @media screen and (max-width: 1064px) {
+      grid-template-columns: 300px 2fr;
+      grid-template-areas:
+        "img main"
+        "place details"
+        "clinic details"
+        "clinic button";
+    }
+
+    @include breakpoint(mobile-wide) {
+      grid-template-columns: 200px 1fr;
+    }
+
+    @include breakpoint(mobile) {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      grid-template-areas:
+        "img"
+        "main"
+        "place"
+        "clinic"
+        "details"
+        "button";
+    }
+  }
+
+  &_profile:last-child {
+    border-bottom: 1px solid $main-grey-light;
+
+    @include breakpoint(mobile) {
+      border-bottom: none;
+      padding: 0;
+    }
+  }
 }
 
 .photo {
@@ -72,6 +111,29 @@
     height: 62px;
     max-height: 62px;
   }
+
+  &_profile {
+    @media screen and (max-width: 1064px) {
+      min-width: 300px;
+      max-width: 300px;
+      height: 300px;
+      max-height: 300px;
+    }
+
+    @include breakpoint(mobile-wide) {
+      min-width: 200px;
+      max-width: 200px;
+      max-height: 200px;
+      height: 200px;
+    }
+
+    @include breakpoint(mobile) {
+      min-width: 300px;
+      max-width: 300px;
+      height: 300px;
+      max-height: 300px;
+    }
+  }
 }
 
 .maininfo {
@@ -79,6 +141,15 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  align-self: center;
+}
+
+.card_profile .name {
+  font-size: 32px;
+  line-height: 45px;
+  @include breakpoint(mobile) {
+    text-align: center;
+  }
 }
 
 .name {
@@ -92,6 +163,14 @@
   @include breakpoint(mobile) {
     font-size: 16px;
     line-height: 120%;
+  }
+}
+
+.card_profile .position {
+  font-size: 24px;
+  line-height: 29px;
+  @include breakpoint(mobile) {
+    text-align: center;
   }
 }
 
@@ -116,6 +195,39 @@
   margin-left: 22.5px;
 }
 
+.card_profile .location {
+  font-size: 20px;
+  line-height: 24px;
+
+  @include breakpoint(mobile) {
+    text-align: center;
+  }
+}
+
+.card_profile .distance {
+  font-size: 20px;
+  line-height: 24px;
+  @include breakpoint(mobile) {
+    text-align: center;
+  }
+}
+
+.card_profile .clinic {
+  font-size: 18px;
+  line-height: 25px;
+  @include breakpoint(mobile) {
+    text-align: center;
+  }
+}
+
+.card_profile .address {
+  font-size: 18px;
+  line-height: 25px;
+  @include breakpoint(mobile) {
+    text-align: center;
+  }
+}
+
 .distance,
 .location {
   color: $success;
@@ -138,7 +250,7 @@
   align-items: center;
   gap: 16px;
   font-size: 20px;
-  line-height: 23px;
+  line-height: 24px;
 
   @include breakpoint(desktop) {
     flex-direction: column;
@@ -191,10 +303,15 @@
   background-image: url(../../assets/clinic.svg);
 }
 
-.price {
-  font-weight: 600;
+.card_profile .price {
   font-size: 40px;
-  line-height: 47px;
+  line-height: 48px;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
 
   @include breakpoint(tablet) {
     font-size: 32px;
@@ -233,20 +350,32 @@
   font-weight: 500;
 }
 
+.card_profile .phone {
+  max-width: 228px;
+}
+.card_profile .button {
+  max-width: 228px;
+}
+
 .phone,
 .button {
   grid-area: button;
-  width: 220px;
+  width: 228px;
 
   @include breakpoint(mobile) {
     font-size: 18px;
-    line-height: 140%;
+    line-height: 22px;
   }
 
   @include breakpoint(mobile-narrow) {
     width: 100%;
     height: 54px;
   }
+}
+
+.card_profile .primary {
+  display: inline;
+  margin-top: 10px;
 }
 
 .primary {
@@ -256,6 +385,11 @@
   @include breakpoint(tablet) {
     display: none;
   }
+}
+
+.card_profile .subtext {
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .subtext {

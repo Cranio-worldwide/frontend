@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Slider from 'react-slick';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 import { ExternalLink } from '@/components/ui/ExternalLink/ExternalLink';
@@ -8,6 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import aboutImg from '@/assets/about-img.png';
 import styles from './About.module.scss';
+import { Carousel } from '../Carousel/Carousel';
 
 const settings = {
   infinite: true,
@@ -37,11 +37,11 @@ export const About = () => {
           Link to worldwide association
         </ExternalLink>
       </SectionContainer>
-      <Slider {...settings} className={styles.slider}>
+      <Carousel className={styles.slider}>
         <Image className={styles.image} src={aboutImg} alt="Изображение" />
         <Image className={styles.image} src={aboutImg} alt="Изображение" />
         <Image className={styles.image} src={aboutImg} alt="Изображение" />
-      </Slider>
+      </Carousel>
     </section>
   );
 };
