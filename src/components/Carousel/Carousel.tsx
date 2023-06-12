@@ -5,18 +5,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Carousel.module.scss';
 
-interface IProps {
-  children?: React.ReactNode;
-  arrows?: boolean;
+interface ArrowsProps {
   className?: string;
   onClick?: () => void;
 }
 
-const NextArrow: FC<IProps> = ({ className, onClick }) => {
+const NextArrow: FC<ArrowsProps> = ({ className, onClick }) => {
   return <div className={cn(className, styles.next_arrow)} onClick={onClick} />;
 };
 
-const PrevArrow: FC<IProps> = ({ className, onClick }) => {
+const PrevArrow: FC<ArrowsProps> = ({ className, onClick }) => {
   return <div className={cn(className, styles.prev_arrow)} onClick={onClick} />;
 };
 const settingsWithArrows = {
@@ -69,7 +67,13 @@ const settings = {
   arrows: false,
 };
 
-export const Carousel: FC<IProps> = ({ children, arrows, className }) => {
+interface CarouselProps {
+  children: React.ReactNode;
+  arrows?: boolean;
+  className?: string;
+}
+
+export const Carousel: FC<CarouselProps> = ({ children, arrows, className }) => {
   const carouselSettings = arrows ? settingsWithArrows : settings;
   return (
     <Slider {...carouselSettings} className={className}>
