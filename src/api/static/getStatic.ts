@@ -14,4 +14,5 @@ interface Config extends AxiosRequestConfig {
   };
 }
 
-export const getStatic = (config: Config) => apiClient.get<Locales>('/api/v1/static/', config);
+export const getStatic = (config: Config) =>
+  apiClient.get<Locales>('/api/v1/static/', config).catch(console.warn);
