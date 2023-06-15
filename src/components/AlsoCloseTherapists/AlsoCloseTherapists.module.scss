@@ -1,22 +1,21 @@
 .container {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  color: $main-black;
+  gap: 24px;
+
+  @include breakpoint(tablet) {
+    padding-bottom: 72px;
+  }
 
   @include breakpoint(mobile) {
-    padding-top: 60px;
     padding-bottom: 50px;
-    gap: 20px;
   }
 }
 
 .title {
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 47px;
+  font-size: 32px;
+  line-height: 45px;
   @include breakpoint(mobile) {
     font-size: 24px;
     line-height: 28px;

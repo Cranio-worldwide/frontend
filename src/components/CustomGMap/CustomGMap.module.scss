@@ -7,6 +7,10 @@
     margin-top: 100px;
   }
 
+  &_therapist {
+    padding: 0;
+  }
+
   @include breakpoint(tablet) {
     &_main {
       margin-top: 65px;
@@ -35,6 +39,18 @@
   &_search {
     height: 256px;
   }
+
+  &_therapist {
+    height: 400px;
+    width: 476px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    &_therapist {
+      width: 100%;
+    }
+  }
+
   @include breakpoint(tablet) {
     &_main {
       height: 274px;
