@@ -5,7 +5,7 @@ const nextConfig = {
     prependData: '@import "@/styles/base.scss";',
   },
   trailingSlash: true,
-  externalResolver: true,
+  externalResolver: false,
   i18n: {
     locales: ['en', 'ru'],
     defaultLocale: 'en',
