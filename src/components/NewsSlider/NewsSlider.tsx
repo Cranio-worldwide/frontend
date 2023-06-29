@@ -12,12 +12,7 @@ export default function NewsSlider() {
   const news = useContext(NewsContext);
 
   const newsPieces = news.map((piece) => (
-    <NewsPiece
-      key={piece.id}
-      /*photo={добавить рабочую ссылку на }*/
-      title={piece.description}
-      id={piece.description}
-    />
+    <NewsPiece key={piece.id} photo={''} title={piece.description} id={piece.description} />
   ));
 
   return (
