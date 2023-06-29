@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
 import { Hero } from '@/components/Hero/Hero';
 import { About } from '@/components/About/About';
-import News from '@/components/News/News';
+import NewsSlider from '@/components/NewsSlider/NewsSlider';
 import { CustomGMap } from '../CustomGMap/CustomGMap';
 import { WithPlace } from '../WithPlace/WithPlace';
 
@@ -25,7 +25,7 @@ export const StartPage = () => {
       <MapWithPlace location={'London'} />
       <TherapistCardsWithPlace />
       <About />
-      <News />
+      <NewsSlider />
       <Footer />
     </>
   );
