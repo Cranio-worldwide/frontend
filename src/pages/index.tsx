@@ -1,5 +1,5 @@
 import { StartPage } from '@/components/StartPage';
-import { loadLocales } from '@/shared/lib/loadLocales';
+// import { loadLocales } from '@/shared/lib/loadLocales';
 
 export default function Home() {
   return (
