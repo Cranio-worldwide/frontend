@@ -1,14 +1,16 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import httpProxyMiddleware from 'next-http-proxy-middleware';
-
+import { NextResponse } from 'next/server';
 const serverUrl = process.env.API_HOST;
-
-export default (req: NextApiRequest, res: NextApiResponse, next) => {
-  if (process.env.NODE_ENV === 'development') {
-    return httpProxyMiddleware(req, res, {
-      target: serverUrl,
-      changeOrigin: true,
-    });
+export default function middleware(req, res) {
+  if (process.env.NODE_ENV !== 'development') {
+    NextResponse.next();
+    return;
   }
-  return next();
-};
+
+  const proxy = httpProxyMiddleware(req, res, {
+    target: serverUrl,
+    changeOrigin: true,
+  });
+
+  return proxy;
+}

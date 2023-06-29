@@ -9,8 +9,10 @@ export const loadLocales = (name: Locale[], locale: string) => {
       'accept-language': locale,
     },
   }).then((r) => {
-    return Object.fromEntries(
-      Object.values(r.data).map(({ name, static_fields }) => [name, static_fields])
-    );
+    return r
+      ? Object.fromEntries(
+          Object.values(r.data).map(({ name, static_fields }) => [name, static_fields])
+        )
+      : {};
   });
 };
