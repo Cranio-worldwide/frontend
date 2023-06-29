@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const apiClient = axios.create({
-  baseURL: '/',
+  baseURL: process.env.NODE_ENV === 'development' ? process.env.API_HOST : '/',
   withCredentials: true,
 });
 
