@@ -50,6 +50,7 @@
   align-items: center;
   padding: 0;
   gap: 4px;
+  cursor: pointer;
   @include breakpoint(mobile) {
     gap: 0;
   }
@@ -69,7 +70,7 @@
   font-size: 18px;
   line-height: 140%;
   color: $main-black;
-  cursor: pointer;
+
   @include breakpoint(mobile) {
     font-size: 14px;
   }

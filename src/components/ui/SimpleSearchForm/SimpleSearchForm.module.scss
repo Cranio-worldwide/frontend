@@ -1,0 +1,63 @@
+.form {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.input {
+  padding: 16px 16px 16px 50px;
+  border: 1px solid $main-grey;
+  height: 46px;
+  border-radius: 8px;
+  width: 100%;
+  background: url("../../../assets/search.svg") no-repeat;
+  background-size: 24px;
+  background-position: 16px;
+  font-size: 14px;
+
+  &_group {
+    width: 100%;
+    position: relative;
+  }
+
+  &_hints {
+    width: 100%;
+    position: absolute;
+    top: 54px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 95%);
+    box-shadow: 0 5px 24px 0 rgba(96, 101, 116, 31%), 0 1px 4px 0 rgba(76, 91, 131, 24%);
+    backdrop-filter: blur(3px);
+  }
+
+  &_hint {
+    font-size: 18px;
+    padding: 12px 0;
+    border-bottom: 1px solid $main-grey-light;
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+}
+
+.button {
+  width: 200px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+
+  @include breakpoint(mobile) {
+    width: 86px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}

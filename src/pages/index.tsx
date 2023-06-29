@@ -9,11 +9,11 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps(ctx) {
-  const locale = await loadLocales(['main', 'search'], ctx.locale);
-  return {
-    props: {
-      locale,
-    },
-  };
-}
+// export async function getServerSideProps(ctx) {
+//   const locale = await loadLocales(['main', 'search'], ctx.locale);
+//   return {
+//     props: {
+//       locale,
+//     },
+//   };
+// }
