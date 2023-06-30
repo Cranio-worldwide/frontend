@@ -16,6 +16,10 @@
   background-position: 16px;
   font-size: 14px;
 
+  @include breakpoint(mobile) {
+    background-size: 18px;
+  }
+
   &_group {
     width: 100%;
     position: relative;

@@ -1,8 +1,8 @@
 .background {
   position: fixed;
   width: 100vw;
-  height: calc(100vh - 96px);
-  margin-top: 96px;
+  height: calc(100vh - 98px);
+  margin-top: 98px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,8 +11,8 @@
   backdrop-filter: blur(5px);
   background-color: #acacac41;
   @include breakpoint(desktop) {
-    height: calc(100vh - 87px);
-    margin-top: 87px;
+    height: calc(100vh - 80px);
+    margin-top: 96px;
   }
   @include breakpoint(mobile) {
     height: calc(100vh - 82px);
@@ -22,30 +22,74 @@
 
 .container {
   position: relative;
-  background: #fff;
+  background: $white;
+  box-sizing: border-box;
+
+  &_small {
+    border-radius: 8px;
+    min-width: 383px;
+    height: 182px;
+    padding: 45px 60px 30px;
+
+    @include breakpoint(mobile) {
+      width: 342px;
+      padding: 45px 50px 30px;
+    }
+  }
+  &_large {
+    border-radius: 16px;
+    padding: 107px 70px 77px;
+
+    @include breakpoint(tablet) {
+      border-radius: 0;
+      width: 100vw;
+      height: 95vh;
+      opacity: 0.97;
+      padding: 76px 100px 60px;
+      box-shadow: 0 5px 24px 0 rgba(96, 101, 116, 31%), 0 1px 4px 0 rgba(76, 91, 131, 24%);
+      backdrop-filter: blur(3px);
+    }
+
+    @include breakpoint(mobile) {
+      padding: 16px 16px 30px;
+    }
+  }
 }
 
 .close {
   position: absolute;
-  top: 40px;
-  right: 65px;
-  width: 24px;
-  height: 24px;
   background-image: url(../../../assets/close-button.svg);
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 3;
 
-  @include breakpoint(tablet) {
-    top: 24px;
-    right: 100px;
-    width: 20px;
-    height: 20px;
+  &_small {
+    top: 19px;
+    right: 28px;
+    width: 11px;
+    height: 11px;
+    @include breakpoint(tablet) {
+      top: 17px;
+      right: 26px;
+      width: 10px;
+      height: 10px;
+    }
   }
-  @include breakpoint(mobile) {
-    top: 0;
-    right: 20px;
-    width: 12px;
-    height: 12px;
+
+  &_large {
+    top: 44px;
+    right: 69px;
+    width: 16px;
+    height: 16px;
+
+    @include breakpoint(tablet) {
+      top: 34px;
+      right: 105px;
+      width: 14px;
+      height: 14px;
+    }
+    @include breakpoint(mobile) {
+      display: none;
+    }
   }
 }

@@ -1,8 +1,7 @@
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, useMemo, useState } from 'react';
 import { Button } from '@/components/ui/Button/Button';
 import { cities } from '@/utils/constants';
 import styles from './SimpleSearchForm.module.scss';
-import cn from 'classnames';
 
 interface IProps {
   onClose: () => void;
@@ -23,30 +22,36 @@ export const SimpleSearchForm: React.FC<IProps> = ({ onClose, setCity }) => {
       setVerifiedValue('');
     }
   };
-  const filtered = cities.filter((city) => city.city.toLowerCase().includes(value.toLowerCase()));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (verifiedValue !== '') {
+      setCity(verifiedValue);
+      onClose();
+    }
+  };
+
+  const filterCities = (value) => {
+    return cities.filter((city) => city.city.toLowerCase().includes(value.toLowerCase()));
+  };
+
+  const filtered = useMemo(() => filterCities(value), [value]);
+  const firstThreeEntries = filtered.slice(0, 3);
+
   return (
-    <form
-      className={cn(styles.form)}
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (verifiedValue !== '') {
-          setCity(verifiedValue);
-          onClose();
-        }
-      }}
-    >
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.input_group}>
         <input
           type="text"
           className={styles.input}
           onChange={changeValue}
           name="address"
-          value={value || ''}
+          value={value}
           onBlur={() => value === '' && setHintOpen(false)}
         />
         {hintOpen && filtered.length > 0 && (
           <div className={styles.input_hints}>
-            {filtered.slice(0, 3).map((hint) => (
+            {firstThreeEntries.map((hint) => (
               <span
                 className={styles.input_hint}
                 key={hint.id}
@@ -71,7 +76,7 @@ export const SimpleSearchForm: React.FC<IProps> = ({ onClose, setCity }) => {
       <Button
         type="submit"
         theme="primary"
-        className={cn(styles.button)}
+        className={styles.button}
         disabled={!verifiedValue}
         onClick={() => {}}
       >

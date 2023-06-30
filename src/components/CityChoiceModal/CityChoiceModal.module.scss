@@ -1,20 +1,7 @@
 .content {
-  gap: 24px;
-  left: auto;
-  padding: 107px 70px 77px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
-  @include breakpoint(tablet) {
-    width: 100vw;
-    height: 95vh;
-    padding: 76px 100px 60px;
-  }
-
-  @include breakpoint(mobile) {
-    padding: 28px 16px 30px;
-  }
+  gap: 24px;
 }
 
 .cities {
@@ -45,6 +32,16 @@
 
   &_item {
     padding: 0;
+    @include breakpoint(tablet-wide) {
+      &:nth-child(n + 31) {
+        display: none;
+      }
+    }
+    @include breakpoint(tablet) {
+      &:nth-child(n + 21) {
+        display: none;
+      }
+    }
   }
   @include breakpoint(mobile) {
     font-size: 14px;

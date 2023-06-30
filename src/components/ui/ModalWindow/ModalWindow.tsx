@@ -1,42 +1,35 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { useLockScroll } from '@/shared/lib/useLockScroll';
 import cn from 'classnames';
-import styles from './ModalWindow.module.scss';
 import { Dropdown } from '../Dropdown/Dropdown';
+import styles from './ModalWindow.module.scss';
+
+type ModalSize = 'small' | 'medium' | 'large';
 
 interface IProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   isOpen: boolean;
   onClose: () => void;
-  buttonClassName?: string;
-  containerRadius?: number;
+  size?: ModalSize;
 }
 
-export const ModalWindow: React.FC<IProps> = ({
-  isOpen,
-  onClose,
-  children,
-  containerRadius = 16,
-  buttonClassName,
-}: IProps) => {
-  const lockScroll = useCallback(() => {
-    document.body.style.overflow = 'hidden';
-  }, []);
+export const ModalWindow: React.FC<IProps> = ({ isOpen, onClose, children, size = 'small' }) => {
+  const { lockScroll, unlockScroll } = useLockScroll();
 
-  const unlockScroll = useCallback(() => {
-    document.body.style.overflow = '';
-  }, []);
   useEffect(() => {
     isOpen ? lockScroll() : unlockScroll();
   }, [isOpen]);
 
   return (
-    <Dropdown onClose={onClose}>
-      <div className={styles.background}>
-        <div className={styles.container} style={{ borderRadius: containerRadius }}>
-          <button className={cn(styles.close, buttonClassName)} onClick={onClose} />
-          {children}
+    isOpen && (
+      <Dropdown onClose={onClose}>
+        <div className={styles.background}>
+          <div className={cn(styles.container, styles[`container_${size}`])}>
+            <button className={cn(styles.close, styles[`close_${size}`])} onClick={onClose} />
+            {children}
+          </div>
         </div>
-      </div>
-    </Dropdown>
+      </Dropdown>
+    )
   );
 };
