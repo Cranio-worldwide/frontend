@@ -1,59 +1,9 @@
-.container {
-  position: fixed;
-  width: 100vw;
-  height: calc(100vh - 96px);
-  margin-top: 96px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top:0;
-  left:0;
-  backdrop-filter: blur(5px);
-background-color: #acacac41;
-  @include breakpoint(desktop) {
-    height: calc(100vh - 87px);
-    margin-top: 87px;
-  }
-  @include breakpoint(mobile) {
-    height: calc(100vh - 82px);
-    margin-top: 82px;
-  }
-}
 .content {
-  
-  position: relative;
-  width: 383px;
-  height: 182px;
-  background: #fff;
-  border-radius: 8px;
   gap: 24px;
-  left: auto;
-  padding: 45px 60px 30px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  @include breakpoint(mobile) {
-    width: 342px;
-    padding: 45px 50px 30px;
-  }
-}
-.close {
-  position: absolute;
-  top: 19px;
-  right: 28px;
-  width: 11px;
-  height: 11px;
-  background-image: url(../../assets/close-button.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  @include breakpoint(mobile) {
-    top: 17px;
-    right: 26px;
-    width: 10px;
-    height: 10px;
-  }
 }
 
 .question {

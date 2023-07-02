@@ -2,17 +2,19 @@ import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
-import { CityDropdown } from '@/components/CityDropdown/CityDropdown';
+import { CityModal } from '@/components/CityModal/CityModal';
+import { CityChoiceModal } from '@/components/CityChoiceModal/CityChoiceModal';
 import { AccountButton } from '@/components/AccountButton/AccountButton';
 import { NavItems } from '@/components/ui/NavItems/NavItems';
 import styles from './Header.module.scss';
 import { LanguagesList } from '@/components/ui/LanguagesList/LanguagesList';
-import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { BurgerMenu } from '@/components/BurgerMenu/BurgerMenu';
 
 export function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [city, setCity] = useState<string>('Москва');
   const [isCityOpen, setCityOpen] = useState<boolean>(false);
+  const [isCityChoiceOpen, setCityChoiceOpen] = useState<boolean>(false);
 
   const handleScroll = () => {
     setScrollPosition(window.pageYOffset);
@@ -25,10 +27,6 @@ export function Header() {
     };
   }, []);
 
-  function handleOpenBurger() {
-    setModalOpen(!isModalOpen);
-  }
-
   return (
     <header className={cn(styles.bg, scrollPosition > 100 && styles.bg_active)}>
       <SectionContainer className={styles.container}>
@@ -37,20 +35,24 @@ export function Header() {
           <Link href="/" className={styles.image}>
             Logo
           </Link>
-          <span className={styles.locations}>
+          <span className={styles.locations} onClick={() => setCityOpen(true)}>
             <span className={styles.location}></span>
-            <p className={styles.city} onClick={() => setCityOpen(true)}>
-              Moscow
-            </p>
-            <CityDropdown
-              isCityOpen={isCityOpen}
-              onClose={() => {
-                setCityOpen(false);
-              }}
-            />
+            <p className={styles.city}>{city}</p>
           </span>
         </div>
-
+        <CityModal
+          city={city}
+          isCityOpen={isCityOpen}
+          onClose={() => {
+            setCityOpen(false);
+          }}
+          setCityChoiceOpen={setCityChoiceOpen}
+        />
+        <CityChoiceModal
+          setCity={setCity}
+          isCityChoiceOpen={isCityChoiceOpen}
+          onClose={() => setCityChoiceOpen(false)}
+        />
         {/* TODO потом потребуется переписать на ссылки на страницу */}
         <NavItems place="header" />
         <div className={styles.additional}>
