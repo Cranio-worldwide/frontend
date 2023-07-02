@@ -2,7 +2,6 @@ import { getNews } from '@/api/news/getNews';
 import { StartPage } from '@/components/StartPage';
 import { NewsContext } from '@/shared/contexts/newsContext';
 import { loadLocales } from '@/shared/lib/loadLocales';
-import { FC } from 'react';
 
 interface Props {
   id: number;
@@ -14,7 +13,7 @@ interface propsNews {
   news: Props[];
 }
 
-export const Home: FC<propsNews> = ({ news }) => {
+export default function Home({ news }: propsNews) {
   return (
     <>
       <NewsContext.Provider value={news}>
@@ -22,7 +21,7 @@ export const Home: FC<propsNews> = ({ news }) => {
       </NewsContext.Provider>
     </>
   );
-};
+}
 
 export async function getServerSideProps(ctx) {
   const locale = await loadLocales(['main', 'search'], ctx.locale);
