@@ -7,6 +7,7 @@
 
 .button:disabled {
   opacity: 0.5;
+  cursor: auto;
 }
 
 .button_primary {
@@ -17,6 +18,10 @@
 
 .button_primary:hover {
   background-color: $accent-dark;
+
+  &:disabled {
+    background-color: $accent;
+  }
 }
 
 .button_transparent {
@@ -31,4 +36,8 @@
 
 .button_transparent:hover {
   border-color: $accent-dark;
+
+  &:disabled {
+    border-color: $accent;
+  }
 }

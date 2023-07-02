@@ -1,10 +1,19 @@
+import { getNews } from '@/api/news/getNews';
 import { StartPage } from '@/components/StartPage';
+import { NewsContext } from '@/shared/contexts/newsContext';
 import { loadLocales } from '@/shared/lib/loadLocales';
-import { createContext } from 'react';
-import { apiClient } from 'src/app/request/request';
-export const NewsContext = createContext(null);
 
-export default function Home({ news }) {
+interface Props {
+  id: number;
+  description: string;
+  picture: string;
+}
+
+interface propsNews {
+  news: Props[];
+}
+
+export default function Home({ news }: propsNews) {
   return (
     <>
       <NewsContext.Provider value={news}>
@@ -16,9 +25,7 @@ export default function Home({ news }) {
 
 export async function getServerSideProps(ctx) {
   const locale = await loadLocales(['main', 'search'], ctx.locale);
-
-  const response = await apiClient.get('/api/v1/news/');
-  const news = await response.data;
+  const news = await getNews();
 
   return {
     props: {
