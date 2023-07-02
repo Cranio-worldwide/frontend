@@ -16,15 +16,15 @@ export const NewsSlider = () => {
       <Link href={'/news'}>
         <SectionTitle>News</SectionTitle>
       </Link>
-      <Carousel arrows>
-        {newsPieces.map((piece) => {
+      <Carousel arrows={newsPieces.length > 3}>
+        {newsPieces.map((piece) => (
           <NewsPiece
             key={piece.id}
-            photo={''}
+            photo={piece.picture}
             title={piece.description}
             path={piece.description}
-          />;
-        })}
+          />
+        ))}
       </Carousel>
     </SectionContainer>
   );

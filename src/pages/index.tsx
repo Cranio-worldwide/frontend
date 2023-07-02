@@ -30,7 +30,7 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       locale,
-      news,
+      news: news || [{ id: 1, description: '', picture: '' }],
     },
   };
 }
