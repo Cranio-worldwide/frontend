@@ -5,8 +5,11 @@ import { loadLocales } from '@/shared/lib/loadLocales';
 
 interface Props {
   id: number;
-  description: string;
+  date: string;
   picture: string;
+  title: string;
+  text: string;
+  is_published: boolean;
 }
 
 interface propsNews {
@@ -30,7 +33,16 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       locale,
-      news: news || [{ id: 1, description: '', picture: '' }],
+      news: news || [
+        {
+          id: 1,
+          title: 'Заголовок',
+          picture: '',
+          date: '',
+          text: '',
+          is_published: true,
+        },
+      ],
     },
   };
 }
