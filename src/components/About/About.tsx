@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import aboutImg from '@/assets/about-img.png';
 import styles from './About.module.scss';
 import { Carousel } from '../Carousel/Carousel';
+import Link from 'next/link';
 
 const settings = {
   infinite: true,
@@ -27,21 +28,25 @@ export const About = () => {
   `;
 
   return (
-    <section className={styles.bg}>
-      <SectionContainer className={styles.container}>
-        <div className={styles.info}>
-          <SectionTitle className={styles.title}>About Craniosacral therapy</SectionTitle>
-          <p className={styles.text}>{aboutText}</p>
-        </div>
-        <ExternalLink contrast href="#">
-          Link to worldwide association
-        </ExternalLink>
-      </SectionContainer>
-      <Carousel className={styles.slider}>
-        <Image className={styles.image} src={aboutImg} alt="Изображение" />
-        <Image className={styles.image} src={aboutImg} alt="Изображение" />
-        <Image className={styles.image} src={aboutImg} alt="Изображение" />
-      </Carousel>
+    <section>
+      <Link href="#" className={styles.bg}>
+        <SectionContainer className={styles.container}>
+          <div className={styles.info}>
+            <SectionTitle className={styles.title}>About Craniosacral therapy</SectionTitle>
+
+            <p className={styles.text}>{aboutText}</p>
+          </div>
+
+          <ExternalLink contrast href="#">
+            Link to worldwide association
+          </ExternalLink>
+        </SectionContainer>
+        <Carousel className={styles.slider}>
+          <Image className={styles.image} src={aboutImg} alt="Изображение" />
+          <Image className={styles.image} src={aboutImg} alt="Изображение" />
+          <Image className={styles.image} src={aboutImg} alt="Изображение" />
+        </Carousel>
+      </Link>
     </section>
   );
 };
