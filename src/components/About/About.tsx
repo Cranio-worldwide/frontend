@@ -28,7 +28,7 @@ export const About = () => {
   `;
 
   return (
-    <section className={styles.bg}>
+    <section>
       <Link href="#" className={styles.bg}>
         <SectionContainer className={styles.container}>
           <div className={styles.info}>
