@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
-import { ExternalLink } from '@/components/ui/ExternalLink/ExternalLink';
+import { UnderlineLink } from '@/components/ui/UnderlineLink/UnderlineLink';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -29,7 +29,7 @@ export const About = () => {
 
   return (
     <section>
-      <Link href="#" className={styles.bg}>
+      <Link href="#" className={styles.bg} target="_blank" rel="noopener noreferrer">
         <SectionContainer className={styles.container}>
           <div className={styles.info}>
             <SectionTitle className={styles.title}>About Craniosacral therapy</SectionTitle>
@@ -37,9 +37,9 @@ export const About = () => {
             <p className={styles.text}>{aboutText}</p>
           </div>
 
-          <ExternalLink contrast href="#">
+          <UnderlineLink contrast external href="#">
             Link to worldwide association
-          </ExternalLink>
+          </UnderlineLink>
         </SectionContainer>
         <Carousel className={styles.slider}>
           <Image className={styles.image} src={aboutImg} alt="Изображение" />

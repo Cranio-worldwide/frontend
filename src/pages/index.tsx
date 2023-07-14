@@ -1,4 +1,5 @@
 import { getNews } from '@/api/news/getNews';
+import { newsArray } from '@/utils/constants';
 import { StartPage } from '@/components/StartPage';
 import { NewsContext } from '@/shared/contexts/newsContext';
 import { loadLocales } from '@/shared/lib/loadLocales';
@@ -33,16 +34,7 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       locale,
-      news: news || [
-        {
-          id: 1,
-          title: 'Заголовок',
-          picture: '',
-          date: '',
-          text: '',
-          is_published: true,
-        },
-      ],
+      news: newsArray,
     },
   };
 }

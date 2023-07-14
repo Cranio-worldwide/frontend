@@ -83,38 +83,120 @@ export const therapistsCards = [
   },
 ];
 
-export const news = [
+export const newsArray = [
   {
     id: '1',
-    photo: image,
+    picture: image,
+    date: '',
+    text: '',
+    is_published: true,
     title: 'Открытие новой клиники состоялось 12 сентября. Были проведены',
   },
   {
     id: '2',
-    photo: image,
+    picture: image,
+    date: '',
+    text: '',
+    is_published: true,
     title: '17 мая — Мы представим новое поколение современных технологий',
   },
   {
     id: '3',
-    photo: image,
+    picture: image,
+    date: '',
+    text: '',
+    is_published: true,
     title: 'Главные события уходящего года мы обсудили вместе с нашими',
   },
   {
     id: '4',
-    photo: image,
+    picture: image,
+    date: '',
+    text: '',
+    is_published: true,
     title: 'Открытие новой клиники состоялось 12 сентября. Были проведены',
   },
   {
     id: '5',
-    photo: image,
+    picture: image,
+    date: '',
+    text: '',
+    is_published: true,
     title: '17 мая — Мы представим новое поколение современных технологий',
   },
   {
     id: '6',
-    photo: image,
+    picture: image,
+    date: '',
+    text: '',
+    is_published: true,
     title: 'Главные события уходящего года мы обсудили вместе с нашими',
   },
 ];
+
+export const newsSections = [
+  {
+    title: 'Craniosacral therapy',
+    id: '1',
+    news: [
+      {
+        id: '1',
+        picture: image,
+        date: '15 Jun, 2023 11:54',
+        text: 'Practitioners generally work with a wide variety of clients. The therapy is gentle which allows it to be used during pregnancy, after childbirth, with newborns, young children, adults and the elderly. Clients seek treatment for an extensive range of symptoms including pain, fatigue, stress related conditions as well as difficulties with sleep and digestive issues. Other clients are interested in improving general physical, mental and emotional well-being.',
+        is_published: true,
+        title: 'Открытие новой клиники состоялось 12 сентября. Были проведены',
+      },
+      {
+        id: '2',
+        picture: image,
+        date: '15 Jun, 2023 11:54',
+        text: 'Practitioners generally work with a wide variety of clients. The therapy is gentle which allows it to be used during pregnancy, after childbirth, with newborns, young children, adults and the elderly. Clients seek treatment for an extensive range of symptoms including pain, fatigue, stress related conditions as well as difficulties with sleep and digestive issues. Other clients are interested in improving general physical, mental and emotional well-being.',
+        is_published: true,
+        title: '17 мая — Мы представим новое поколение современных технологий',
+      },
+      {
+        id: '3',
+        picture: image,
+        date: '15 Jun, 2023 11:54',
+        text: 'Practitioners generally work with a wide variety of clients. The therapy is gentle which allows it to be used during pregnancy, after childbirth, with newborns, young children, adults and the elderly. Clients seek treatment for an extensive range of symptoms including pain, fatigue, stress related conditions as well as difficulties with sleep and digestive issues. Other clients are interested in improving general physical, mental and emotional well-being.',
+        is_published: true,
+        title: 'Главные события уходящего года мы обсудили вместе с нашими',
+      },
+    ],
+  },
+  {
+    title: 'Technologies',
+    id: '2',
+    news: [
+      {
+        id: '4',
+        picture: image,
+        date: '15 Jun, 2023 11:54',
+        text: 'Practitioners generally work with a wide variety of clients. The therapy is gentle which allows it to be used during pregnancy, after childbirth, with newborns, young children, adults and the elderly. Clients seek treatment for an extensive range of symptoms including pain, fatigue, stress related conditions as well as difficulties with sleep and digestive issues. Other clients are interested in improving general physical, mental and emotional well-being.',
+        is_published: true,
+        title: 'Открытие новой клиники состоялось 12 сентября. Были проведены',
+      },
+      {
+        id: '5',
+        picture: image,
+        date: '15 Jun, 2023 11:54',
+        text: 'Practitioners generally work with a wide variety of clients. The therapy is gentle which allows it to be used during pregnancy, after childbirth, with newborns, young children, adults and the elderly. Clients seek treatment for an extensive range of symptoms including pain, fatigue, stress related conditions as well as difficulties with sleep and digestive issues. Other clients are interested in improving general physical, mental and emotional well-being.',
+        is_published: true,
+        title: '17 мая — Мы представим новое поколение современных технологий',
+      },
+      {
+        id: '6',
+        picture: image,
+        date: '15 Jun, 2023 11:54',
+        text: 'Practitioners generally work with a wide variety of clients. The therapy is gentle which allows it to be used during pregnancy, after childbirth, with newborns, young children, adults and the elderly. Clients seek treatment for an extensive range of symptoms including pain, fatigue, stress related conditions as well as difficulties with sleep and digestive issues. Other clients are interested in improving general physical, mental and emotional well-being.',
+        is_published: true,
+        title: 'Главные события уходящего года мы обсудили вместе с нашими',
+      },
+    ],
+  },
+];
+
 export const languages = [
   { photo: lang, title: 'English', ISO: 'En', active: false },
   { photo: lang, title: 'Русский', ISO: 'Ru', active: true },
