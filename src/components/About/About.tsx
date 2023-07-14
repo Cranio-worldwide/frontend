@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 import { ExternalLink } from '@/components/ui/ExternalLink/ExternalLink';
@@ -27,21 +28,25 @@ export const About = () => {
   `;
 
   return (
-    <section className={styles.bg}>
-      <SectionContainer className={styles.container}>
-        <div className={styles.info}>
-          <SectionTitle className={styles.title}>About Craniosacral therapy</SectionTitle>
-          <p className={styles.text}>{aboutText}</p>
-        </div>
-        <ExternalLink contrast href="#">
-          Link to worldwide association
-        </ExternalLink>
-      </SectionContainer>
-      <Carousel className={styles.slider}>
-        <Image className={styles.image} src={aboutImg} alt="Изображение" />
-        <Image className={styles.image} src={aboutImg} alt="Изображение" />
-        <Image className={styles.image} src={aboutImg} alt="Изображение" />
-      </Carousel>
+    <section>
+      <Link href="#" className={styles.bg}>
+        <SectionContainer className={styles.container}>
+          <div className={styles.info}>
+            <SectionTitle className={styles.title}>About Craniosacral therapy</SectionTitle>
+
+            <p className={styles.text}>{aboutText}</p>
+          </div>
+
+          <ExternalLink contrast href="#">
+            Link to worldwide association
+          </ExternalLink>
+        </SectionContainer>
+        <Carousel className={styles.slider}>
+          <Image className={styles.image} src={aboutImg} alt="Изображение" />
+          <Image className={styles.image} src={aboutImg} alt="Изображение" />
+          <Image className={styles.image} src={aboutImg} alt="Изображение" />
+        </Carousel>
+      </Link>
     </section>
   );
 };
