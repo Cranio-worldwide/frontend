@@ -1,19 +1,18 @@
 import Link from 'next/link';
 import styles from './NewsPiece.module.scss';
 import Image from 'next/image';
+import { NewsPieceType } from '@/shared/types';
 
 interface IProps {
-  photo: string;
-  title: string;
-  path: string;
+  piece: NewsPieceType;
 }
 
-export const NewsPiece: React.FC<IProps> = ({ photo, title, path }) => {
+export const NewsPiece: React.FC<IProps> = ({ piece }) => {
   return (
-    <Link href={`/news/${path.toLowerCase()}`} className={styles.newspiece}>
+    <Link href={`/news/${piece.id}`} className={styles.newspiece}>
       <div className={styles.image_container}>
         <Image
-          src={photo}
+          src={piece.picture}
           alt="Изображение к новости"
           width="376"
           height="257"
@@ -22,7 +21,7 @@ export const NewsPiece: React.FC<IProps> = ({ photo, title, path }) => {
         <div className={styles.overlay} />
       </div>
 
-      <h3 className={styles.title}>{title}</h3>
+      <h3 className={styles.title}>{piece.title}</h3>
     </Link>
   );
 };

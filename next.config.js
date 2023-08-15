@@ -10,6 +10,10 @@ const nextConfig = {
     locales: ['en', 'ru'],
     defaultLocale: 'en',
   },
+  images: {
+    domains: ['cranio-worldwide.tk'],
+    formats: ['image/avif', 'image/webp'],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

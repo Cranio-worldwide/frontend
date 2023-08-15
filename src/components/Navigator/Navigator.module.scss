@@ -1,0 +1,29 @@
+.list {
+  padding: 0;
+  display: flex;
+  gap: 42px;
+}
+
+.item {
+  position: relative;
+  padding: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: url(../../assets/next-route.svg);
+    background-repeat: no-repeat;
+    top: 2px;
+    right: -30px;
+    width: 14px;
+    height: 14px;
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+}
+
+.link {
+  font-size: 18px;
+  font-weight: 400;
+}
