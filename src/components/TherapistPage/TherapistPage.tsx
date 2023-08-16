@@ -20,11 +20,9 @@ export const TherapistPage = () => {
 
   return (
     <>
-      <Header />
       <TherapistMainInfo />
       <TherapistAbout />
       <AlsoCloseTherapists />
-      <Footer />
     </>
   );
 };
