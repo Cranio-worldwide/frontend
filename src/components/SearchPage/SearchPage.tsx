@@ -16,11 +16,9 @@ export const SearchPage = () => {
   const TherapistCardsWithPlace = WithPlace(TherapistCards);
   return (
     <>
-      <Header />
       <FormWithPlace />
       <MapWithPlace location={'london'} />
       <TherapistCardsWithPlace />
-      <Footer />
     </>
   );
 };
