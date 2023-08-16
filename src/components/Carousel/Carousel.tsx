@@ -54,29 +54,54 @@ const settingsWithArrows = {
   ],
 };
 
-const settings = {
+const settingsWithDots = {
   infinite: true,
   lazyLoad: true,
   dots: true,
   dotsClass: cn('slick-dots', styles.dots),
-  speed: 500,
+  speed: 700,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 6000,
+  autoplaySpeed: 15000,
   arrows: false,
+  pauseOnHover: true,
+};
+
+const settings = {
+  infinite: true,
+  lazyLoad: true,
+  dots: false,
+  fade: true,
+  speed: 700,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 15000,
+  arrows: false,
+  pauseOnHover: true,
 };
 
 interface CarouselProps {
   children: React.ReactNode;
   arrows?: boolean;
+  dots?: boolean;
   className?: string;
+  asNavFor?: boolean;
+  refs?: (slider) => void;
 }
 
-export const Carousel: FC<CarouselProps> = ({ children, arrows, className }) => {
-  const carouselSettings = arrows ? settingsWithArrows : settings;
+export const Carousel: FC<CarouselProps> = ({
+  children,
+  arrows,
+  dots,
+  className,
+  asNavFor,
+  refs,
+}) => {
+  const carouselSettings = arrows ? settingsWithArrows : dots ? settingsWithDots : settings;
   return (
-    <Slider {...carouselSettings} className={className}>
+    <Slider {...carouselSettings} className={className} asNavFor={asNavFor} ref={refs}>
       {children}
     </Slider>
   );

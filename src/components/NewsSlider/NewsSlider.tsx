@@ -15,7 +15,7 @@ export const NewsSlider = () => {
       <Link href={'/news'}>
         <SectionTitle>News</SectionTitle>
       </Link>
-      <Carousel arrows={news.length > 3}>
+      <Carousel arrows={true}>
         {news.map((piece) => (
           <NewsPiece key={piece.id} photo={piece.picture} title={piece.title} path={piece.title} />
         ))}
