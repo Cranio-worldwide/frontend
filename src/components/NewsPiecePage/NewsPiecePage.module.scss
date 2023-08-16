@@ -1,0 +1,36 @@
+.container {
+  padding-top: 50px;
+  padding-bottom: 116px;
+}
+
+.image {
+  width: 100%;
+  margin: 32px 0 48px;
+  object-fit: cover;
+  height: calc(100vh / 2);
+  max-height: 622px;
+}
+
+.date {
+  color: $main-grey;
+  font-size: 14px;
+  line-height: 140%;
+  margin: 20px 0 24px;
+}
+
+.text {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.icons {
+  width: 100%;
+  justify-content: start;
+  padding: 72px 0 70px;
+  border-bottom: 1px solid $main-grey-light;
+}
+
+.link {
+  color: $main-black;
+}

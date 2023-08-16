@@ -1,5 +1,4 @@
 import { getNews } from '@/api/news/getNews';
-import { newsArray } from '@/utils/constants';
 import { StartPage } from '@/components/StartPage';
 import { NewsContext } from '@/shared/contexts/newsContext';
 import { loadLocales } from '@/shared/lib/loadLocales';
@@ -10,7 +9,6 @@ interface Props {
   picture: string;
   title: string;
   text: string;
-  is_published: boolean;
 }
 
 interface propsNews {
@@ -34,7 +32,7 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       locale,
-      news: newsArray,
+      news: news,
     },
   };
 }

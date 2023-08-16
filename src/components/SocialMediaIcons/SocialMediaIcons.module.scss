@@ -1,0 +1,36 @@
+.sm_block {
+  grid-column: 3;
+  display: flex;
+  align-items: start;
+  gap: 24px;
+  justify-self: end;
+  @include breakpoint(tablet-wide) {
+    align-items: start;
+  }
+  @include breakpoint(mobile) {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 30px;
+  }
+}
+.link {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: $main-grey-light;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: $accent;
+  }
+
+  @include breakpoint(mobile) {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}

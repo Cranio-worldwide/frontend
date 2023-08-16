@@ -1,0 +1,11 @@
+.container {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  color: $main-black;
+
+  @include breakpoint(mobile) {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    gap: 20px;
+  }
+}

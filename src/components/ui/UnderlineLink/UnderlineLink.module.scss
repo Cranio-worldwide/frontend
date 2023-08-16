@@ -1,5 +1,4 @@
 .link {
-  position: relative;
   width: max-content;
   display: flex;
   align-items: center;
@@ -7,6 +6,7 @@
 }
 
 .text {
+  position: relative;
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
@@ -33,7 +33,7 @@
 }
 
 .link:hover .text::before {
-  width: calc(100% - 37px);
+  width: 100%;
 }
 
 .arrow {
