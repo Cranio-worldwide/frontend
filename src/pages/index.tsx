@@ -16,12 +16,12 @@ interface Props {
   is_published: boolean;
 }
 
-interface serverProps {
+interface ServerProps {
   about: AboutType;
   news: Props[];
 }
 
-export default function Home({ about, news }: serverProps) {
+export default function Home({ about, news }: ServerProps) {
   return (
     <>
       <NewsContext.Provider value={news}>
@@ -36,7 +36,7 @@ export default function Home({ about, news }: serverProps) {
 export async function getServerSideProps(ctx) {
   const locale = await loadLocales(['main', 'search'], ctx.locale);
   const news = await getNews();
-  const about = await getAbout();
+  const about = await getAbout().catch(console.warn);
 
   return {
     props: {

@@ -3,45 +3,48 @@ import Link from 'next/link';
 import cn from 'classnames';
 import styles from './UnderlineLink.module.scss';
 
-interface LinkProps {
+type BaseProps = {
   children: React.ReactNode;
-  link?: boolean;
-  href?: string;
   className?: string;
   arrowClass?: string;
   textClass?: string;
   contrast?: boolean;
-  external?: boolean;
-}
+};
 
-export const UnderlineLink: React.FC<LinkProps> = ({
-  children,
-  link = true,
-  className,
-  arrowClass,
-  textClass,
-  href,
-  contrast,
-  external,
-}) => {
-  return link ? (
+type LinkProps = {
+  external?: boolean;
+  link: true;
+  href: string;
+};
+type ButtonProps = {
+  link?: false;
+};
+
+type Props = BaseProps & (LinkProps | ButtonProps);
+
+export const UnderlineLink: React.FC<Props> = (props) => {
+  return props.link ? (
     <Link
-      href={href}
-      target={external && '_blank'}
-      rel={external && 'noopener noreferrer'}
-      className={cn(styles.link, contrast && styles.contrast, className)}
+      href={props.href}
+      target={props.external && '_blank'}
+      rel={props.external && 'noopener noreferrer'}
+      className={cn(styles.link, props.contrast && styles.contrast, props.className)}
     >
-      <span className={cn(styles.text, contrast && styles.text_contrast, textClass)}>
-        {children}
+      <span className={cn(styles.text, props.contrast && styles.text_contrast, props.textClass)}>
+        {props.children}
       </span>
-      <div className={cn(styles.arrow, contrast && styles.arrow_contrast, arrowClass)} />
+      <div
+        className={cn(styles.arrow, props.contrast && styles.arrow_contrast, props.arrowClass)}
+      />
     </Link>
   ) : (
-    <span className={cn(styles.link, contrast && styles.contrast, className)}>
-      <span className={cn(styles.text, contrast && styles.text_contrast, textClass)}>
-        {children}
+    <span className={cn(styles.link, props.contrast && styles.contrast, props.className)}>
+      <span className={cn(styles.text, props.contrast && styles.text_contrast, props.textClass)}>
+        {props.children}
       </span>
-      <div className={cn(styles.arrow, contrast && styles.arrow_contrast, arrowClass)} />
+      <div
+        className={cn(styles.arrow, props.contrast && styles.arrow_contrast, props.arrowClass)}
+      />
     </span>
   );
 };

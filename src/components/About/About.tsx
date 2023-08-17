@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { SectionContainer } from '@/components/SectionContainer/SectionContainer';
 import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 import { UnderlineLink } from '@/components/ui/UnderlineLink/UnderlineLink';
-import { Carousel } from '../Carousel/Carousel';
+import { Carousel } from '@/components/Carousel/Carousel';
 import { AboutContext } from '@/shared/contexts/aboutContext';
 import { useContext, useState } from 'react';
 
@@ -13,7 +13,6 @@ import styles from './About.module.scss';
 
 export const About = () => {
   const about = useContext(AboutContext);
-  console.log(about);
 
   const [navText, setNavText] = useState();
   const [navImg, setNavImg] = useState();
