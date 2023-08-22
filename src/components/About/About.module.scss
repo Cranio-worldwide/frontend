@@ -5,6 +5,7 @@
   width: 100%;
   max-width: 1440px;
   background-color: $accent-dark;
+  overflow: hidden;
 
   @include breakpoint(tablet-wide) {
     display: flex;
@@ -18,20 +19,41 @@
   }
 }
 
+.link {
+  width: 100%;
+  height: 580px;
+
+  @include breakpoint(tablet-wide) {
+    height: fit-content;
+  }
+}
+
+.textSlide {
+  width: 100%;
+  max-width: 65%;
+
+  @include breakpoint(tablet-wide) {
+    max-width: 100%;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 100px 0 70px;
+  padding-top: 100px;
+  padding-bottom: 70px;
+  height: 100%;
 
   @include breakpoint(desktop) {
-    margin-top: 70px;
+    padding-top: 70px;
   }
   @include breakpoint(tablet-wide) {
     margin: 70px auto 100px;
     padding: 0 62px;
     max-width: 900px;
     gap: 96px;
+    height: fit-content;
   }
   @include breakpoint(mobile-wide) {
     padding: 0 100px;
@@ -47,6 +69,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+
   @include breakpoint(mobile) {
     gap: 16px;
   }
@@ -70,18 +93,19 @@
 
 .slider,
 .image {
-  width: 608px;
+  width: 508px;
   height: 581px;
 
   @media screen and (max-width: 1380px) {
-    width: 500px;
+    max-width: 500px;
   }
 
   @include breakpoint(desktop) {
-    width: 460px;
+    max-width: 460px;
   }
   @include breakpoint(tablet-wide) {
     width: 100%;
+    max-width: 100%;
   }
   @include breakpoint(tablet) {
     height: 400px;
